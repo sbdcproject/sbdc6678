@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>중소기업 정보조회 시스템</title>
+  <style>
+        body{
+        background-image:url('v996-013.jpg');
+        background-repeat : no-repeat;
+        background-size : cover;
+        resize: both;
+        overflow: scroll;
+        }
+
+        #page_title{
+        margin-left: 5%;
+        margin-top: 5%;
+        }
+
+        #TextBox{
+        text-align: center;
+        margin-top: 15%;
+        width:300px;
+        height:100px;
+        font-size:30px;
+        }
+
+        #BusinessNumber{
+        width:300px;
+        height:40px;
+        font-size:20px;
+        border-size: 1;
+        border-color: black;
+        background-color: sky-blue;
+        border-width: 1;
+        border-style: dotted;
+        }
+
+    </style>
+</head>
+<body>
+<div id="main" class="container-fluid">
+  <div id="head_row" class="row">
+    <div id="left_nav" class="clo-md-8">
+      <ul id="navbar_main" class="nav navbar-collapse navbar-nav navbar-left" style="list-style: none; padding-left: 0px;">
+        <li id="main-logo"  style="margin-right: 30px; cursor: pointer;">
+          <img id="logo" src="/static/img/중소기업유통센터-2015변경_투명.png" style="width:300px; height:80px;">
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="wrap">
+  <h1 id="page_title" style="height:50px; width: 100%;">
+    사업자등록번호별 조회
+  </h1>
+  <div class="contents_box" style="width:1500px; height:100px;">
+    <label for="BusinessNumber">사업자등록번호를 입력해주세요:</label>
+    <input type="text" id="BusinessNumber" required
+           minlength="0" maxlength="10" size="50">
+  </div>
+</div>
+
+</body>
+</html>
