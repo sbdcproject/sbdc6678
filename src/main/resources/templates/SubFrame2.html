@@ -5,7 +5,7 @@
   <title>중소기업 정보조회 시스템</title>
   <style>
         body{
-        background-image:url("/img/v996-013.jpg");
+<!--        background-image:url("/img/v996-013.jpg");-->
         background-repeat : no-repeat;
         background-size : cover;
         resize: both;
@@ -59,6 +59,10 @@
     <input type="text" id="BusinessNumber" required
            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
            minlength="0" maxlength="10" size="50">
+    <button id="btn-search" type="button" onclick="location.href='http://localhost:8090/mainboard2#'">
+      <img src="https://cdn-icons-png.flaticon.com/128/3917/3917754.png" style="width:30px; height:30px;"/>
+    </button>
+
   </div>
 </div>
 
