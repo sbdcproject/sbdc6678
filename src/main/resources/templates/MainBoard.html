@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http:www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>중소기업 정보 조회</title>
@@ -97,133 +97,13 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
+                <tr th:each="board : ${list}">
                     <td><input type="checkbox" name="xxx" value="yyy"></td>
-                    <td>random</td>
-                    <td>data</td>
-                    <td>placeholder</td>
-                    <td>text</td>
-                    <td>text</td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" name="xxx" value="yyy"></td>
-                    <td>placeholder</td>
-                    <td>irrelevant</td>
-                    <td>visual</td>
-                    <td>layout</td>
-                    <td>text</td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" name="xxx" value="yyy"></td>
-                    <td>data</td>
-                    <td>rich</td>
-                    <td>dashboard</td>
-                    <td>tabular</td>
-                    <td>text</td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" name="xxx" value="yyy"></td>
-                    <td>information</td>
-                    <td>placeholder</td>
-                    <td>illustrative</td>
-                    <td>data</td>
-                    <td>text</td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" name="xxx" value="yyy"></td>
-                    <td>text</td>
-                    <td>random</td>
-                    <td>layout</td>
-                    <td>dashboard</td>
-                    <td>text</td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" name="xxx" value="yyy"></td>
-                    <td>dashboard</td>
-                    <td>irrelevant</td>
-                    <td>text</td>
-                    <td>placeholder</td>
-                    <td>text</td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" name="xxx" value="yyy"></td>
-                    <td>dashboard</td>
-                    <td>illustrative</td>
-                    <td>rich</td>
-                    <td>data</td>
-                    <td>text</td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" name="xxx" value="yyy"></td>
-                    <td>placeholder</td>
-                    <td>tabular</td>
-                    <td>information</td>
-                    <td>irrelevant</td>
-                    <td>text</td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" name="xxx" value="yyy"></td>
-                    <td>random</td>
-                    <td>data</td>
-                    <td>placeholder</td>
-                    <td>text</td>
-                    <td>text</td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" name="xxx" value="yyy"></td>
-                    <td>placeholder</td>
-                    <td>irrelevant</td>
-                    <td>visual</td>
-                    <td>layout</td>
-                    <td>text</td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" name="xxx" value="yyy"></td>
-                    <td>data</td>
-                    <td>rich</td>
-                    <td>dashboard</td>
-                    <td>tabular</td>
-                    <td>text</td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" name="xxx" value="yyy"></td>
-                    <td>information</td>
-                    <td>placeholder</td>
-                    <td>illustrative</td>
-                    <td>data</td>
-                    <td>text</td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" name="xxx" value="yyy"></td>
-                    <td>text</td>
-                    <td>placeholder</td>
-                    <td>layout</td>
-                    <td>dashboard</td>
-                    <td>text</td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" name="xxx" value="yyy"></td>
-                    <td>dashboard</td>
-                    <td>irrelevant</td>
-                    <td>text</td>
-                    <td>visual</td>
-                    <td>text</td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" name="xxx" value="yyy"></td>
-                    <td>dashboard</td>
-                    <td>illustrative</td>
-                    <td>rich</td>
-                    <td>data</td>
-                    <td>text</td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" name="xxx" value="yyy"></td>
-                    <td>random</td>
-                    <td>tabular</td>
-                    <td>information</td>
-                    <td>text</td>
-                    <td>text</td>
+                    <td th:text="${board.COLUMN1}">Text</td>
+                    <td th:text="${board.COMPANYNAME}">Text</td>
+                    <td th:text="${board.SERVICECODE}">Text</td>
+                    <td th:text="${board.COMPANYNUM}">Text</td>
+                    <td th:text="${board.CERTIFICATIOM}">Text</td>
                 </tr>
                 </tbody>
             </table>
