@@ -1,6 +1,6 @@
 package com.sbdc.board.controller;
 
-import com.sbdc.board.entity.Board;
+import com.sbdc.board.entity.TB_BOARD;
 import com.sbdc.board.service.BoardService;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
@@ -8,7 +8,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
+
 import java.util.List;
+
 
 @Controller
 public class BoardController {
@@ -37,7 +40,7 @@ public class BoardController {
 
         model.addAttribute("list", boardService.boardList());
 
-        return "boardList";
+        return "MainBoard";
     }
 
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http:www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>중소기업 정보 조회</title>
@@ -97,13 +97,13 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr th:each="board : ${list}">
+                <tr th:each="TB_BOARD : ${list}">
                     <td><input type="checkbox" name="xxx" value="yyy"></td>
-                    <td th:text="${board.COLUMN1}">Text</td>
-                    <td th:text="${board.COMPANYNAME}">Text</td>
-                    <td th:text="${board.SERVICECODE}">Text</td>
-                    <td th:text="${board.COMPANYNUM}">Text</td>
-                    <td th:text="${board.CERTIFICATIOM}">Text</td>
+                    <td th:text="${TB_BOARD.COLUMN1}">Text</td>
+                    <td th:text="${TB_BOARD.COMPANYNAME}">Text</td>
+                    <td th:text="${TB_BOARD.SERVICECODE}">Text</td>
+                    <td th:text="${TB_BOARD.COMPANYNUM}">Text</td>
+                    <td th:text="${TB_BOARD.CERTIFICATIOM}">Text</td>
                 </tr>
                 </tbody>
             </table>
