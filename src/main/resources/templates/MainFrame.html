@@ -24,11 +24,15 @@
         background-color: gray;
         }
 
+        #button_mylist:hover{
+        background-color: gray;
+        }
+
         #button_first{
         border: 1px solid sky-blue;
         background-color: rgba(0,0,0,0);
         color: sky-blue;
-        padding: 100px 50px 100px 50px;
+        padding: 50px 50px 50px 50px;
         font-size: 20px;
 
         text-align: center;
@@ -67,11 +71,32 @@
         border-bottom-right-radius: 10px;
         }
 
+        #button_mylist{
+        border: 1px solid sky-blue;
+        background-color: rgba(255,255,255,0.8);
+        color: sky-blue;
+        padding: 8px 10px 8px 10px;
+        font-size: 15px;
+
+        text-align: center;
+        margin-left: 90%;
+        margin-top: 1%;
+
+        border-top-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        }
+
         #Box_Logo{
         text-align: center;
         margin-top: 5%;
         margin-left: 40%;
         margin-bottom: 5%;
+        }
+
+        certificate{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
         }
 
 
@@ -90,12 +115,22 @@
     </div>
   </div>
 </div>
+
+<div class="mylistbutton" style="height:10px">
+  <button id="button_mylist" type="button" onclick="location.href='http://localhost:8090/mainboard4'">나의업체목록</button>
+</div>
+
 <div class="wrap">
   <h1 id="title_main" style="height:100px;">
 <!--    <img id="Box_Logo" src="/img/중소기업유통센터-2015변경_투명.png" style="width:300px; height:80px;">-->
   </h1>
-  <div class="contents_box" style="width:1500px; height:500px; top:20px">
-    <button id="button_first" type="button" onclick="location.href='http://localhost:8090/subframe1'">확인서/인증서별 조회</button>
+  <div class="contents_box" style="width:1500px; height:300px; top:20px">
+    <button id="button_first" type="button" onclick="location.href='http://localhost:8090/subframe1'">
+      <div class="certificate">
+        <img src="https://fanfandaero.kr/portal/images/main_2022/service_ico01.png">
+        <span>확인서/인증서별 조회</span>
+      </div>
+    </button>
     <button id="button_second" type="button" onclick="location.href='http://localhost:8090/subframe2'">사업자등록번호별 조회</button>
     <button id="button_third" type="button" onclick="location.href='http://localhost:8090/subframe3'">업종별 조회</button>
   </div>

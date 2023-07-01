@@ -48,4 +48,10 @@ public class BoardController {
         return "SubFrame3";
     }
 
+    @GetMapping("/mainboard4")
+    public String mainboard4(){
+
+        return "MainBoard4";
+    }
+
 }
