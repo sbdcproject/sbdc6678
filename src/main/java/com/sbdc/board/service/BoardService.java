@@ -3,6 +3,8 @@ package com.sbdc.board.service;
 import com.sbdc.board.entity.TB_BOARD;
 import com.sbdc.board.repository.BoardRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 
@@ -18,9 +20,13 @@ public class BoardService {
         boardRepository.save(board);
     }
 
-    public List<TB_BOARD> boardList(){
+    public Page<TB_BOARD> boardList(Pageable pageable){
 
-        return boardRepository.findAll();
+        return boardRepository.findAll(pageable);
+    }
+
+    public TB_BOARD boardView(Integer id){
+        return boardRepository.findById(id).get();
     }
 }
 
