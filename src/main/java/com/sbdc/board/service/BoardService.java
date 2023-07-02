@@ -25,6 +25,10 @@ public class BoardService {
         return boardRepository.findAll(pageable);
     }
 
+    public Page<TB_BOARD> boardSearchList(String searchKeyword, Pageable pageable){
+        return boardRepository.findByCERTIFICATIOMContaining(searchKeyword, pageable);
+    }
+
     public TB_BOARD boardView(Integer id){
         return boardRepository.findById(id).get();
     }
