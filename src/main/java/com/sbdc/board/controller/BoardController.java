@@ -30,28 +30,4 @@ public class BoardController {
         return "MainBoard";
     }
 
-    @GetMapping("/mainboard2")
-    public String mainboard2(){
-
-        return "MainBoard2";
-    }
-
-    @GetMapping("/mainboard3")
-    public String mainboard3(){
-
-        return "MainBoard3";
-    }
-
-    @GetMapping("/subframe3")
-    public String subframe3(){
-
-        return "SubFrame3";
-    }
-
-    @GetMapping("/mainboard4")
-    public String mainboard4(){
-
-        return "MainBoard4";
-    }
-
 }

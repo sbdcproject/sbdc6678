@@ -5,7 +5,7 @@
   <title>중소기업 정보조회 시스템</title>
   <style>
         body{
-<!--        background-image:url("/img/v996-013.jpg");-->
+        background-image:url("/img/v996-013.jpg");
         background-repeat : no-repeat;
         background-size : cover;
         resize: both;
@@ -44,7 +44,7 @@
     <div id="left_nav" class="clo-md-8">
       <ul id="navbar_main" class="nav navbar-collapse navbar-nav navbar-left" style="list-style: none; padding-left: 0px;">
         <li id="main-logo"  style="margin-right: 30px; cursor: pointer;">
-          <img id="logo" onclick="location.href='http://localhost:8090/mainframe'" src="/img/중소기업유통센터-2015변경_투명.png" style="width:300px; height:80px;">
+          <img id="logo" src="/img/중소기업유통센터-2015변경_투명.png" style="width:300px; height:80px;">
         </li>
       </ul>
     </div>
@@ -59,10 +59,9 @@
     <input type="text" id="BusinessNumber" required
            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
            minlength="0" maxlength="10" size="50">
-    <button id="btn-search" type="button" onclick="location.href='http://localhost:8090/mainboard#'">
-      <img src="https://cdn-icons-png.flaticon.com/128/3917/3917754.png" style="width:30px; height:30px;"/>
-    </button>
-
+    <div>
+      <button>검색</button>
+    </div>
   </div>
 </div>
 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>중소기업 정보 조회</title>
@@ -67,7 +67,7 @@
         <li>
             <a href="#" class="nav-link link-body-emphasis">
                 <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
-                <button id="button_2" type="button" style="width: 200px; height: 30px;" onclick="location.href='http://localhost:8090/mainboard2'">나의 업체 관리</button>
+                <button id="button_2" type="button" style="width: 200px; height: 30px;" onclick="location.href='http://localhost:8090/mainboard2#'">나의 업체 관리</button>
             </a>
         </li>
     </ul>
@@ -97,136 +97,21 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
+                <tr th:each="TB_BOARD : ${list} ">
                     <td><input type="checkbox" name="xxx" value="yyy"></td>
-                    <td>random</td>
-                    <td>data</td>
-                    <td>placeholder</td>
-                    <td>text</td>
-                    <td>text</td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" name="xxx" value="yyy"></td>
-                    <td>placeholder</td>
-                    <td>irrelevant</td>
-                    <td>visual</td>
-                    <td>layout</td>
-                    <td>text</td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" name="xxx" value="yyy"></td>
-                    <td>data</td>
-                    <td>rich</td>
-                    <td>dashboard</td>
-                    <td>tabular</td>
-                    <td>text</td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" name="xxx" value="yyy"></td>
-                    <td>information</td>
-                    <td>placeholder</td>
-                    <td>illustrative</td>
-                    <td>data</td>
-                    <td>text</td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" name="xxx" value="yyy"></td>
-                    <td>text</td>
-                    <td>random</td>
-                    <td>layout</td>
-                    <td>dashboard</td>
-                    <td>text</td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" name="xxx" value="yyy"></td>
-                    <td>dashboard</td>
-                    <td>irrelevant</td>
-                    <td>text</td>
-                    <td>placeholder</td>
-                    <td>text</td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" name="xxx" value="yyy"></td>
-                    <td>dashboard</td>
-                    <td>illustrative</td>
-                    <td>rich</td>
-                    <td>data</td>
-                    <td>text</td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" name="xxx" value="yyy"></td>
-                    <td>placeholder</td>
-                    <td>tabular</td>
-                    <td>information</td>
-                    <td>irrelevant</td>
-                    <td>text</td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" name="xxx" value="yyy"></td>
-                    <td>random</td>
-                    <td>data</td>
-                    <td>placeholder</td>
-                    <td>text</td>
-                    <td>text</td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" name="xxx" value="yyy"></td>
-                    <td>placeholder</td>
-                    <td>irrelevant</td>
-                    <td>visual</td>
-                    <td>layout</td>
-                    <td>text</td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" name="xxx" value="yyy"></td>
-                    <td>data</td>
-                    <td>rich</td>
-                    <td>dashboard</td>
-                    <td>tabular</td>
-                    <td>text</td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" name="xxx" value="yyy"></td>
-                    <td>information</td>
-                    <td>placeholder</td>
-                    <td>illustrative</td>
-                    <td>data</td>
-                    <td>text</td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" name="xxx" value="yyy"></td>
-                    <td>text</td>
-                    <td>placeholder</td>
-                    <td>layout</td>
-                    <td>dashboard</td>
-                    <td>text</td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" name="xxx" value="yyy"></td>
-                    <td>dashboard</td>
-                    <td>irrelevant</td>
-                    <td>text</td>
-                    <td>visual</td>
-                    <td>text</td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" name="xxx" value="yyy"></td>
-                    <td>dashboard</td>
-                    <td>illustrative</td>
-                    <td>rich</td>
-                    <td>data</td>
-                    <td>text</td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" name="xxx" value="yyy"></td>
-                    <td>random</td>
-                    <td>tabular</td>
-                    <td>information</td>
-                    <td>text</td>
-                    <td>text</td>
+                    <td th:text="${TB_BOARD.COLUMN1}">Text</td>
+                    <td th:text="${TB_BOARD.COMPANYNAME}">Text</td>
+                    <td th:text="${TB_BOARD.SERVICECODE}">Text</td>
+                    <td th:text="${TB_BOARD.COMPANYNUM}">Text</td>
+                    <td th:text="${TB_BOARD.CERTIFICATIOM}">Text</td>
                 </tr>
                 </tbody>
             </table>
+
+            <th:block th:each="page : ${#numbers.sequence(startPage, endPage)}">
+                <a th:if="${page != nowPage}" th:href="@{/mainboard(page = ${page -1}, searchKeyword = ${param.searchKeyword})}" th:text="${page}"></a>
+                <strong th:if="${page == nowPage}" style="color : red"></strong>
+            </th:block>
         </div>
     </main>
 </div>

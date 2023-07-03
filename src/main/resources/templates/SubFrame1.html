@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
   <title>중소기업 정보조회 시스템</title>
@@ -159,7 +159,19 @@
     확인서/인증서별 조회
   </h1>
   <div class="contents_box" style="width:1500px; height:500px;">
-    <button id="button_1" type="button" onclick="location.href='http://localhost:8090/mainboard#'">중소기업 확인서</button>
+
+
+
+    <form th:action="@{/mainboard}" method="get">
+      <input type="text" name="searchKeyword">
+      <button type="submit">검색</button>
+    </form>
+
+    <form th:action="@{/mainboard}" method="get">
+      <input type="text" name="searchKeyword">
+      <button type="submit">검색</button>
+    </form>
+
     <button id="button_2" type="button" onclick="location.href='http://localhost:8090/mainboard#'">여성기업 확인서</button>
     <button id="button_3" type="button" onclick="location.href='http://localhost:8090/mainboard#'">장애인기업 확인서</button>
     <button id="button_4" type="button" onclick="location.href='http://localhost:8090/mainboard#'">직접생산 확인서</button>
