@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>중소기업 정보조회 시스템</title>
@@ -40,12 +40,22 @@
         background-color: gray;
         }
 
+        #button_8:hover{
+        background-color: gray;
+        }
+
+        #button_9:hover{
+        background-color: gray;
+        }
+
         #button_1{
         border: 1px solid sky-blue;
         background-color: rgba(0,0,0,0);
         color: sky-blue;
         padding: 30px 50px 30px 50px;
         font-size: 20px;
+        width : 250px;
+        height : 90px;
 
         margin-left: 15%;
 
@@ -59,6 +69,9 @@
         color: sky-blue;
         padding: 30px 50px 30px 50px;
         font-size: 20px;
+        width : 250px;
+        height : 90px;
+
 
         margin-left: 10%;
 
@@ -72,6 +85,8 @@
         color: sky-blue;
         padding: 30px 50px 30px 50px;
         font-size: 20px;
+        width : 250px;
+        height : 90px;
 
         margin-left: 10%;
 
@@ -85,6 +100,8 @@
         color: sky-blue;
         padding: 30px 50px 30px 50px;
         font-size: 20px;
+        width : 250px;
+        height : 90px;
 
         margin-left: 15%;
         margin-top: 5%;
@@ -99,6 +116,8 @@
         color: sky-blue;
         padding: 30px 30px 30px 30px;
         font-size: 20px;
+        width : 250px;
+        height : 90px;
 
         margin-left: 10%;
         margin-top: 5%;
@@ -113,6 +132,8 @@
         color: sky-blue;
         padding: 30px 60px 30px 60px;
         font-size: 20px;
+        width : 250px;
+        height : 90px;
 
         margin-left: 10%;
         margin-top: 5%;
@@ -127,6 +148,8 @@
         color: sky-blue;
         padding: 30px 50px 30px 50px;
         font-size: 20px;
+        width : 250px;
+        height : 90px;
 
         margin-left: 15%;
         margin-top: 5%;
@@ -140,6 +163,39 @@
         margin-top: 5%;
         }
 
+        #button_8{
+        border: 1px solid sky-blue;
+        background-color: rgba(0,0,0,0);
+        color: sky-blue;
+        padding: 30px 50px 30px 50px;
+        font-size: 17px;
+        width : 250px;
+        height : 90px;
+
+        margin-left: 10%;
+        margin-top: 5%;
+
+        border-top-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        }
+
+        #button_9{
+        border: 1px solid sky-blue;
+        background-color: rgba(0,0,0,0);
+        color: sky-blue;
+        padding: 30px 50px 30px 50px;
+        font-size: 20px;
+        width : 250px;
+        height : 90px;
+
+        margin-left: 10%;
+        margin-top: 5%;
+
+        border-top-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        }
+
+
     </style>
 </head>
 <body>
@@ -148,7 +204,7 @@
     <div id="left_nav" class="clo-md-8">
       <ul id="navbar_main" class="nav navbar-collapse navbar-nav navbar-left" style="list-style: none; padding-left: 0px;">
         <li id="main-logo"  style="margin-right: 30px; cursor: pointer;">
-          <img id="logo" src="/img/중소기업유통센터-2015변경_투명.png" style="width:300px; height:80px;">
+          <img id="logo" onclick="location.href='http://localhost:8090/mainframe'" src="/img/중소기업유통센터-2015변경_투명.png" style="width:300px; height:80px;">
         </li>
       </ul>
     </div>
@@ -156,28 +212,19 @@
 </div>
 <div class="wrap">
   <h1 id="page_title" style="height:50px; width: 100%;">
-    확인서/인증서별 조회
+    업종별 조회
   </h1>
   <div class="contents_box" style="width:1500px; height:500px;">
+    <button id="button_1" type="button" onclick="location.href='http://localhost:8090/mainboard#'">제조업</button>
+    <button id="button_2" type="button" onclick="location.href='http://localhost:8090/mainboard#'">건설업</button>
+    <button id="button_3" type="button" onclick="location.href='http://localhost:8090/mainboard#'">도매 및 소매업</button>
+    <button id="button_4" type="button" onclick="location.href='http://localhost:8090/mainboard#'">운수업</button>
+    <button id="button_5" type="button" onclick="location.href='http://localhost:8090/mainboard#'">숙박 및 음식점업</button>
+    <button id="button_6" type="button" onclick="location.href='http://localhost:8090/mainboard#'">금융서비스업</button>
+    <button id="button_7" type="button" onclick="location.href='http://localhost:8090/mainboard#'">교육서비스업</button>
+    <button id="button_8" type="button" onclick="location.href='http://localhost:8090/mainboard#'">사회복지 서비스업</button>
+    <button id="button_9" type="button" onclick="location.href='http://localhost:8090/mainboard#'">광업</button>
 
-
-
-    <form th:action="@{/mainboard}" method="get">
-      <input type="text" name="searchKeyword">
-      <button type="submit">검색</button>
-    </form>
-
-    <form th:action="@{/mainboard}" method="get">
-      <input type="text" name="searchKeyword">
-      <button type="submit">검색</button>
-    </form>
-
-    <button id="button_2" type="button" onclick="location.href='http://localhost:8090/mainboard#'">여성기업 확인서</button>
-    <button id="button_3" type="button" onclick="location.href='http://localhost:8090/mainboard#'">장애인기업 확인서</button>
-    <button id="button_4" type="button" onclick="location.href='http://localhost:8090/mainboard#'">직접생산 확인서</button>
-    <button id="button_5" type="button" onclick="location.href='http://localhost:8090/mainboard#'">성능인증발급 확인서</button>
-    <button id="button_6" type="button" onclick="location.href='http://localhost:8090/mainboard#'">창업기업 확인서</button>
-    <button id="button_7" type="button" onclick="location.href='http://localhost:8090/mainboard#'">간주기업 확인서</button>
   </div>
 </div>
 

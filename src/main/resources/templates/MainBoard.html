@@ -67,7 +67,7 @@
         <li>
             <a href="#" class="nav-link link-body-emphasis">
                 <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
-                <button id="button_2" type="button" style="width: 200px; height: 30px;" onclick="location.href='주소미정'">나의 업체 관리</button>
+                <button id="button_2" type="button" style="width: 200px; height: 30px;" onclick="location.href='http://localhost:8090/mainboard2#'">나의 업체 관리</button>
             </a>
         </li>
     </ul>
@@ -97,7 +97,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr th:each="TB_BOARD : ${list}">
+                <tr th:each="TB_BOARD : ${list} ">
                     <td><input type="checkbox" name="xxx" value="yyy"></td>
                     <td th:text="${TB_BOARD.COLUMN1}">Text</td>
                     <td th:text="${TB_BOARD.COMPANYNAME}">Text</td>
@@ -109,7 +109,7 @@
             </table>
 
             <th:block th:each="page : ${#numbers.sequence(startPage, endPage)}">
-                <a th:if="${page != nowPage}" th:href="@{/mainboard(page = ${page -1})}" th:text="${page}"></a>
+                <a th:if="${page != nowPage}" th:href="@{/mainboard(page = ${page -1}, searchKeyword = ${param.searchKeyword})}" th:text="${page}"></a>
                 <strong th:if="${page == nowPage}" style="color : red"></strong>
             </th:block>
         </div>

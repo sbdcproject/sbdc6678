@@ -64,4 +64,16 @@ public class BoardController {
         return "MainBoard";
     }
 
+    @GetMapping("/mainboard2")
+    public String mainboard2(){
+
+        return "MainBoard2";
+    }
+
+    @GetMapping("/subframe3")
+    public String subframe3(){
+
+        return "SubFrame3";
+    }
+
 }
