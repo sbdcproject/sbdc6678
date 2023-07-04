@@ -4,13 +4,13 @@
   <meta charset="UTF-8">
   <title>중소기업 정보조회 시스템</title>
   <style>
-        body{
-        background-image:url("/img/v996-013.jpg");
-        background-repeat : no-repeat;
-        background-size : cover;
-        resize: both;
-        overflow: scroll;
-        }
+<!--        body{-->
+<!--        background-image:url("/img/v996-013.jpg");-->
+<!--        background-repeat : no-repeat;-->
+<!--        background-size : cover;-->
+<!--        resize: both;-->
+<!--        overflow: scroll;-->
+<!--        }-->
 
         #button_1:hover{
         background-color: gray;
@@ -148,7 +148,7 @@
     <div id="left_nav" class="clo-md-8">
       <ul id="navbar_main" class="nav navbar-collapse navbar-nav navbar-left" style="list-style: none; padding-left: 0px;">
         <li id="main-logo"  style="margin-right: 30px; cursor: pointer;">
-          <img id="logo" onclick="location.href='http://localhost:8090/mainframe'" src="/img/중소기업유통센터-2015변경_투명.png" style="width:300px; height:80px;">
+          <img id="logo" src="/img/중소기업유통센터-2015변경_투명.png" style="width:300px; height:80px;">
         </li>
       </ul>
     </div>
@@ -160,24 +160,13 @@
   </h1>
   <div class="contents_box" style="width:1500px; height:500px;">
 
-
-
-    <form th:action="@{/mainboard}" method="get">
-      <input type="text" name="searchKeyword">
-      <button type="submit">검색</button>
-    </form>
-
-    <form th:action="@{/mainboard}" method="get">
-      <input type="text" name="searchKeyword">
-      <button type="submit">검색</button>
-    </form>
-
-    <button id="button_2" type="button" onclick="location.href='http://localhost:8090/mainboard#'">여성기업 확인서</button>
-    <button id="button_3" type="button" onclick="location.href='http://localhost:8090/mainboard#'">장애인기업 확인서</button>
-    <button id="button_4" type="button" onclick="location.href='http://localhost:8090/mainboard#'">직접생산 확인서</button>
-    <button id="button_5" type="button" onclick="location.href='http://localhost:8090/mainboard#'">성능인증발급 확인서</button>
-    <button id="button_6" type="button" onclick="location.href='http://localhost:8090/mainboard#'">창업기업 확인서</button>
-    <button id="button_7" type="button" onclick="location.href='http://localhost:8090/mainboard#'">간주기업 확인서</button>
+    <button id="button_1" type="button" onclick="location.href='http://localhost:8090/mainboard?searchKeyword=중소기업#'">중소기업 확인서</button>
+    <button id="button_2" type="button" onclick="location.href='http://localhost:8090/mainboard?searchKeyword=여성기업#'">여성기업 확인서</button>
+    <button id="button_3" type="button" onclick="location.href='http://localhost:8090/mainboard?searchKeyword=장애기업#'">장애인기업 확인서</button>
+    <button id="button_4" type="button" onclick="location.href='http://localhost:8090/mainboard?searchKeyword=직접생산#'">직접생산 확인서</button>
+    <button id="button_5" type="button" onclick="location.href='http://localhost:8090/mainboard?searchKeyword=성능인증#'">성능인증발급 확인서</button>
+    <button id="button_6" type="button" onclick="location.href='http://localhost:8090/mainboard?searchKeyword=창업기업#'">창업기업 확인서</button>
+    <button id="button_7" type="button" onclick="location.href='http://localhost:8090/mainboard?searchKeyword=간주기업#'">간주기업 확인서</button>
   </div>
 </div>
 
