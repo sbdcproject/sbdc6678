@@ -7,8 +7,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface BoardRepository extends JpaRepository<TB_BOARD, Integer> {
+public interface BoardRepository1 extends JpaRepository<TB_BOARD, Integer> {
 
-    Page<TB_BOARD> findByCERTIFICATIOMContaining(String searchKeyword, Pageable pageable);
-
+    Page<TB_BOARD> findByCOMPANYNUMContaining(String searchKeyword1, Pageable pageable);
 }

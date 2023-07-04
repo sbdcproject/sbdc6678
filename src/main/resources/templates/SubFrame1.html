@@ -160,24 +160,13 @@
   </h1>
   <div class="contents_box" style="width:1500px; height:500px;">
 
-
-
-    <form th:action="@{/mainboard}" method="get">
-      <input type="text" name="searchKeyword">
-      <button type="submit">검색</button>
-    </form>
-
-    <form th:action="@{/mainboard}" method="get">
-      <input type="text" name="searchKeyword">
-      <button type="submit">검색</button>
-    </form>
-
-    <button id="button_2" type="button" onclick="location.href='http://localhost:8090/mainboard#'">여성기업 확인서</button>
-    <button id="button_3" type="button" onclick="location.href='http://localhost:8090/mainboard#'">장애인기업 확인서</button>
-    <button id="button_4" type="button" onclick="location.href='http://localhost:8090/mainboard#'">직접생산 확인서</button>
-    <button id="button_5" type="button" onclick="location.href='http://localhost:8090/mainboard#'">성능인증발급 확인서</button>
-    <button id="button_6" type="button" onclick="location.href='http://localhost:8090/mainboard#'">창업기업 확인서</button>
-    <button id="button_7" type="button" onclick="location.href='http://localhost:8090/mainboard#'">간주기업 확인서</button>
+    <button id="button_1" type="button" onclick="location.href='http://localhost:8090/mainboard?searchKeyword=중소기업#'">중소기업 확인서</button>
+    <button id="button_2" type="button" onclick="location.href='http://localhost:8090/mainboard?searchKeyword=여성기업#'">여성기업 확인서</button>
+    <button id="button_3" type="button" onclick="location.href='http://localhost:8090/mainboard?searchKeyword=장애기업#'">장애인기업 확인서</button>
+    <button id="button_4" type="button" onclick="location.href='http://localhost:8090/mainboard?searchKeyword=직접생산#'">직접생산 확인서</button>
+    <button id="button_5" type="button" onclick="location.href='http://localhost:8090/mainboard?searchKeyword=성능인증#'">성능인증발급 확인서</button>
+    <button id="button_6" type="button" onclick="location.href='http://localhost:8090/mainboard?searchKeyword=창업기업#'">창업기업 확인서</button>
+    <button id="button_7" type="button" onclick="location.href='http://localhost:8090/mainboard?searchKeyword=간주기업#'">간주기업 확인서</button>
   </div>
 </div>
 

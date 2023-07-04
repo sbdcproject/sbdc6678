@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
   <meta charset="UTF-8">
   <title>중소기업 정보조회 시스템</title>
@@ -56,12 +56,14 @@
   </h1>
   <div class="contents_box" style="width:1500px; height:100px;">
     <label for="BusinessNumber">사업자등록번호를 입력해주세요:</label>
-    <input type="text" id="BusinessNumber" required
-           oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
-           minlength="0" maxlength="10" size="50">
-    <div>
-      <button>검색</button>
-    </div>
+
+    <form th:action="@{/mainboard1}" method="get">
+      <input id="BusinessNumber" type="text" name="searchKeyword1">
+      <button type="submit">검색</button>
+    </form>
+
+
+
   </div>
 </div>
 

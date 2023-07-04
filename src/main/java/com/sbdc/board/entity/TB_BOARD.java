@@ -22,7 +22,7 @@ public class TB_BOARD {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer COMPANYNUM;
+    private String COMPANYNUM;
 
     @Column(nullable = false)
     private String CERTIFICATIOM;
