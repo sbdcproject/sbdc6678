@@ -160,13 +160,16 @@
   </h1>
   <div class="contents_box" style="width:1500px; height:500px;">
 
-    <button id="button_1" type="button" onclick="location.href='http://localhost:8090/mainboard?searchKeyword=중소기업#'">중소기업 확인서</button>
-    <button id="button_2" type="button" onclick="location.href='http://localhost:8090/mainboard?searchKeyword=여성기업#'">여성기업 확인서</button>
-    <button id="button_3" type="button" onclick="location.href='http://localhost:8090/mainboard?searchKeyword=장애기업#'">장애인기업 확인서</button>
-    <button id="button_4" type="button" onclick="location.href='http://localhost:8090/mainboard?searchKeyword=직접생산#'">직접생산 확인서</button>
-    <button id="button_5" type="button" onclick="location.href='http://localhost:8090/mainboard?searchKeyword=성능인증#'">성능인증발급 확인서</button>
-    <button id="button_6" type="button" onclick="location.href='http://localhost:8090/mainboard?searchKeyword=창업기업#'">창업기업 확인서</button>
-    <button id="button_7" type="button" onclick="location.href='http://localhost:8090/mainboard?searchKeyword=간주기업#'">간주기업 확인서</button>
+    <form th:action="@{/mainboard}" method="get">
+      <input id="button_1" type="submit" value="중소기업" name="searchKeyword">
+      <input id="button_2" type="submit" value="여성기업" name="searchKeyword">
+      <input id="button_3" type="submit" value="장애인기업" name="searchKeyword">
+      <input id="button_4" type="submit" value="직접생산" name="searchKeyword">
+      <input id="button_5" type="submit" value="성능인증" name="searchKeyword">
+      <input id="button_6" type="submit" value="창업기업" name="searchKeyword">
+      <input id="button_7" type="submit" value="간주기업" name="searchKeyword">
+    </form>
+
   </div>
 </div>
 
