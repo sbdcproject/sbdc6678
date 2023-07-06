@@ -84,6 +84,9 @@
             <button id="button_3" type="button">저장</button>
         </div>
 
+        <th:block th:each="TB_BOARD : ${list1} ">
+            <td th:text="${TB_BOARD.tb_certification}">Text</td>
+        </th:block>
 
         <div class="table-responsive small">
             <table class="table table-striped table-sm">
@@ -110,7 +113,7 @@
             </table>
 
             <th:block th:each="page : ${#numbers.sequence(startPage, endPage)}">
-                <a th:if="${page != nowPage}" th:href="@{/mainboard(page = ${page -1}, searchKeyword = ${param.searchKeyword}, searchKeyword1 = ${param.searchKeyword1})}" th:text="${page}"></a>
+                <a th:if="${page != nowPage}" th:href="@{/mainboard(page = ${page -1}, searchKeyword = ${param.searchKeyword}, searchKeyword1 = ${param.searchKeyword1}, searchKeyword2 = ${param.searchKeyword2})}" th:text="${page}"></a>
                 <strong th:if="${page == nowPage}" style="color : red"></strong>
             </th:block>
         </div>

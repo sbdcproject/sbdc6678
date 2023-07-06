@@ -23,12 +23,14 @@ public class BoardService {
         return boardRepository.findAll(pageable);
     }
 
+
     @Autowired
     private BoardRepository boardRepository;
 
-    public Page<TB_BOARD> boardSearchList(String searchKeyword, String searchKeyword1, Pageable pageable){
-        return boardRepository.findByCERTIFICATIOMContainingAndSERVICECODEContaining(searchKeyword, searchKeyword1, pageable);
+    public Page<TB_BOARD> boardSearchList(String searchKeyword, String searchKeyword1, String searchKeyword2, Pageable pageable){
+        return boardRepository.findByCERTIFICATIOMContainingAndSERVICECODEContainingAndCOMPANYNUMContaining(searchKeyword, searchKeyword1, searchKeyword2, pageable);
     }
+
 
 
 

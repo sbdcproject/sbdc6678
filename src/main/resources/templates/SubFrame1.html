@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:display="http://www.w3.org/1999/xhtml">
 <head>
   <meta charset="UTF-8">
   <title>중소기업 정보조회 시스템</title>
@@ -160,15 +160,50 @@
   </h1>
   <div class="contents_box" style="width:1500px; height:500px;">
 
-    <form th:action="@{/mainboard}" method="get">
-      <input id="button_1" type="submit" value="중소기업" name="searchKeyword">
-      <input id="button_2" type="submit" value="여성기업" name="searchKeyword">
-      <input id="button_3" type="submit" value="장애인기업" name="searchKeyword">
-      <input id="button_4" type="submit" value="직접생산" name="searchKeyword">
-      <input id="button_5" type="submit" value="성능인증" name="searchKeyword">
-      <input id="button_6" type="submit" value="창업기업" name="searchKeyword">
-      <input id="button_7" type="submit" value="간주기업" name="searchKeyword">
-    </form>
+    <div>
+      <form class="form" th:action="@{/mainboard}" method="get">
+        <input type="hidden" value="중소기업" name="searchKeyword">
+        <input type="hidden" value="" name="searchKeyword1">
+        <input type="hidden" value="" name="searchKeyword2">
+        <input id="button_1" type="submit" value="중소기업">
+      </form>
+      <form class="form" th:action="@{/mainboard}" method="get">
+        <input type="hidden" value="여성기업" name="searchKeyword">
+        <input type="hidden" value="" name="searchKeyword1">
+        <input type="hidden" value="" name="searchKeyword2">
+        <input id="button_2" type="submit" value="여성기업">
+      </form>
+      <form class="form" th:action="@{/mainboard}" method="get">
+        <input type="hidden" value="장애기업" name="searchKeyword">
+        <input type="hidden" value="" name="searchKeyword1">
+        <input type="hidden" value="" name="searchKeyword2">
+        <input id="button_3" type="submit" value="장애기업">
+      </form>
+      <form class="form" th:action="@{/mainboard}" method="get">
+        <input type="hidden" value="직접생산" name="searchKeyword">
+        <input type="hidden" value="" name="searchKeyword1">
+        <input type="hidden" value="" name="searchKeyword2">
+        <input id="button_4" type="submit" value="직접생산">
+      </form>
+      <form class="form" th:action="@{/mainboard}" method="get">
+        <input type="hidden" value="성능인증" name="searchKeyword">
+        <input type="hidden" value="" name="searchKeyword1">
+        <input type="hidden" value="" name="searchKeyword2">
+        <input id="button_5" type="submit" value="성능인증">
+      </form>
+      <form class="form" th:action="@{/mainboard}" method="get">
+        <input type="hidden" value="창업기업" name="searchKeyword">
+        <input type="hidden" value="" name="searchKeyword1">
+        <input type="hidden" value="" name="searchKeyword2">
+        <input id="button_6" type="submit" value="창업기업">
+      </form>
+      <form class="form" th:action="@{/mainboard}" method="get">
+        <input type="hidden" value="간주기업" name="searchKeyword">
+        <input type="hidden" value="" name="searchKeyword1">
+        <input type="hidden" value="" name="searchKeyword2">
+        <input id="button_7" type="submit" value="간주기업">
+      </form>
+    </div>
 
   </div>
 </div>

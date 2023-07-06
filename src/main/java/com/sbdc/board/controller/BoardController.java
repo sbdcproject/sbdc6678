@@ -5,17 +5,11 @@ import com.sbdc.board.entity.TB_BOARD;
 import com.sbdc.board.service.BoardService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
 
 
 @Controller
@@ -30,7 +24,6 @@ public class BoardController {
 
     @GetMapping("/subframe1")
     public String subframeportal1(){
-
         return "SubFrame1";
     }
 
@@ -43,14 +36,14 @@ public class BoardController {
     @GetMapping("/mainboard")
     public String boardList(Model model,
                             @PageableDefault(page = 0, size = 10) Pageable pageable,
-                            String searchKeyword, String searchKeyword1){
+                            String searchKeyword, String searchKeyword1, String searchKeyword2){
 
         Page<TB_BOARD> list = null;
 
-        if(searchKeyword == null && searchKeyword1 == null) {
+        if(searchKeyword == null && searchKeyword1 == null && searchKeyword2 == null) {
             list = boardService.boardList(pageable);
         }else {
-            list = boardService.boardSearchList(searchKeyword, searchKeyword1, pageable);
+            list = boardService.boardSearchList(searchKeyword, searchKeyword1, searchKeyword2, pageable);
         }
 
         int nowPage = list.getPageable().getPageNumber() + 1;
@@ -64,6 +57,10 @@ public class BoardController {
 
         return "MainBoard";
     }
+
+
+
+
 
     @GetMapping("/myboard")
     public String myboard(){

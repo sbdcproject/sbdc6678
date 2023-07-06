@@ -11,29 +11,7 @@ import javax.persistence.criteria.CriteriaBuilder;
 @Setter
 public class TB_BOARD {
 
-    @Column(nullable = false
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    )
+    @Column(nullable = false)
     private Integer COLUMN1;
 
     @Column(nullable = false)
@@ -48,4 +26,7 @@ public class TB_BOARD {
 
     @Column(nullable = false)
     private String CERTIFICATIOM;
+
 }
+
+
