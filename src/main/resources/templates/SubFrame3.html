@@ -252,15 +252,20 @@
 <div class="wrap">
   <div class="contents_box" style="width:1500px; height:400px;">
 
-    <button id="button_1" type="button" onclick="location.href='http://localhost:8090/mainboard?searchKeyword1=제조'">제조업</button>
-    <button id="button_2" type="button" onclick="location.href='http://localhost:8090/mainboard?searchKeyword1=건설'">건설업</button>
-    <button id="button_3" type="button" onclick="location.href='http://localhost:8090/mainboard?searchKeyword1=도매 및 소매업'">도매 및 소매업</button>
-    <button id="button_4" type="button" onclick="location.href='http://localhost:8090/mainboard?searchKeyword1=운수'">운수업</button>
-    <button id="button_5" type="button" onclick="location.href='http://localhost:8090/mainboard?searchKeyword1=숙박 및 음식점업'">숙박 및 음식점업</button>
-    <button id="button_6" type="button" onclick="location.href='http://localhost:8090/mainboard?searchKeyword1=금융서비스'">금융서비스업</button>
-    <button id="button_7" type="button" onclick="location.href='http://localhost:8090/mainboard?searchKeyword1=교육서비스'">교육서비스업</button>
-    <button id="button_8" type="button" onclick="location.href='http://localhost:8090/mainboard?searchKeyword1=사회복지'">사회복지 서비스업</button>
-    <button id="button_9" type="button" onclick="location.href='http://localhost:8090/mainboard?searchKeyword1=광업'">광업</button>
+    <form th:action="@{/mainboard}" method="get">
+      <button id="button_1" type="submit" value="제조업" name="searchKeyword1">제조업</button>
+      <button id="button_2" type="submit" value="건설업" name="searchKeyword1">건설업</button>
+      <button id="button_3" type="submit" value="도매 및 소매업" name="searchKeyword1">도매 및 소매업</button>
+      <button id="button_4" type="submit" value="운수업" name="searchKeyword1">운수업</button>
+      <button id="button_5" type="submit" value="숙박 및 음식점업" name="searchKeyword1">숙박 및 음식점업</button>
+      <button id="button_6" type="submit" value="금융서비스업" name="searchKeyword1">금융서비스업</button>
+      <button id="button_7" type="submit" value="교육서비스업" name="searchKeyword1">교육서비스업</button>
+      <button id="button_8" type="submit" value="사회복지 서비스업" name="searchKeyword1">사회복지 서비스업</button>
+      <button id="button_9" type="submit" value="광업" name="searchKeyword1">광업</button>
+
+      <input type="hidden" value="" name="searchKeyword">
+      <input type="hidden" value="" name="searchKeyword2">
+    </form>
 
   </div>
 </div>

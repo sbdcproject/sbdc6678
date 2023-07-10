@@ -95,11 +95,15 @@
       </div>
 
       <div id="search" style="width: 800px; display: inline-block">
+
         <form th:action="@{/mainboard}" method="get">
-          <input id="BusinessNumber" type="text" name="searchKeyword" style="width: 500px; height: 30px; border: solid 1px #E6E6E6;">
+          <input type="hidden" value="" name="searchKeyword">
+          <input type="hidden" value="" name="searchKeyword1">
+          <input id="BusinessNumber" type="text" name="searchKeyword2" style="width: 500px; height: 30px; border: solid 1px #E6E6E6;">
           <button id="search-btn" type="submit" style="margin-left: 10px;">
             <strong>조회</strong></button>
         </form>
+
       </div>
 
   </div>

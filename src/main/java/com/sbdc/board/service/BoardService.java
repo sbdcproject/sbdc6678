@@ -26,8 +26,8 @@ public class BoardService {
     @Autowired
     private BoardRepository boardRepository;
 
-    public Page<TB_BOARD> boardSearchList(String searchKeyword, Pageable pageable){
-        return boardRepository.findByCERTIFICATIONContaining(searchKeyword, pageable);
+    public Page<TB_BOARD> boardSearchList(String searchKeyword, String searchKeyword1, String searchKeyword2, Pageable pageable){
+        return boardRepository.findByCERTIFICATIONContainingAndSERVICECODEContainingAndCOMPANYNUMContaining(searchKeyword, searchKeyword1, searchKeyword2, pageable);
     }
 
 

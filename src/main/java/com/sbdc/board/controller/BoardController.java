@@ -43,14 +43,15 @@ public class BoardController {
     @GetMapping("/mainboard")
     public String boardList(Model model,
                             @PageableDefault(page = 0, size = 10) Pageable pageable,
-                            String searchKeyword){
+                            String searchKeyword, String searchKeyword1, String searchKeyword2){
 
         Page<TB_BOARD> list = null;
+        Page<TB_BOARD> certificationlist = null;
 
-        if(searchKeyword == null) {
+        if(searchKeyword == null && searchKeyword1 == null && searchKeyword2 == null) {
             list = boardService.boardList(pageable);
         }else {
-            list = boardService.boardSearchList(searchKeyword, pageable);
+            list = boardService.boardSearchList(searchKeyword,searchKeyword1, searchKeyword2, pageable);
         }
 
         int nowPage = list.getPageable().getPageNumber() + 1;
