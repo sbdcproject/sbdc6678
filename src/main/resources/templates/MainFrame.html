@@ -3,68 +3,38 @@
 <head>
   <meta charset="UTF-8">
   <title>중소기업 정보조회 시스템</title>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://getbootstrap.com/docs/5.2/assets/css/docs.css" rel="stylesheet">
+  <title>Bootstrap Example</title>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
   <style>
         body{
-        background-image:url("/img/v996-013.jpg");
+        background-image:url("https://www.sbdc.or.kr/assets/images/main/main_sm.png");
         background-repeat : no-repeat;
-        background-size : cover;
+        background-size : contain;
         resize: both;
         overflow: scroll;
         }
 
-        #button_first:hover{
-        background-color: gray;
-        }
-
-        #button_second:hover{
-        background-color: gray;
-        }
-
-        #button_third:hover{
-        background-color: gray;
-        }
-
-        #button_first{
-        border: 1px solid sky-blue;
-        background-color: rgba(0,0,0,0);
-        color: sky-blue;
-        padding: 100px 50px 100px 50px;
-        font-size: 20px;
-
-        text-align: center;
-        margin-top: 10%;
-        margin-left: 15%;
-
-        border-top-left-radius: 10px;
-        border-bottom-right-radius: 10px;
-        }
-
-        #button_second{
-        border: 1px solid sky-blue;
-        background-color: rgba(0,0,0,0);
-        color: sky-blue;
-        padding: 100px 50px 100px 50px;
-        font-size: 20px;
-
-        text-align: center;
-        margin-left: 5%;
-
-        border-top-left-radius: 10px;
-        border-bottom-right-radius: 10px;
-        }
-
-        #button_third{
-        border: 1px solid sky-blue;
-        background-color: rgba(0,0,0,0);
-        color: sky-blue;
-        padding: 100px 100px 100px 100px;
-        font-size: 20px;
-
-        text-align: center;
-        margin-left: 5%;
-
-        border-top-left-radius: 10px;
-        border-bottom-right-radius: 10px;
+        #button_mylist{
+        box-shadow: 0px 10px 14px -7px;
+	    background-color: rgb(255,255,255,0.9);
+        position: absolute;
+        left:88%;
+        top:5%;
+        display:inline-block;
+	    cursor:pointer;
+        border:none;
+        border-radius:12px;
+        font-family:Arial;
+	    font-size:14px;
+	    padding:8px 20px;
+	    text-decoration:none;
+}
         }
 
         #Box_Logo{
@@ -74,7 +44,20 @@
         margin-bottom: 5%;
         }
 
+        certificate{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        }
+
+        card text_center{
+        width: 10%;
+        }
+
+
+
     </style>
+
 </head>
 <body>
 <div id="main" class="container-fluid">
@@ -82,22 +65,65 @@
     <div id="left_nav" class="clo-md-8">
       <ul id="navbar_main" class="nav navbar-collapse navbar-nav navbar-left" style="list-style: none; padding-left: 0px;">
         <li id="main-logo"  style="margin-right: 30px; cursor: pointer;">
-          <img id="logo" src="/img/중소기업유통센터-2015변경_투명.png" style="width:300px; height:80px;">
+          <!--          <img id="logo" src="/img/중소기업유통센터-2015변경_투명.png" style="width:300px; height:80px;">-->
         </li>
       </ul>
     </div>
   </div>
 </div>
+
+<div class="mylistbutton" style="height:10px">
+  <button id="button_mylist" type="button" onclick="location.href='http://localhost:8090/myboard'">
+    <img class="mylist" src="https://cdn-icons-png.flaticon.com/128/996/996484.png" style="width:25px; height:25px;">
+    <b>나의업체관리</b>
+  </button>
+</div>
+
 <div class="wrap">
   <h1 id="title_main" style="height:100px;">
-    <img id="Box_Logo" src="/img/중소기업유통센터-2015변경_투명.png" style="width:300px; height:80px;">
+    <!--    <img id="Box_Logo" src="/img/중소기업유통센터-2015변경_투명.png" style="width:300px; height:80px;">-->
   </h1>
-  <div class="contents_box" style="width:1500px; height:500px;">
-    <button id="button_first" type="button" onclick="location.href='http://localhost:8090/subframe1'">확인서/인증서별 조회</button>
-    <button id="button_second" type="button" onclick="location.href='http://localhost:8090/subframe2'">사업자등록번호별 조회</button>
-    <button id="button_third" type="button" onclick="location.href='http://localhost:8090/subframe3'">업종별 조회</button>
+  <div class="contents_box" style="width:1500px; height:300px; top:20px">
+
+    <div class="card text-center" style="width:20%; height: 260px; position:absolute; top:97%; left:15%">
+      <div class="card-header">
+        <b>확인서/인증서별 조회</b>
+      </div>
+      <div class="card-body">
+        <img class="image" src="https://cdn-icons-png.flaticon.com/128/2874/2874786.png" style="width:60px; height:60px;" vspace=10>
+        <p class="card-text" style="font-size:15px">보유 확인서/인증서별 <br> 기업 조회가 가능합니다.</p>
+        <a href="http://localhost:8090/subframe1" class="btn btn-primary">바로가기</a>
+      </div>
+    </div>
+
+    <div class="card text-center" style="width:20%; height: 260px; position:absolute; top:97%; left:40%">
+      <div class="card-header" >
+        <b>사업자등록번호별 조회</b>
+      </div>
+      <div class="card-body">
+        <img class="image" src="https://cdn-icons-png.flaticon.com/128/2874/2874774.png" style="width:55px; height:55px;" vspace=10>
+        <p class="card-text" style="font-size:15px">사업자등록번호별 <br> 기업 조회가 가능합니다.</p>
+        <a href="http://localhost:8090/subframe2" class="btn btn-primary">바로가기</a>
+      </div>
+    </div>
+
+    <div class="card text-center" style="width:20%; height: 260px; position:absolute; top:97%; left:65%">
+      <div class="card-header" >
+        <b>업종별 조회</b>
+      </div>
+      <div class="card-body">
+        <img class="image" src="https://cdn-icons-png.flaticon.com/128/2874/2874769.png" style="width:55px; height:55px;" vspace=18>
+        <p class="card-text" style="font-size:15px">업종별 기업 조회가 가능합니다.</p>
+        <a href="http://localhost:8090/subframe3" class="btn btn-primary">바로가기</a>
+      </div>
+    </div>
   </div>
 </div>
 
+
+<body class="p-3 m-0 border-0 bd-example">
+
 </body>
+</body>
+
 </html>

@@ -14,4 +14,3 @@ public interface BoardRepository extends JpaRepository<TB_BOARD, Integer> {
 
 }
 
-
