@@ -9,5 +9,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface BoardRepository extends JpaRepository<TB_BOARD, Integer> {
 
-    Page<TB_BOARD> findByCERTIFICATIOMContaining(String searchKeyword, Pageable pageable);
+    Page<TB_BOARD> findByCERTIFICATIONContaining(String searchKeyword, Pageable pageable);
+
 }

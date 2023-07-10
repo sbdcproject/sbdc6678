@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
   <title>중소기업 정보조회 시스템</title>
   <style>
         body{
-        background-image:url("/img/v996-013.jpg");
+        background-color : #FAFAFA;
         background-repeat : no-repeat;
         background-size : cover;
         resize: both;
@@ -54,13 +54,14 @@
         color: sky-blue;
         padding: 30px 50px 30px 50px;
         font-size: 20px;
-        width : 250px;
+        width : 240px;
         height : 90px;
 
         margin-left: 15%;
+        box-shadow: 3px 3px 3px rgb(109, 109, 109);
 
-        border-top-left-radius: 10px;
-        border-bottom-right-radius: 10px;
+        border-radius: 10px;
+
         }
 
         #button_2{
@@ -69,14 +70,14 @@
         color: sky-blue;
         padding: 30px 50px 30px 50px;
         font-size: 20px;
-        width : 250px;
+        width : 240px;
         height : 90px;
 
 
         margin-left: 10%;
+        box-shadow: 3px 3px 3px rgb(109, 109, 109);
 
-        border-top-left-radius: 10px;
-        border-bottom-right-radius: 10px;
+        border-radius: 10px;
         }
 
         #button_3{
@@ -85,13 +86,13 @@
         color: sky-blue;
         padding: 30px 50px 30px 50px;
         font-size: 20px;
-        width : 250px;
+        width : 240px;
         height : 90px;
 
         margin-left: 10%;
+        box-shadow: 3px 3px 3px rgb(109, 109, 109);
 
-        border-top-left-radius: 10px;
-        border-bottom-right-radius: 10px;
+        border-radius: 10px;
         }
 
         #button_4{
@@ -100,14 +101,14 @@
         color: sky-blue;
         padding: 30px 50px 30px 50px;
         font-size: 20px;
-        width : 250px;
+        width : 240px;
         height : 90px;
 
         margin-left: 15%;
         margin-top: 5%;
+        box-shadow: 3px 3px 3px rgb(109, 109, 109);
 
-        border-top-left-radius: 10px;
-        border-bottom-right-radius: 10px;
+        border-radius: 10px;
         }
 
         #button_5{
@@ -116,30 +117,30 @@
         color: sky-blue;
         padding: 30px 30px 30px 30px;
         font-size: 20px;
-        width : 250px;
+        width : 240px;
         height : 90px;
 
         margin-left: 10%;
         margin-top: 5%;
+        box-shadow: 3px 3px 3px rgb(109, 109, 109);
 
-        border-top-left-radius: 10px;
-        border-bottom-right-radius: 10px;
+        border-radius: 10px;
         }
 
         #button_6{
         border: 1px solid sky-blue;
         background-color: rgba(0,0,0,0);
         color: sky-blue;
-        padding: 30px 60px 30px 60px;
+        padding: 30px 30px 30px 30px;
         font-size: 20px;
-        width : 250px;
+        width : 240px;
         height : 90px;
 
         margin-left: 10%;
         margin-top: 5%;
+        box-shadow: 3px 3px 3px rgb(109, 109, 109);
 
-        border-top-left-radius: 10px;
-        border-bottom-right-radius: 10px;
+        border-radius: 10px;
         }
 
         #button_7{
@@ -148,14 +149,14 @@
         color: sky-blue;
         padding: 30px 50px 30px 50px;
         font-size: 20px;
-        width : 250px;
+        width : 240px;
         height : 90px;
 
         margin-left: 15%;
         margin-top: 5%;
+        box-shadow: 3px 3px 3px rgb(109, 109, 109);
 
-        border-top-left-radius: 10px;
-        border-bottom-right-radius: 10px;
+        border-radius: 10px;
         }
 
         #page_title{
@@ -167,16 +168,16 @@
         border: 1px solid sky-blue;
         background-color: rgba(0,0,0,0);
         color: sky-blue;
-        padding: 30px 50px 30px 50px;
-        font-size: 17px;
-        width : 250px;
+        padding: 30px 30px 30px 30px;
+        font-size: 20px;
+        width : 240px;
         height : 90px;
 
         margin-left: 10%;
         margin-top: 5%;
+        box-shadow: 3px 3px 3px rgb(109, 109, 109);
 
-        border-top-left-radius: 10px;
-        border-bottom-right-radius: 10px;
+        border-radius: 10px;
         }
 
         #button_9{
@@ -185,18 +186,46 @@
         color: sky-blue;
         padding: 30px 50px 30px 50px;
         font-size: 20px;
-        width : 250px;
+        width : 240px;
         height : 90px;
 
         margin-left: 10%;
         margin-top: 5%;
+        box-shadow: 3px 3px 3px rgb(109, 109, 109);
 
-        border-top-left-radius: 10px;
-        border-bottom-right-radius: 10px;
+        border-radius: 10px;
+        }
+
+        .title{
+        margin-top: 30px;
+        margin-bottom: 50px;
+        }
+
+        #page_title{
+        margin-left: 5%;
+        margin-top: 5%;
+        }
+
+        .container-fluid{
+        background-image : url('https://estm.sbdc.or.kr/statics/images/comm/bg_header.png');
+        height: 150px;
+        margin-bottom: -55px;
+        }
+
+        .title{
+        border:0px solid;
+        padding:10px;
+        width: 52%;
+        height: 60px;
+        background-color: #FFFFFF;
+        margin-left: 5%;
+        border-radius: 10px;
+        box-shadow: 5px 5px 5px gray;
         }
 
 
-    </style>
+  </style>
+
 </head>
 <body>
 <div id="main" class="container-fluid">
@@ -204,26 +233,34 @@
     <div id="left_nav" class="clo-md-8">
       <ul id="navbar_main" class="nav navbar-collapse navbar-nav navbar-left" style="list-style: none; padding-left: 0px;">
         <li id="main-logo"  style="margin-right: 30px; cursor: pointer;">
-          <img id="logo" onclick="location.href='http://localhost:8090/mainframe'" src="/img/중소기업유통센터-2015변경_투명.png" style="width:300px; height:80px;">
+          <img id="logo" src="https://estm.sbdc.or.kr/statics/images/comm/img_logo.png" style="width:260px; height:45px; margin-top: 3%; margin-left:3%">
         </li>
       </ul>
     </div>
   </div>
 </div>
-<div class="wrap">
-  <h1 id="page_title" style="height:50px; width: 100%;">
+
+<div class="title">
+  <h1 id="page_title" style="height:50px; width: 500px; display: inline;">
     업종별 조회
   </h1>
-  <div class="contents_box" style="width:1500px; height:500px;">
-    <button id="button_1" type="button" onclick="location.href='http://localhost:8090/mainboard2?searchKeyword2=제조'">제조업</button>
-    <button id="button_2" type="button" onclick="location.href='http://localhost:8090/mainboard2?searchKeyword2=건설'">건설업</button>
-    <button id="button_3" type="button" onclick="location.href='http://localhost:8090/mainboard2?searchKeyword2=도매 및 소매업'">도매 및 소매업</button>
-    <button id="button_4" type="button" onclick="location.href='http://localhost:8090/mainboard2?searchKeyword2=운수'">운수업</button>
-    <button id="button_5" type="button" onclick="location.href='http://localhost:8090/mainboard2?searchKeyword2=숙박 및 음식점업'">숙박 및 음식점업</button>
-    <button id="button_6" type="button" onclick="location.href='http://localhost:8090/mainboard2?searchKeyword2=금융서비스'">금융서비스업</button>
-    <button id="button_7" type="button" onclick="location.href='http://localhost:8090/mainboard2?searchKeyword2=교육서비스'">교육서비스업</button>
-    <button id="button_8" type="button" onclick="location.href='http://localhost:8090/mainboard2?searchKeyword2=사회복지'">사회복지 서비스업</button>
-    <button id="button_9" type="button" onclick="location.href='http://localhost:8090/mainboard2?searchKeyword2=광업'">광업</button>
+  <p id="page_description" style="display:inline;">
+    업종별 기업 조회가 가능합니다.
+  </p>
+</div>
+
+<div class="wrap">
+  <div class="contents_box" style="width:1500px; height:400px;">
+
+    <button id="button_1" type="button" onclick="location.href='http://localhost:8090/mainboard?searchKeyword1=제조'">제조업</button>
+    <button id="button_2" type="button" onclick="location.href='http://localhost:8090/mainboard?searchKeyword1=건설'">건설업</button>
+    <button id="button_3" type="button" onclick="location.href='http://localhost:8090/mainboard?searchKeyword1=도매 및 소매업'">도매 및 소매업</button>
+    <button id="button_4" type="button" onclick="location.href='http://localhost:8090/mainboard?searchKeyword1=운수'">운수업</button>
+    <button id="button_5" type="button" onclick="location.href='http://localhost:8090/mainboard?searchKeyword1=숙박 및 음식점업'">숙박 및 음식점업</button>
+    <button id="button_6" type="button" onclick="location.href='http://localhost:8090/mainboard?searchKeyword1=금융서비스'">금융서비스업</button>
+    <button id="button_7" type="button" onclick="location.href='http://localhost:8090/mainboard?searchKeyword1=교육서비스'">교육서비스업</button>
+    <button id="button_8" type="button" onclick="location.href='http://localhost:8090/mainboard?searchKeyword1=사회복지'">사회복지 서비스업</button>
+    <button id="button_9" type="button" onclick="location.href='http://localhost:8090/mainboard?searchKeyword1=광업'">광업</button>
 
   </div>
 </div>

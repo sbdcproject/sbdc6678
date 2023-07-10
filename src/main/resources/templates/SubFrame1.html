@@ -4,13 +4,13 @@
   <meta charset="UTF-8">
   <title>중소기업 정보조회 시스템</title>
   <style>
-<!--        body{-->
-<!--        background-image:url("/img/v996-013.jpg");-->
-<!--        background-repeat : no-repeat;-->
-<!--        background-size : cover;-->
-<!--        resize: both;-->
-<!--        overflow: scroll;-->
-<!--        }-->
+        body{
+        background-color : #FAFAFA;
+        background-repeat : no-repeat;
+        background-size : cover;
+        resize: both;
+        overflow: scroll;
+        }
 
         #button_1:hover{
         background-color: gray;
@@ -42,46 +42,46 @@
 
         #button_1{
         border: 1px solid sky-blue;
-        background-color: rgba(0,0,0,0);
+        background-color:#FFFFFF;
         color: sky-blue;
         padding: 30px 50px 30px 50px;
         font-size: 20px;
 
         margin-left: 15%;
+        box-shadow: 3px 3px 3px rgb(109, 109, 109);
 
-        border-top-left-radius: 10px;
-        border-bottom-right-radius: 10px;
+        border-radius: 10px;
         }
 
         #button_2{
         border: 1px solid sky-blue;
-        background-color: rgba(0,0,0,0);
+        background-color: #FFFFFF;
         color: sky-blue;
         padding: 30px 50px 30px 50px;
         font-size: 20px;
 
         margin-left: 10%;
 
-        border-top-left-radius: 10px;
-        border-bottom-right-radius: 10px;
+        border-radius: 10px;
+        box-shadow: 3px 3px 3px rgb(109, 109, 109);
         }
 
         #button_3{
         border: 1px solid sky-blue;
-        background-color: rgba(0,0,0,0);
+        background-color: #FFFFFF;
         color: sky-blue;
         padding: 30px 50px 30px 50px;
         font-size: 20px;
 
         margin-left: 10%;
 
-        border-top-left-radius: 10px;
-        border-bottom-right-radius: 10px;
+        border-radius: 10px;
+        box-shadow: 3px 3px 3px rgb(109, 109, 109);
         }
 
         #button_4{
         border: 1px solid sky-blue;
-        background-color: rgba(0,0,0,0);
+        background-color: #FFFFFF;
         color: sky-blue;
         padding: 30px 50px 30px 50px;
         font-size: 20px;
@@ -89,27 +89,27 @@
         margin-left: 15%;
         margin-top: 5%;
 
-        border-top-left-radius: 10px;
-        border-bottom-right-radius: 10px;
+        border-radius: 10px;
+        box-shadow: 3px 3px 3px rgb(109, 109, 109);
         }
 
         #button_5{
         border: 1px solid sky-blue;
-        background-color: rgba(0,0,0,0);
+        background-color: #FFFFFF;
         color: sky-blue;
-        padding: 30px 30px 30px 30px;
+        padding: 30px 50px 30px 50px;
         font-size: 20px;
 
         margin-left: 10%;
         margin-top: 5%;
 
-        border-top-left-radius: 10px;
-        border-bottom-right-radius: 10px;
+        border-radius: 10px;
+        box-shadow: 3px 3px 3px rgb(109, 109, 109);
         }
 
         #button_6{
         border: 1px solid sky-blue;
-        background-color: rgba(0,0,0,0);
+        background-color: #FFFFFF;
         color: sky-blue;
         padding: 30px 60px 30px 60px;
         font-size: 20px;
@@ -117,13 +117,13 @@
         margin-left: 10%;
         margin-top: 5%;
 
-        border-top-left-radius: 10px;
-        border-bottom-right-radius: 10px;
+        border-radius: 10px;
+        box-shadow: 3px 3px 3px rgb(109, 109, 109);
         }
 
         #button_7{
         border: 1px solid sky-blue;
-        background-color: rgba(0,0,0,0);
+        background-color: #FFFFFF;
         color: sky-blue;
         padding: 30px 50px 30px 50px;
         font-size: 20px;
@@ -131,8 +131,13 @@
         margin-left: 15%;
         margin-top: 5%;
 
-        border-top-left-radius: 10px;
-        border-bottom-right-radius: 10px;
+        border-radius: 10px;
+        box-shadow: 3px 3px 3px rgb(109, 109, 109);
+        }
+
+        .title{
+        margin-top: 30px;
+        margin-bottom: 50px;
         }
 
         #page_title{
@@ -140,7 +145,26 @@
         margin-top: 5%;
         }
 
-    </style>
+        .container-fluid{
+        background-image : url('https://estm.sbdc.or.kr/statics/images/comm/bg_header.png');
+        height: 150px;
+        margin-bottom: -55px;
+        }
+
+        .title{
+        border:0px solid;
+        padding:10px;
+        width: 52%;
+        height: 60px;
+        background-color: #FFFFFF;
+        margin-left: 5%;
+        border-radius: 10px;
+        box-shadow: 5px 5px 5px gray;
+        }
+
+
+  </style>
+
 </head>
 <body>
 <div id="main" class="container-fluid">
@@ -148,25 +172,36 @@
     <div id="left_nav" class="clo-md-8">
       <ul id="navbar_main" class="nav navbar-collapse navbar-nav navbar-left" style="list-style: none; padding-left: 0px;">
         <li id="main-logo"  style="margin-right: 30px; cursor: pointer;">
-          <img id="logo" src="/img/중소기업유통센터-2015변경_투명.png" style="width:300px; height:80px;">
+          <img id="logo" src="https://estm.sbdc.or.kr/statics/images/comm/img_logo.png" style="width:260px; height:45px; margin-top: 3%; margin-left:3%">
         </li>
       </ul>
     </div>
   </div>
 </div>
-<div class="wrap">
-  <h1 id="page_title" style="height:50px; width: 100%;">
+
+<div class="title">
+  <h1 id="page_title" style="height:50px; width: 500px; display: inline;">
     확인서/인증서별 조회
   </h1>
-  <div class="contents_box" style="width:1500px; height:500px;">
+  <p id="page_description" style="display:inline;">
+    기업이 보유한 확인서/인증서별 기업 조회가 가능합니다.
+  </p>
+</div>
 
-    <button id="button_1" type="button" onclick="location.href='http://localhost:8090/mainboard?searchKeyword=중소기업#'">중소기업 확인서</button>
-    <button id="button_2" type="button" onclick="location.href='http://localhost:8090/mainboard?searchKeyword=여성기업#'">여성기업 확인서</button>
-    <button id="button_3" type="button" onclick="location.href='http://localhost:8090/mainboard?searchKeyword=장애기업#'">장애인기업 확인서</button>
-    <button id="button_4" type="button" onclick="location.href='http://localhost:8090/mainboard?searchKeyword=직접생산#'">직접생산 확인서</button>
-    <button id="button_5" type="button" onclick="location.href='http://localhost:8090/mainboard?searchKeyword=성능인증#'">성능인증발급 확인서</button>
-    <button id="button_6" type="button" onclick="location.href='http://localhost:8090/mainboard?searchKeyword=창업기업#'">창업기업 확인서</button>
-    <button id="button_7" type="button" onclick="location.href='http://localhost:8090/mainboard?searchKeyword=간주기업#'">간주기업 확인서</button>
+<div class="wrap">
+
+  <div class="contents_box" style="width:1500px; height:400px;">
+
+    <form th:action="@{/mainboard}" method="get">
+      <button id="button_1" type="submit" value="중소기업" name="searchKeyword">중소기업확인서</button>
+      <button id="button_2" type="submit" value="여성기업" name="searchKeyword">여성기업확인서</button>
+      <button id="button_3" type="submit" value="장애인기업" name="searchKeyword">장애인기업확인서</button>
+      <button id="button_4" type="submit" value="직접생산" name="searchKeyword">직접생산확인서</button>
+      <button id="button_5" type="submit" value="성능인증" name="searchKeyword">성능인증확인서</button>
+      <button id="button_6" type="submit" value="창업기업" name="searchKeyword">창업기업확인서</button>
+      <button id="button_7" type="submit" value="간주기업" name="searchKeyword">간주기업확인서</button>
+    </form>
+
   </div>
 </div>
 
