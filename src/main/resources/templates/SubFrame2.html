@@ -58,11 +58,11 @@
     <label for="BusinessNumber">사업자등록번호를 입력해주세요:</label>
 
     <form th:action="@{/mainboard}" method="get">
-      <input id="BusinessNumber" type="text" name="searchKeyword">
+      <input type="hidden" value="" name="searchKeyword">
+      <input type="hidden" value="" name="searchKeyword1">
+      <input id="BusinessNumber" type="text" name="searchKeyword2">
       <button type="submit">검색</button>
     </form>
-
-
 
   </div>
 </div>
