@@ -10,32 +10,17 @@ import org.springframework.stereotype.Service;
 @Service
 public class BoardService {
 
-
-
-
-    public void write(TB_BOARD board){
-
-        boardRepository.save(board);
-    }
+    @Autowired
+    private BoardRepository boardRepository;
 
     public Page<TB_BOARD> boardList(Pageable pageable){
 
         return boardRepository.findAll(pageable);
     }
 
-
-    @Autowired
-    private BoardRepository boardRepository;
-
     public Page<TB_BOARD> boardSearchList(String searchKeyword, String searchKeyword1, String searchKeyword2, Pageable pageable){
         return boardRepository.findByCERTIFICATIOMContainingAndSERVICECODEContainingAndCOMPANYNUMContaining(searchKeyword, searchKeyword1, searchKeyword2, pageable);
     }
 
-
-
-
-    public TB_BOARD boardView(Integer id){
-        return boardRepository.findById(id).get();
-    }
 }
 

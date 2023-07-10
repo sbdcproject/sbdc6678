@@ -33,12 +33,15 @@ public class BoardController {
         return "SubFrame2";
     }
 
+
+
     @GetMapping("/mainboard")
     public String boardList(Model model,
                             @PageableDefault(page = 0, size = 10) Pageable pageable,
                             String searchKeyword, String searchKeyword1, String searchKeyword2){
 
         Page<TB_BOARD> list = null;
+        Page<TB_BOARD> certificationlist = null;
 
         if(searchKeyword == null && searchKeyword1 == null && searchKeyword2 == null) {
             list = boardService.boardList(pageable);
@@ -57,6 +60,7 @@ public class BoardController {
 
         return "MainBoard";
     }
+
 
 
 

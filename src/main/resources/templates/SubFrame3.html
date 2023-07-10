@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
   <meta charset="UTF-8">
   <title>중소기업 정보조회 시스템</title>
@@ -215,15 +215,60 @@
     업종별 조회
   </h1>
   <div class="contents_box" style="width:1500px; height:500px;">
-    <button id="button_1" type="button" onclick="location.href='http://localhost:8090/mainboard?searchKeyword1=제조'">제조업</button>
-    <button id="button_2" type="button" onclick="location.href='http://localhost:8090/mainboard?searchKeyword1=건설'">건설업</button>
-    <button id="button_3" type="button" onclick="location.href='http://localhost:8090/mainboard?searchKeyword1=도매 및 소매업'">도매 및 소매업</button>
-    <button id="button_4" type="button" onclick="location.href='http://localhost:8090/mainboard?searchKeyword1=운수'">운수업</button>
-    <button id="button_5" type="button" onclick="location.href='http://localhost:8090/mainboard?searchKeyword1=숙박 및 음식점업'">숙박 및 음식점업</button>
-    <button id="button_6" type="button" onclick="location.href='http://localhost:8090/mainboard?searchKeyword1=금융서비스'">금융서비스업</button>
-    <button id="button_7" type="button" onclick="location.href='http://localhost:8090/mainboard?searchKeyword1=교육서비스'">교육서비스업</button>
-    <button id="button_8" type="button" onclick="location.href='http://localhost:8090/mainboard?searchKeyword1=사회복지'">사회복지 서비스업</button>
-    <button id="button_9" type="button" onclick="location.href='http://localhost:8090/mainboard?searchKeyword1=광업'">광업</button>
+    <form class="form" th:action="@{/mainboard}" method="get" style="padding: 5px 5px 5px 5px;">
+      <input type="hidden" value="" name="searchKeyword">
+      <input type="hidden" value="제조업" name="searchKeyword1">
+      <input type="hidden" value="" name="searchKeyword2">
+      <input id="button_1" type="submit" value="제조업">
+    </form>
+    <form class="form" th:action="@{/mainboard}" method="get" style="padding: 5px 5px 5px 5px;">
+      <input type="hidden" value="" name="searchKeyword">
+      <input type="hidden" value="건설업" name="searchKeyword1">
+      <input type="hidden" value="" name="searchKeyword2">
+      <input id="button_1" type="submit" value="건설업">
+    </form>
+    <form class="form" th:action="@{/mainboard}" method="get" style="padding: 5px 5px 5px 5px;">
+      <input type="hidden" value="" name="searchKeyword">
+      <input type="hidden" value="소매업" name="searchKeyword1">
+      <input type="hidden" value="" name="searchKeyword2">
+      <input id="button_1" type="submit" value="도매 및 소매업">
+    </form>
+    <form class="form" th:action="@{/mainboard}" method="get" style="padding: 5px 5px 5px 5px;">
+      <input type="hidden" value="" name="searchKeyword">
+      <input type="hidden" value="운수업" name="searchKeyword1">
+      <input type="hidden" value="" name="searchKeyword2">
+      <input id="button_1" type="submit" value="운수업">
+    </form>
+    <form class="form" th:action="@{/mainboard}" method="get" style="padding: 5px 5px 5px 5px;">
+      <input type="hidden" value="" name="searchKeyword">
+      <input type="hidden" value="숙박" name="searchKeyword1">
+      <input type="hidden" value="" name="searchKeyword2">
+      <input id="button_1" type="submit" value="숙박 및 음식점업">
+    </form>
+    <form class="form" th:action="@{/mainboard}" method="get" style="padding: 5px 5px 5px 5px;">
+      <input type="hidden" value="" name="searchKeyword">
+      <input type="hidden" value="금융서비스업" name="searchKeyword1">
+      <input type="hidden" value="" name="searchKeyword2">
+      <input id="button_1" type="submit" value="금융서비스업">
+    </form>
+    <form class="form" th:action="@{/mainboard}" method="get" style="padding: 5px 5px 5px 5px;">
+      <input type="hidden" value="" name="searchKeyword">
+      <input type="hidden" value="교육서비스업" name="searchKeyword1">
+      <input type="hidden" value="" name="searchKeyword2">
+      <input id="button_1" type="submit" value="교육서비스업">
+    </form>
+    <form class="form" th:action="@{/mainboard}" method="get" style="padding: 5px 5px 5px 5px;">
+      <input type="hidden" value="" name="searchKeyword">
+      <input type="hidden" value="사회복지" name="searchKeyword1">
+      <input type="hidden" value="" name="searchKeyword2">
+      <input id="button_1" type="submit" value="사회복지 서비스업">
+    </form>
+    <form class="form" th:action="@{/mainboard}" method="get" style="padding: 5px 5px 5px 5px;">
+      <input type="hidden" value="" name="searchKeyword">
+      <input type="hidden" value="광업" name="searchKeyword1">
+      <input type="hidden" value="" name="searchKeyword2">
+      <input id="button_1" type="submit" value="광업">
+    </form>
 
   </div>
 </div>
