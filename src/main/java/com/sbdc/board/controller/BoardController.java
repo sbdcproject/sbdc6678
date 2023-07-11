@@ -24,8 +24,10 @@ public class BoardController {
 
     @GetMapping("/subframe1")
     public String subframeportal1(){
+
         return "SubFrame1";
     }
+
 
     @GetMapping("/subframe2")
     public String subframeportal2(){
