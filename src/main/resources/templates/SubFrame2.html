@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
   <title>중소기업 정보조회 시스템</title>
@@ -10,6 +10,190 @@
         background-size : cover;
         resize: both;
         overflow: scroll;
+        }
+
+        #button_1:hover{
+        background-color: gray;
+        }
+
+        #button_2:hover{
+        background-color: gray;
+        }
+
+        #button_3:hover{
+        background-color: gray;
+        }
+
+        #button_4:hover{
+        background-color: gray;
+        }
+
+        #button_5:hover{
+        background-color: gray;
+        }
+
+        #button_6:hover{
+        background-color: gray;
+        }
+
+        #button_7:hover{
+        background-color: gray;
+        }
+
+        #button_8:hover{
+        background-color: gray;
+        }
+
+        #button_9:hover{
+        background-color: gray;
+        }
+
+        #button_1{
+        border: 1px solid sky-blue;
+        background-color: rgba(0,0,0,0);
+        color: sky-blue;
+        padding: 30px 50px 30px 50px;
+        font-size: 20px;
+        width : 240px;
+        height : 90px;
+
+        margin-left: 15%;
+        box-shadow: 3px 3px 3px rgb(109, 109, 109);
+
+        border-radius: 10px;
+
+        }
+
+        #button_2{
+        border: 1px solid sky-blue;
+        background-color: rgba(0,0,0,0);
+        color: sky-blue;
+        padding: 30px 50px 30px 50px;
+        font-size: 20px;
+        width : 240px;
+        height : 90px;
+
+
+        margin-left: 10%;
+        box-shadow: 3px 3px 3px rgb(109, 109, 109);
+
+        border-radius: 10px;
+        }
+
+        #button_3{
+        border: 1px solid sky-blue;
+        background-color: rgba(0,0,0,0);
+        color: sky-blue;
+        padding: 30px 50px 30px 50px;
+        font-size: 20px;
+        width : 240px;
+        height : 90px;
+
+        margin-left: 10%;
+        box-shadow: 3px 3px 3px rgb(109, 109, 109);
+
+        border-radius: 10px;
+        }
+
+        #button_4{
+        border: 1px solid sky-blue;
+        background-color: rgba(0,0,0,0);
+        color: sky-blue;
+        padding: 30px 50px 30px 50px;
+        font-size: 20px;
+        width : 240px;
+        height : 90px;
+
+        margin-left: 15%;
+        margin-top: 5%;
+        box-shadow: 3px 3px 3px rgb(109, 109, 109);
+
+        border-radius: 10px;
+        }
+
+        #button_5{
+        border: 1px solid sky-blue;
+        background-color: rgba(0,0,0,0);
+        color: sky-blue;
+        padding: 30px 30px 30px 30px;
+        font-size: 20px;
+        width : 240px;
+        height : 90px;
+
+        margin-left: 10%;
+        margin-top: 5%;
+        box-shadow: 3px 3px 3px rgb(109, 109, 109);
+
+        border-radius: 10px;
+        }
+
+        #button_6{
+        border: 1px solid sky-blue;
+        background-color: rgba(0,0,0,0);
+        color: sky-blue;
+        padding: 30px 30px 30px 30px;
+        font-size: 20px;
+        width : 240px;
+        height : 90px;
+
+        margin-left: 10%;
+        margin-top: 5%;
+        box-shadow: 3px 3px 3px rgb(109, 109, 109);
+
+        border-radius: 10px;
+        }
+
+        #button_7{
+        border: 1px solid sky-blue;
+        background-color: rgba(0,0,0,0);
+        color: sky-blue;
+        padding: 30px 50px 30px 50px;
+        font-size: 20px;
+        width : 240px;
+        height : 90px;
+
+        margin-left: 15%;
+        margin-top: 5%;
+        box-shadow: 3px 3px 3px rgb(109, 109, 109);
+
+        border-radius: 10px;
+        }
+
+        #page_title{
+        margin-left: 5%;
+        margin-top: 5%;
+        }
+
+        #button_8{
+        border: 1px solid sky-blue;
+        background-color: rgba(0,0,0,0);
+        color: sky-blue;
+        padding: 30px 30px 30px 30px;
+        font-size: 20px;
+        width : 240px;
+        height : 90px;
+
+        margin-left: 10%;
+        margin-top: 5%;
+        box-shadow: 3px 3px 3px rgb(109, 109, 109);
+
+        border-radius: 10px;
+        }
+
+        #button_9{
+        border: 1px solid sky-blue;
+        background-color: rgba(0,0,0,0);
+        color: sky-blue;
+        padding: 30px 50px 30px 50px;
+        font-size: 20px;
+        width : 240px;
+        height : 90px;
+
+        margin-left: 10%;
+        margin-top: 5%;
+        box-shadow: 3px 3px 3px rgb(109, 109, 109);
+
+        border-radius: 10px;
         }
 
         .title{
@@ -39,25 +223,9 @@
         box-shadow: 5px 5px 5px gray;
         }
 
-        .search-box{
-        width: 1300px;
-        height: 150px;
-        background-color:#ECF5FF;
-        margin: auto;
-        box-shadow: 3px 3px 3px rgb(109, 109, 109);
-        }
 
-        #search-btn{
-        height: 35px;
-        width: 100px;
-        color: #FFFFFF;
-        background-color: #1455A9;
-        font-size: 15px;
-        font-weight: 500;
-        border:0px solid;
-        border-radius: 5px;
+  </style>
 
-    </style>
 </head>
 <body>
 <div id="main" class="container-fluid">
@@ -72,35 +240,35 @@
   </div>
 </div>
 
+<div class="title">
+  <h1 id="page_title" style="height:50px; width: 500px; display: inline;">
+    업종별 조회
+  </h1>
+  <p id="page_description" style="display:inline;">
+    업종별 기업 조회가 가능합니다.
+  </p>
+</div>
+
 <div class="wrap">
-  <div class="title">
-    <h1 id="page_title" style="height:50px; width: 500px; display: inline;">
-      사업자등록번호별 조회
-    </h1>
-    <p id="page_description" style="display:inline;">
-      사업자등록번호를 검색하여 기업 조회가 가능합니다.
-    </p>
-  </div>
+  <div class="contents_box" style="width:1500px; height:400px;">
 
-<div class="search-box">
+    <form th:action="@{/mainboard}" method="get">
+      <button id="button_1" type="submit" value="제조업" name="searchKeyword1">제조업</button>
+      <button id="button_2" type="submit" value="건설업" name="searchKeyword1">건설업</button>
+      <button id="button_3" type="submit" value="도매 및 소매업" name="searchKeyword1">도매 및 소매업</button>
+      <button id="button_4" type="submit" value="운수업" name="searchKeyword1">운수업</button>
+      <button id="button_5" type="submit" value="숙박 및 음식점업" name="searchKeyword1">숙박 및 음식점업</button>
+      <button id="button_6" type="submit" value="금융서비스업" name="searchKeyword1">금융서비스업</button>
+      <button id="button_7" type="submit" value="교육서비스업" name="searchKeyword1">교육서비스업</button>
+      <button id="button_8" type="submit" value="사회복지 서비스업" name="searchKeyword1">사회복지 서비스업</button>
+      <button id="button_9" type="submit" value="광업" name="searchKeyword1">광업</button>
 
-  <div id="title" style="width: 150px; margin-top: 5%; margin-left: 10%; display: inline-block;">
-    <label for="BusinessNumber" style="font-size: 17px; color: #2E2E2E">
-      <strong>사업자등록번호 :
-      </strong>
-    </label>
-  </div>
-
-    <form th:action="@{/mainboard}" method="get" style="width: 800px; display: inline-block">
       <input type="hidden" value="" name="searchKeyword">
-      <input type="hidden" value="" name="searchKeyword1">
-      <input id="BusinessNumber" type="text" name="searchKeyword2" style="width: 500px; height: 30px; border: solid 1px #E6E6E6;">
-      <button id="search-btn" type="submit" style="margin-left: 10px;">
-        <strong>조회</strong>
-      </button>
+      <input type="hidden" value="" name="searchKeyword2">
     </form>
 
   </div>
+</div>
 
 </body>
 </html>

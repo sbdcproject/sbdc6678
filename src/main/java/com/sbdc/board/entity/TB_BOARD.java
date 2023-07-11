@@ -26,7 +26,7 @@ public class TB_BOARD {
     private String COMPANYNUM;
 
     @Column(nullable = false)
-    private String CERTIFICATIOM;
+    private String CERTIFICATION;
 
 }
 

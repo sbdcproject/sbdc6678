@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
   <title>중소기업 정보조회 시스템</title>
@@ -196,6 +196,16 @@
         border-radius: 10px;
         }
 
+        .title{
+        margin-top: 30px;
+        margin-bottom: 50px;
+        }
+
+        #page_title{
+        margin-left: 5%;
+        margin-top: 5%;
+        }
+
         .container-fluid{
         background-image : url('https://estm.sbdc.or.kr/statics/images/comm/bg_header.png');
         height: 150px;
@@ -214,7 +224,8 @@
         }
 
 
-    </style>
+  </style>
+
 </head>
 <body>
 <div id="main" class="container-fluid">
@@ -240,59 +251,20 @@
 
 <div class="wrap">
   <div class="contents_box" style="width:1500px; height:400px;">
-    <form class="form" th:action="@{/mainboard}" method="get" style="padding: 5px 5px 5px 5px; margin-left: 15%;">
+
+    <form th:action="@{/mainboard}" method="get">
+      <button id="button_1" type="submit" value="제조업" name="searchKeyword1">제조업</button>
+      <button id="button_2" type="submit" value="건설업" name="searchKeyword1">건설업</button>
+      <button id="button_3" type="submit" value="도매 및 소매업" name="searchKeyword1">도매 및 소매업</button>
+      <button id="button_4" type="submit" value="운수업" name="searchKeyword1">운수업</button>
+      <button id="button_5" type="submit" value="숙박 및 음식점업" name="searchKeyword1">숙박 및 음식점업</button>
+      <button id="button_6" type="submit" value="금융서비스업" name="searchKeyword1">금융서비스업</button>
+      <button id="button_7" type="submit" value="교육서비스업" name="searchKeyword1">교육서비스업</button>
+      <button id="button_8" type="submit" value="사회복지 서비스업" name="searchKeyword1">사회복지 서비스업</button>
+      <button id="button_9" type="submit" value="광업" name="searchKeyword1">광업</button>
+
       <input type="hidden" value="" name="searchKeyword">
-      <input type="hidden" value="제조업" name="searchKeyword1">
       <input type="hidden" value="" name="searchKeyword2">
-      <input id="button_1" type="submit" value="제조업">
-    </form>
-    <form class="form" th:action="@{/mainboard}" method="get" style="padding: 5px 5px 5px 5px; margin-left: 10%;">
-      <input type="hidden" value="" name="searchKeyword">
-      <input type="hidden" value="건설업" name="searchKeyword1">
-      <input type="hidden" value="" name="searchKeyword2">
-      <input id="button_2" type="submit" value="건설업">
-    </form>
-    <form class="form" th:action="@{/mainboard}" method="get" style="padding: 5px 5px 5px 5px; margin-left: 10%;">
-      <input type="hidden" value="" name="searchKeyword">
-      <input type="hidden" value="소매업" name="searchKeyword1">
-      <input type="hidden" value="" name="searchKeyword2">
-      <input id="button_3" type="submit" value="도매 및 소매업">
-    </form>
-    <form class="form" th:action="@{/mainboard}" method="get" style="padding: 5px 5px 5px 5px; margin-left: 15%; margin-top: 5%;">
-      <input type="hidden" value="" name="searchKeyword">
-      <input type="hidden" value="운수업" name="searchKeyword1">
-      <input type="hidden" value="" name="searchKeyword2">
-      <input id="button_4" type="submit" value="운수업">
-    </form>
-    <form class="form" th:action="@{/mainboard}" method="get" style="padding: 5px 5px 5px 5px; margin-left: 10%; margin-top: 5%;">
-      <input type="hidden" value="" name="searchKeyword">
-      <input type="hidden" value="숙박" name="searchKeyword1">
-      <input type="hidden" value="" name="searchKeyword2">
-      <input id="button_5" type="submit" value="숙박 및 음식점업">
-    </form>
-    <form class="form" th:action="@{/mainboard}" method="get" style="padding: 5px 5px 5px 5px; margin-left: 10%; margin-top: 5%;">
-      <input type="hidden" value="" name="searchKeyword">
-      <input type="hidden" value="금융서비스업" name="searchKeyword1">
-      <input type="hidden" value="" name="searchKeyword2">
-      <input id="button_6" type="submit" value="금융서비스업">
-    </form>
-    <form class="form" th:action="@{/mainboard}" method="get" style="padding: 5px 5px 5px 5px; margin-left: 15%; margin-top: 5%;">
-      <input type="hidden" value="" name="searchKeyword">
-      <input type="hidden" value="교육서비스업" name="searchKeyword1">
-      <input type="hidden" value="" name="searchKeyword2">
-      <input id="button_7" type="submit" value="교육서비스업">
-    </form>
-    <form class="form" th:action="@{/mainboard}" method="get" style="padding: 5px 5px 5px 5px; margin-left: 10%; margin-top: 5%;">
-      <input type="hidden" value="" name="searchKeyword">
-      <input type="hidden" value="사회복지" name="searchKeyword1">
-      <input type="hidden" value="" name="searchKeyword2">
-      <input id="button_8" type="submit" value="사회복지 서비스업">
-    </form>
-    <form class="form" th:action="@{/mainboard}" method="get" style="padding: 5px 5px 5px 5px; margin-left: 10%; margin-top: 5%;">
-      <input type="hidden" value="" name="searchKeyword">
-      <input type="hidden" value="광업" name="searchKeyword1">
-      <input type="hidden" value="" name="searchKeyword2">
-      <input id="button_9" type="submit" value="광업">
     </form>
 
   </div>

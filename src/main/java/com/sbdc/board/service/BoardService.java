@@ -19,7 +19,7 @@ public class BoardService {
     }
 
     public Page<TB_BOARD> boardSearchList(String searchKeyword, String searchKeyword1, String searchKeyword2, Pageable pageable){
-        return boardRepository.findByCERTIFICATIOMContainingAndSERVICECODEContainingAndCOMPANYNUMContaining(searchKeyword, searchKeyword1, searchKeyword2, pageable);
+        return boardRepository.findByCERTIFICATIONContainingAndSERVICECODEContainingAndCOMPANYNUMContaining(searchKeyword, searchKeyword1, searchKeyword2, pageable);
     }
 
 }
