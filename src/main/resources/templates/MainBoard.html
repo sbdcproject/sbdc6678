@@ -5,37 +5,9 @@
     <title>중소기업 정보 조회</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 
-    <script>
-<!--        주소 입력창에 입력된 파라미터 값을 다른 값으로 변경하기-->
-        function changeFn(){
-            var value = (cer_select.options[cer_select.selectedIndex].value);
-            const URLSearch = new URLSearchParams(location.search);
-            URLSearch.set('searchKeyword', String(value));
-            const newParam = URLSearch.toString();
-
-            window.open(location.pathname + '?' + newParam, '_self');
-            }
-
-        function changeFn1(){
-            var value = (cer_select1.options[cer_select1.selectedIndex].value);
-            const URLSearch = new URLSearchParams(location.search);
-            URLSearch.set('searchKeyword1', String(value));
-            const newParam = URLSearch.toString();
-
-            window.open(location.pathname + '?' + newParam, '_self');
-            }
-    </script>
-
-    <script type="text/javascript">
-        function changeFn2(){
-            let value = document.getElementById('inputValue').value;
-            const URLSearch = new URLSearchParams(location.search);
-            URLSearch.set('searchKeyword2', String(value));
-            const newParam = URLSearch.toString();
-
-            window.open(location.pathname + '?' + newParam, "_self");
-            }
-    </script>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"
+    integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
+    crossorigin="anonymous"></script>
 
     <style>
 
@@ -65,20 +37,75 @@
     background-color: gray;
     }
 
+    .form{
+    width: 1100px;;
+    height: 70px;
+    background-color:#ECF5FF;
+    margin-bottom: 50px;
+    box-shadow: 3px 3px 3px rgb(109, 109, 109);
+    }
+
     </style>
+
 </head>
 
 
+
 <body>
+
+    <script>
+
+            $(document).ready(function() {
+                const URLSearch = new URLSearchParams(location.search);
+                const searchKeyword = URLSearch.get('searchKeyword');
+                const searchKeyword1 = URLSearch.get('searchKeyword1');
+                const searchKeyword2 = URLSearch.get('searchKeyword2');
+
+                $("#cer_select").val(searchKeyword).prop("selected", true);
+                $("#cer_select1").val(searchKeyword1).prop("selected", true);
+                $('#inputValue').val(searchKeyword2);
+
+            });
+
+            function changeFn(){
+                var value = (cer_select.options[cer_select.selectedIndex].value);
+                const URLSearch = new URLSearchParams(location.search);
+                URLSearch.set('searchKeyword', String(value));
+                const newParam = URLSearch.toString();
+
+                window.open(location.pathname + '?' + newParam, '_self');
+            }
+
+            function changeFn1(){
+                var value = (cer_select1.options[cer_select1.selectedIndex].value);
+                const URLSearch = new URLSearchParams(location.search);
+                URLSearch.set('searchKeyword1', String(value));
+                const newParam = URLSearch.toString();
+
+                window.open(location.pathname + '?' + newParam, '_self');
+
+            }
+    </script>
+
+    <script type="text/javascript">
+        function changeFn2(){
+            let value = document.getElementById('inputValue').value;
+            const URLSearch = new URLSearchParams(location.search);
+            URLSearch.set('searchKeyword2', String(value));
+            const newParam = URLSearch.toString();
+
+            window.open(location.pathname + '?' + newParam, "_self");
+            }
+    </script>
 
 
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous"></script>
 
 <header class="d-flex align-items-center pb-3 border-bottom" style="height: 150px; background-color: rgb(0,52,113);">
-    <a href="/" class="d-flex align-items-center text-body-emphasis text-decoration-none">
+    <a href="http://localhost:8090/mainframe" class="d-flex align-items-center text-body-emphasis text-decoration-none">
         <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
-        <li id="main-logo"  style="margin-right: 30px; margin-top: 10px; cursor: pointer; list-style: none; padding-left: 0px;">
+        <li id="main-logo" style="margin-right: 30px; margin-top: 10px; cursor: pointer; list-style: none; padding-left: 0px;">
             <img id="logo" src="https://estm.sbdc.or.kr/statics/images/comm/img_logo.png" style="width:260px; height:45px; margin-top: 3%; margin-left:3%">
         </li>
     </a>
@@ -125,46 +152,58 @@
     <main>
         <h2 style="font-size: 20px; margin-bottom: 30px; margin-top: 20px;"><strong>기업정보 조회</strong></h2>
 
-        <div style="margin-bottom: 10px;">
-            <button id="button_3" type="button">저장</button>
+        <div style="margin-bottom: 20px; margin-left: 87%;">
+            <button type="button" style="height: 30px; width: 100px; box-shadow: 0px 5px 10px -7px; background-color: #FFFFFF; border: 0.5px solid; border-radius:12px;" onclick="location.href='http://localhost:8090/myboard'">
+                <b>업체 저장</b>
+            </button>
         </div>
 
-        <form>
-            <div>확인서/인증서 조회</div>
-            <select id = cer_select name = cer_select onchange="changeFn()">
-                <option value=" ">==확인서/인증서 선택==</option>
-                <option value="중소기업">중소기업</option>
-                <option value="여성기업">여성기업</option>
-                <option value="장애기업">장애기업</option>
-                <option value="직접생산">직접생산</option>
-                <option value="성능인증">성능인증</option>
-                <option value="창업기업">창업기업</option>
-                <option value="간주기업">간주기업</option>
-            </select>
-        </form>
 
-        <form>
-            <div>업종 조회</div>
-            <select id = cer_select1 name = car_select1 onchange="changeFn1()">
-                <option value=" ">==업종 선택==</option>
-                <option value="제조업" >제조업</option>
-                <option value="건설업">건설업</option>
-                <option value="도매">도매 및 소매업</option>
-                <option value="운수업">운수업</option>
-                <option value="숙박">숙박 및 음식점업</option>
-                <option value="금융서비스업">금융서비스업</option>
-                <option value="교육서비스업">교육서비스업</option>
-                <option value="사회복지">사회복지 서비스업</option>
-                <option value="광업">광업</option>
-            </select>
-        </form>
+    <div class="form">
 
+            <form style="width: 400px; margin-left:25px; margin-top: 25px; float:left;">
+                <div style="width:150px; float:left;"><strong>확인서/인증서 선택</strong></div>
+                <div style="width:100px; display:inline-block; margin-left:0px;">
+                    <select id = cer_select name = cer_select onchange="changeFn()">
+                        <option value=" ">==확인서/인증서 선택==</option>
+                        <option value="중소기업">중소기업</option>
+                        <option value="여성기업">여성기업</option>
+                        <option value="장애기업">장애인기업</option>
+                        <option value="직접생산">직접생산</option>
+                        <option value="성능인증">성능인증</option>
+                        <option value="창업기업">창업기업</option>
+                        <option value="간주기업">간주기업</option>
+                    </select>
+                </div>
+            </form>
 
-        <form>
-            <div>사업자등록번호 조회</div>
-            <input id="inputValue" type="text" onchange="changeFn2()">
-            <input type="submit" value="검색">
-        </form>
+            <form style="width: 250px; margin-top: 25px; display:inline-block; margin-left:-10px; float:left;">
+                <div style="width:80px; float:left;"><strong>업종 선택</strong></div>
+                <div style="width:100px; display:inline-block; margin-left:0px;">
+                    <select id = cer_select1 name = car_select1 onchange="changeFn1()">
+                        <option value=" ">==업종 선택==</option>
+                        <option value="제조업" >제조업</option>
+                        <option value="건설업">건설업</option>
+                        <option value="도매">도매 및 소매업</option>
+                        <option value="운수업">운수업</option>
+                        <option value="숙박">숙박 및 음식점업</option>
+                        <option value="금융서비스업">금융서비스업</option>
+                        <option value="교육서비스업">교육서비스업</option>
+                        <option value="사회복지">사회복지 서비스업</option>
+                        <option value="광업">광업</option>
+                    </select>
+                </div>
+            </form>
+
+            <form style="width: 400px; display:inline-block; margin-top: 22px; margin-left:20px;">
+                <div style="width:120px; float:left;"><strong>사업자등록번호</strong></div>
+                <div style="width:270px; display:inline-block; margin-left:0px;">
+                    <input id="inputValue" style="width: 200px; height:25px; " type="text" onchange="changeFn2()">
+                    <input type="submit" style="height:25px" value="검색">
+                </div>
+            </form>
+
+    </div>
 
 
         <div class="table-responsive small">
@@ -193,7 +232,7 @@
 
             <th:block th:each="page : ${#numbers.sequence(startPage, endPage)}">
                 <a th:if="${page != nowPage}" th:href="@{/mainboard(page = ${page -1}, searchKeyword = ${param.searchKeyword}, searchKeyword1 = ${param.searchKeyword1}, searchKeyword2 = ${param.searchKeyword2})}" th:text="${page}"></a>
-                <strong th:if="${page == nowPage}" style="color : red"></strong>
+                <strong th:if="${page == nowPage}" th:text="${page}" style="color : red"></strong>
             </th:block>
         </div>
     </main>
