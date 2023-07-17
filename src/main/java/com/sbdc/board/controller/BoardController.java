@@ -2,14 +2,17 @@ package com.sbdc.board.controller;
 
 import com.sbdc.board.entity.TB_BOARD;
 
+import com.sbdc.board.entity.TB_BOARD_SAVE;
 import com.sbdc.board.service.BoardService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
 
 
 @Controller
@@ -37,13 +40,13 @@ public class BoardController {
 
 
 
+    @Nullable
     @GetMapping("/mainboard")
     public String boardList(Model model,
                             @PageableDefault(page = 0, size = 10) Pageable pageable,
                             String searchKeyword, String searchKeyword1, String searchKeyword2){
 
         Page<TB_BOARD> list = null;
-        Page<TB_BOARD> certificationlist = null;
 
         if(searchKeyword == null && searchKeyword1 == null && searchKeyword2 == null) {
             list = boardService.boardList(pageable);
@@ -64,8 +67,11 @@ public class BoardController {
     }
 
 
-
-
+    @GetMapping("/mainboard/save")
+    public String boardSavePro(TB_BOARD_SAVE boardsave){
+        boardService.boardsave(boardsave);
+        return "";
+    }
 
 
     @GetMapping("/myboard")
