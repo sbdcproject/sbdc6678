@@ -226,7 +226,7 @@ alert(input.value);
                 <tbody>
                 <tr th:each="TB_BOARD, TB_BOARDStat: ${list} ">
                     <td>
-                        <input type="submit" th:value="${TB_BOARDStat.current.COMPANYNAME}" name="INPUT" onclick="getCheckboxValue()">
+                        <input type="submit" th:value="${TB_BOARDStat.current.SERVICECODE}" name="INPUT" onclick="getCheckboxValue()">
                         <input type="hidden" th:hidden="${TB_BOARDStat.current.COMPANYNAME}" name="INPUT">
                     </td>
                     <td th:text="${TB_BOARD.COLUMN1}">Text</td>
