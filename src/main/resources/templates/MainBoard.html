@@ -84,6 +84,7 @@
                 var value = (cer_select.options[cer_select.selectedIndex].value);
                 const URLSearch = new URLSearchParams(location.search);
                 URLSearch.set('searchKeyword', String(value));
+                URLSearch.set('page', 0);
                 const newParam = URLSearch.toString();
 
                 window.open(location.pathname + '?' + newParam, '_self');
@@ -93,6 +94,7 @@
                 var value = (cer_select1.options[cer_select1.selectedIndex].value);
                 const URLSearch = new URLSearchParams(location.search);
                 URLSearch.set('searchKeyword1', String(value));
+                URLSearch.set('page', 0);
                 const newParam = URLSearch.toString();
 
                 window.open(location.pathname + '?' + newParam, '_self');
@@ -106,6 +108,7 @@
             const URLSearch = new URLSearchParams(location.search);
             URLSearch.set('searchKeyword2', String(value));
             const newParam = URLSearch.toString();
+            URLSearch.set('page', 0);
 
             window.open(location.pathname + '?' + newParam, "_self");
             }
