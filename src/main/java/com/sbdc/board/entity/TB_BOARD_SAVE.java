@@ -1,4 +1,4 @@
-package com.sbdc.board.entity;
+/*package com.sbdc.board.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -30,4 +30,4 @@ public class TB_BOARD_SAVE {
     @Column(nullable = true)
     private String CERTIFICATION_SAVE;
 
-}
+}*/

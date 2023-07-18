@@ -41,19 +41,23 @@
         }
 
         #button_1{
+        width: 270px;
+        height: 100px;
         border: 1px solid sky-blue;
         background-color:#FFFFFF;
         color: sky-blue;
         padding: 30px 50px 30px 50px;
         font-size: 20px;
 
-        margin-left: 15%;
+        margin-left: 13%;
         box-shadow: 3px 3px 3px rgb(109, 109, 109);
 
         border-radius: 10px;
         }
 
         #button_2{
+        width: 270px;
+        height: 100px;
         border: 1px solid sky-blue;
         background-color: #FFFFFF;
         color: sky-blue;
@@ -67,6 +71,8 @@
         }
 
         #button_3{
+        width: 270px;
+        height: 100px;
         border: 1px solid sky-blue;
         background-color: #FFFFFF;
         color: sky-blue;
@@ -80,20 +86,24 @@
         }
 
         #button_4{
+        width: 270px;
+        height: 100px;
         border: 1px solid sky-blue;
         background-color: #FFFFFF;
         color: sky-blue;
         padding: 30px 50px 30px 50px;
         font-size: 20px;
 
-        margin-left: 15%;
-        margin-top: 5%;
+        margin-left: 13%;
+        margin-top: 100px;
 
         border-radius: 10px;
         box-shadow: 3px 3px 3px rgb(109, 109, 109);
         }
 
         #button_5{
+        width: 270px;
+        height: 100px;
         border: 1px solid sky-blue;
         background-color: #FFFFFF;
         color: sky-blue;
@@ -108,6 +118,8 @@
         }
 
         #button_6{
+        width: 270px;
+        height: 100px;
         border: 1px solid sky-blue;
         background-color: #FFFFFF;
         color: sky-blue;
@@ -115,20 +127,6 @@
         font-size: 20px;
 
         margin-left: 10%;
-        margin-top: 5%;
-
-        border-radius: 10px;
-        box-shadow: 3px 3px 3px rgb(109, 109, 109);
-        }
-
-        #button_7{
-        border: 1px solid sky-blue;
-        background-color: #FFFFFF;
-        color: sky-blue;
-        padding: 30px 50px 30px 50px;
-        font-size: 20px;
-
-        margin-left: 15%;
         margin-top: 5%;
 
         border-radius: 10px;
@@ -170,11 +168,13 @@
 <div id="main" class="container-fluid">
   <div id="head_row" class="row">
     <div id="left_nav" class="clo-md-8">
-      <ul id="navbar_main" class="nav navbar-collapse navbar-nav navbar-left" style="list-style: none; padding-left: 0px;">
-        <li id="main-logo"  style="margin-right: 30px; cursor: pointer;">
-          <img id="logo" src="https://estm.sbdc.or.kr/statics/images/comm/img_logo.png" style="width:260px; height:45px; margin-top: 3%; margin-left:3%">
-        </li>
-      </ul>
+      <a href="http://localhost:8090/mainframe" class="d-flex align-items-center text-body-emphasis text-decoration-none">
+        <ul id="navbar_main" class="nav navbar-collapse navbar-nav navbar-left" style="list-style: none; padding-left: 0px;">
+          <li id="main-logo"  style="margin-right: 30px; cursor: pointer;">
+            <img id="logo" src="https://estm.sbdc.or.kr/statics/images/comm/img_logo.png" style="width:260px; height:45px; margin-top: 3%; margin-left:3%">
+          </li>
+        </ul>
+      </a>
     </div>
   </div>
 </div>
@@ -190,15 +190,15 @@
 
 <div class="wrap">
 
-  <div class="contents_box" style="width:1500px; height:400px;">
+  <div class="contents_box" style="width:1500px; height:300px; margin-top: 100px;">
 
     <form th:action="@{/mainboard}" method="get">
-      <button id="button_1" type="submit" value="중소기업" name="searchKeyword">중소기업 조회</button>
-      <button id="button_2" type="submit" value="여성기업" name="searchKeyword">여성기업 조회</button>
-      <button id="button_3" type="submit" value="장애인기업" name="searchKeyword">장애인기업 조회</button>
-      <button id="button_4" type="submit" value="대기업" name="searchKeyword">대기업 조회</button>
-      <button id="button_5" type="submit" value="사회적기업" name="searchKeyword">사회적기업 조회</button>
-      <button id="button_6" type="submit" value="창업기업" name="searchKeyword">창업기업 조회</button>
+      <button id="button_1" type="submit" value="중소기업" name="searchKeyword">중소기업확인서</button>
+      <button id="button_2" type="submit" value="여성기업" name="searchKeyword">여성기업확인서</button>
+      <button id="button_3" type="submit" value="장애인기업" name="searchKeyword">장애인기업확인서</button>
+      <button id="button_4" type="submit" value="대기업" name="searchKeyword">대기업확인서</button>
+      <button id="button_5" type="submit" value="사회적기업" name="searchKeyword">사회적기업확인서</button>
+      <button id="button_6" type="submit" value="창업기업" name="searchKeyword">창업기업확인서</button>
 
       <input type="hidden" value="" name="searchKeyword1">
       <input type="hidden" value="" name="searchKeyword2">
