@@ -2,7 +2,7 @@ package com.sbdc.board.controller;
 
 import com.sbdc.board.entity.TB_BOARD;
 
-/*import com.sbdc.board.entity.TB_BOARD_SAVE;*/
+import com.sbdc.board.entity.TB_BOARD_SAVE;
 import com.sbdc.board.service.BoardService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -68,12 +68,13 @@ public class BoardController {
     }
 
 
-    /*@GetMapping("/mainboard/save")
+    @Nullable
+    @GetMapping("/mainboard/save")
     public String boardSavePro(TB_BOARD_SAVE boardsave){
+
         boardService.boardsave(boardsave);
         return "";
-    }*/
-
+    }
 
     @GetMapping("/myboard")
     public String myboard(){

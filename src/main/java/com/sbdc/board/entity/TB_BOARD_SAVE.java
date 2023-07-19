@@ -1,4 +1,4 @@
-/*package com.sbdc.board.entity;
+package com.sbdc.board.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -11,6 +11,7 @@ import javax.persistence.*;
 @Table(name = "TB_BOARD_SAVE")
 @Getter
 @Setter
+@Data
 public class TB_BOARD_SAVE {
 
     @Column(nullable = true)
@@ -23,11 +24,11 @@ public class TB_BOARD_SAVE {
     private String SERVICECODE_SAVE;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.TABLE)
     @Column(nullable = true)
-    private String COMPANYNUM_SAVE;
+    private Long COMPANYNUM_SAVE;
 
     @Column(nullable = true)
     private String CERTIFICATION_SAVE;
 
-}*/
+}
