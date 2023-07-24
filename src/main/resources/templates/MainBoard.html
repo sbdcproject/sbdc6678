@@ -121,7 +121,6 @@
 
         var rowData = new Array();
         var tdArr = new Array();
-        var tdObj = new Object();
         var checkbox = $("input[name=my-checkbox]:checked");
 
         checkbox.each(function(i) {
@@ -137,19 +136,30 @@
         var num = td.eq(4).text();
         var cer = td.eq(5).text();
 
+        var num1 = Number(num);
+
         tdArr.push(no);
 		tdArr.push(name);
 		tdArr.push(code);
-		tdArr.push(num);
+		tdArr.push(num1);
 		tdArr.push(cer);
 
-		tdObj = {num: no, name, code, cer};
+		var tdArr0 = tdArr[0];
+		var tdArr1 = tdArr[1];
+		var tdArr2 = tdArr[2];
+		var tdArr3 = tdArr[3];
+		var tdArr4 = tdArr[4];
+
+
+        document.formPost.COLUMN1_SAVE.value=tdArr0;
+        document.formPost.COMPANYNAME_SAVE.value=tdArr1;
+        document.formPost.SERVICECODE_SAVE.value=tdArr2;
+        document.getElementById("COMPANYNUM_SAVE").value=tdArr3;
+        document.formPost.CERTIFICATION_SAVE.value=tdArr4;
 
 		});
-
-		$("#ex3_Result2").html(tdObj);
-        $("#ex3_Result3").html(tdArr);
-        return tdObj;
+		$("#ex3_Result2").html(tdArr);
+        $("#ex3_Result3").html(typeof(tdArr3));
 		}
 
 
@@ -216,10 +226,15 @@
         <!--        </div>-->
 
         <div style="margin-bottom: 20px; margin-left: 87%;">
-            <form action="/mainboard/save">
-            <button type="submit" id="my-btn" onclick="saveFn()">
+            <form name="formPost" action="/mainboard/save" method="post">
+                <input type="hidden" name="COLUMN1_SAVE" value="">
+                <input type="hidden" name="COMPANYNAME_SAVE" value="">
+                <input type="hidden" name="SERVICECODE_SAVE" value="">
+                <input type="hidden" id="COMPANYNUM_SAVE" name="COMPANYNUM_SAVE" value="">
+                <input type="hidden" name="CERTIFICATION_SAVE" value="">
+                <input type="submit" onclick=saveFn();>
                 <b>업체저장</b>
-            </button>
+            </input>
             </form>
         </div>
 

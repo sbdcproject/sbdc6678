@@ -4,6 +4,10 @@ import com.sbdc.board.entity.TB_BOARD;
 
 import com.sbdc.board.entity.TB_BOARD_SAVE;
 import com.sbdc.board.service.BoardService;
+import com.sun.istack.NotNull;
+import com.sun.org.apache.xpath.internal.objects.XNumber;
+import com.sun.org.apache.xpath.internal.operations.Number;
+import org.springframework.boot.env.SystemEnvironmentPropertySourceEnvironmentPostProcessor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
@@ -13,6 +17,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
+import sun.awt.geom.AreaOp;
+import sun.util.calendar.LocalGregorianCalendar;
+
+import javax.xml.soap.SOAPPart;
+import java.sql.SQLOutput;
+import java.util.Date;
 
 
 @Controller
@@ -69,12 +79,14 @@ public class BoardController {
 
 
     @Nullable
-    @GetMapping("/mainboard/save")
-    public String boardSavePro(TB_BOARD_SAVE boardsave){
+    @PostMapping("/mainboard/save")
+    public String boardSavePro(TB_BOARD_SAVE boardsave) {
+        boardsave.setCOMPANYNUM_SAVE(boardsave.getCOMPANYNUM_SAVE());
 
         boardService.boardsave(boardsave);
         return "";
     }
+
 
     @GetMapping("/myboard")
     public String myboard(){

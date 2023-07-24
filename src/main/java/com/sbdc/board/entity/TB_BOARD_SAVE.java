@@ -15,7 +15,7 @@ import javax.persistence.*;
 public class TB_BOARD_SAVE {
 
     @Column(nullable = true)
-    private Integer COLUMN1_SAVE;
+    private String COLUMN1_SAVE;
 
     @Column(nullable = true)
     private String COMPANYNAME_SAVE;
@@ -24,9 +24,9 @@ public class TB_BOARD_SAVE {
     private String SERVICECODE_SAVE;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = true)
-    private Long COMPANYNUM_SAVE;
+    private Integer COMPANYNUM_SAVE;
 
     @Column(nullable = true)
     private String CERTIFICATION_SAVE;
