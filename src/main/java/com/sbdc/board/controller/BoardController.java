@@ -92,12 +92,26 @@ public class BoardController {
 
         boardService.boardsave(boardsave);
 
-        return "MyBoard";
+
+        return "redirect:/myboard/";
     }
 
 
     @GetMapping("/myboard")
-    public String myboard(){
+    public String myboard(Model model,
+                          @PageableDefault(page = 0, size = 10) Pageable pageable){
+
+        Page<TB_BOARD_SAVE> list = boardService.boardsaveList(pageable);
+
+        int nowPage = list.getPageable().getPageNumber() + 1;
+        int startPage = Math.max(nowPage - 4, 1);
+        int endPage = (list.getTotalPages() == 0) ? 1 : Math.min(nowPage + 5, list.getTotalPages());
+
+
+        model.addAttribute("list", list);
+        model.addAttribute("nowPage", nowPage);
+        model.addAttribute("startPage", startPage);
+        model.addAttribute("endPage", endPage);
 
         return "MyBoard";
     }

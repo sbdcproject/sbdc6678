@@ -27,6 +27,13 @@ public class BoardService {
 
         return boardRepository.findAll(pageable);
     }
+
+    @Nullable
+    public Page<TB_BOARD_SAVE> boardsaveList(Pageable pageable){
+
+        return boardRepository_save.findAll(pageable);
+    }
+
     @Nullable
     public Page<TB_BOARD> boardSearchList(String searchKeyword, String searchKeyword1, String searchKeyword2, Pageable pageable){
         return boardRepository.findByCERTIFICATIONContainingAndSERVICECODEContainingAndCOMPANYNUMContaining(searchKeyword, searchKeyword1, searchKeyword2, pageable);
