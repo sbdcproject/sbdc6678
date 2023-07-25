@@ -8,25 +8,26 @@ import lombok.Setter;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "TB_BOARD")
+@Table(name = "TB_BOARD_SAVE")
 @Getter
 @Setter
-public class TB_BOARD {
+@Data
+public class TB_BOARD_SAVE {
 
     @Column(nullable = true)
-    private Integer COLUMN1;
+    private String COLUMN1_SAVE;
 
     @Column(nullable = true)
-    private String COMPANYNAME;
+    private String COMPANYNAME_SAVE;
 
     @Column(nullable = true)
-    private String SERVICECODE;
+    private String SERVICECODE_SAVE;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String COMPANYNUM;
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer COMPANYNUM_SAVE;
 
     @Column(nullable = true)
-    private String CERTIFICATION;
+    private String CERTIFICATION_SAVE;
 
 }
