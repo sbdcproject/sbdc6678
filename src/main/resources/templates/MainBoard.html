@@ -150,12 +150,14 @@
 		var tdArr3 = tdArr[3];
 		var tdArr4 = tdArr[4];
 
+        document.formPost.COLUMN1_SAVE.value = tdArr0;
+        document.formPost.COMPANYNAME_SAVE.value = tdArr1;
+        document.formPost.SERVICECODE_SAVE.value = tdArr2;
+        document.formPost.COMPANYNUM_SAVE.value = tdArr3;
+        document.formPost.CERTIFICATION_SAVE.value = tdArr4;
 
-        document.formPost.COLUMN1_SAVE.value=tdArr0;
-        document.formPost.COMPANYNAME_SAVE.value=tdArr1;
-        document.formPost.SERVICECODE_SAVE.value=tdArr2;
-        document.getElementById("COMPANYNUM_SAVE").value=tdArr3;
-        document.formPost.CERTIFICATION_SAVE.value=tdArr4;
+        alert(typeof(document.formPost.COMPANYNUM_SAVE.value));
+
 
 		});
 		$("#ex3_Result2").html(tdArr);
@@ -230,7 +232,7 @@
                 <input type="hidden" name="COLUMN1_SAVE" value="">
                 <input type="hidden" name="COMPANYNAME_SAVE" value="">
                 <input type="hidden" name="SERVICECODE_SAVE" value="">
-                <input type="hidden" id="COMPANYNUM_SAVE" name="COMPANYNUM_SAVE" value="">
+                <input type="hidden" name="COMPANYNUM_SAVE" value="">
                 <input type="hidden" name="CERTIFICATION_SAVE" value="">
                 <input type="submit" onclick=saveFn();>
                 <b>업체저장</b>

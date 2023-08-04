@@ -10,6 +10,6 @@ import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface BoardRepository_save extends JpaRepository<TB_BOARD_SAVE, Integer> {
+public interface BoardRepository_save extends JpaRepository<TB_BOARD_SAVE, String> {
 
 }

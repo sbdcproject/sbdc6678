@@ -24,9 +24,8 @@ public class TB_BOARD_SAVE {
     private String SERVICECODE_SAVE;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(nullable = true)
-    private Integer COMPANYNUM_SAVE;
+    @Column
+    private String COMPANYNUM_SAVE;
 
     @Column(nullable = true)
     private String CERTIFICATION_SAVE;
