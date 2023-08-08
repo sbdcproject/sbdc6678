@@ -46,4 +46,9 @@ public class BoardService {
         boardRepository_save.save(boardsave);
     }
 
+    public void boardDelete(String COMPANYNUM_SAVE) {
+        boardRepository_save.deleteById(COMPANYNUM_SAVE);
+        System.out.println(COMPANYNUM_SAVE);
+    }
+
 }

@@ -122,4 +122,11 @@ public class BoardController {
         return "SubFrame3";
     }
 
+    @PostMapping("/myboard/delete")
+    public String boardDelete(String COMPANYNUM_SAVE){
+        System.out.println(COMPANYNUM_SAVE);
+        boardService.boardDelete(COMPANYNUM_SAVE);
+
+        return "redirect:/myboard";
+    }
 }
