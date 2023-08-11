@@ -1,8 +1,10 @@
 package com.sbdc.board.service;
 
 import com.sbdc.board.entity.TB_BOARD;
+import com.sbdc.board.entity.TB_BOARD_NUM;
 import com.sbdc.board.entity.TB_BOARD_SAVE;
 import com.sbdc.board.repository.BoardRepository;
+import com.sbdc.board.repository.BoardRepository_num;
 import com.sbdc.board.repository.BoardRepository_save;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -10,8 +12,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.List;
 
 
 @Service
@@ -22,10 +22,19 @@ public class BoardService {
     private BoardRepository boardRepository;
     @Autowired
     private BoardRepository_save boardRepository_save;
+
+    @Autowired
+    private BoardRepository_num boardRepository_num;
     @Nullable
     public Page<TB_BOARD> boardList(Pageable pageable){
 
         return boardRepository.findAll(pageable);
+    }
+
+    @Nullable
+    public Page<TB_BOARD_NUM> boardListnum(Pageable pageable){
+
+        return boardRepository_num.findAll(pageable);
     }
 
     @Nullable
@@ -39,6 +48,11 @@ public class BoardService {
         return boardRepository.findByCERTIFICATIONContainingAndSERVICECODEContainingAndCOMPANYNUMContaining(searchKeyword, searchKeyword1, searchKeyword2, pageable);
     }
 
+    @Nullable
+    public Page<TB_BOARD_NUM> boardSearchListnum(String searchKeyword3, String searchKeyword1, String searchKeyword2, Pageable pageable){
+        return boardRepository_num.findAllByCOMPANYNAMENUMContainingAndSERVICECODENUMContainingAndCOMPANYNUMNUMContaining(searchKeyword3, searchKeyword1, searchKeyword2, pageable);
+    }
+
 
     @Nullable
     public void boardsave(TB_BOARD_SAVE boardsave) {
@@ -50,5 +64,6 @@ public class BoardService {
         boardRepository_save.deleteById(COMPANYNUM_SAVE);
         System.out.println(COMPANYNUM_SAVE);
     }
+
 
 }

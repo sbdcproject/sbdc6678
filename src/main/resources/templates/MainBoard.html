@@ -58,6 +58,11 @@
     border-radius:12px;
     }
 
+    #tableflow{
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    }
+
     </style>
 
 </head>
@@ -122,8 +127,6 @@
         var rowData = new Array();
         var tdArr = new Array();
         var checkbox = $("input[name=my-checkbox]:checked");
-
-        alert(checkbox);
 
         checkbox.each(function(i) {
 
@@ -327,7 +330,9 @@
                 <tr th:each="TB_BOARD : ${list} ">
                     <td><input type="checkbox" name="my-checkbox"></td>
                     <td th:text="${TB_BOARD.COLUMN1}">Text</td>
-                    <td th:text="${TB_BOARD.COMPANYNAME}">Text</td>
+                    <td>
+                        <a th:text="${TB_BOARD.COMPANYNAME}" th:href="@{/board/view(searchKeyword=, searchKeyword1=${TB_BOARD.SERVICECODE}, searchKeyword2=${TB_BOARD.COMPANYNUM}, searchKeyword3=${TB_BOARD.COMPANYNAME})}" onclick="window.open(this.href, '_blank', width=400, height=400')"></a>
+                    </td>
                     <td th:text="${TB_BOARD.SERVICECODE}">Text</td>
                     <td th:text="${TB_BOARD.COMPANYNUM}">Text</td>
                     <td th:text="${TB_BOARD.CERTIFICATION}">Text</td>
