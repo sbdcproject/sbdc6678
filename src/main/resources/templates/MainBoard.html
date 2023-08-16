@@ -5,37 +5,9 @@
     <title>중소기업 정보 조회</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 
-    <script>
-<!--        주소 입력창에 입력된 파라미터 값을 다른 값으로 변경하기-->
-        function changeFn(){
-            var value = (cer_select.options[cer_select.selectedIndex].value);
-            const URLSearch = new URLSearchParams(location.search);
-            URLSearch.set('searchKeyword', String(value));
-            const newParam = URLSearch.toString();
-
-            window.open(location.pathname + '?' + newParam, '_self');
-            }
-
-        function changeFn1(){
-            var value = (cer_select1.options[cer_select1.selectedIndex].value);
-            const URLSearch = new URLSearchParams(location.search);
-            URLSearch.set('searchKeyword1', String(value));
-            const newParam = URLSearch.toString();
-
-            window.open(location.pathname + '?' + newParam, '_self');
-            }
-    </script>
-
-    <script type="text/javascript">
-        function changeFn2(){
-            let value = document.getElementById('inputValue').value;
-            const URLSearch = new URLSearchParams(location.search);
-            URLSearch.set('searchKeyword2', String(value));
-            const newParam = URLSearch.toString();
-
-            window.open(location.pathname + '?' + newParam, "_self");
-            }
-    </script>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"
+            integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
+            crossorigin="anonymous"></script>
 
     <style>
 
@@ -65,20 +37,163 @@
     background-color: gray;
     }
 
+    .form{
+    width: 1100px;;
+    height: 70px;
+    background-color:#ECF5FF;
+    margin-bottom: 50px;
+    box-shadow: 3px 3px 3px rgb(109, 109, 109);
+    }
+
+    #my-btn:hover{
+    background-color: gray;
+    }
+
+    #my-btn{
+    height: 30px;
+    width: 100px;
+    box-shadow: 0px 5px 10px -7px;
+    background-color: #FFFFFF;
+    border: 0.5px solid;
+    border-radius:12px;
+    }
+
     </style>
+
 </head>
 
 
+
 <body>
+
+<script>
+
+            $(document).ready(function() {
+                const URLSearch = new URLSearchParams(location.search);
+                const searchKeyword = URLSearch.get('searchKeyword');
+                const searchKeyword1 = URLSearch.get('searchKeyword1');
+                const searchKeyword2 = URLSearch.get('searchKeyword2');
+
+                $("#cer_select").val(searchKeyword).prop("selected", true);
+                $("#cer_select1").val(searchKeyword1).prop("selected", true);
+                $('#inputValue').val(searchKeyword2);
+
+            });
+
+            function changeFn(){
+                var value = (cer_select.options[cer_select.selectedIndex].value);
+                const URLSearch = new URLSearchParams(location.search);
+                URLSearch.set('searchKeyword', String(value));
+                URLSearch.set('page', 0);
+                const newParam = URLSearch.toString();
+
+                window.open(location.pathname + '?' + newParam, '_self');
+            }
+
+            function changeFn1(){
+                var value = (cer_select1.options[cer_select1.selectedIndex].value);
+                const URLSearch = new URLSearchParams(location.search);
+                URLSearch.set('searchKeyword1', String(value));
+                URLSearch.set('page', 0);
+                const newParam = URLSearch.toString();
+
+                window.open(location.pathname + '?' + newParam, '_self');
+
+            }
+    </script>
+
+<script type="text/javascript">
+        function changeFn2(){
+            let value = document.getElementById('inputValue').value;
+            const URLSearch = new URLSearchParams(location.search);
+            URLSearch.set('searchKeyword2', String(value));
+            const newParam = URLSearch.toString();
+            URLSearch.set('page', 0);
+
+            window.open(location.pathname + '?' + newParam, "_self");
+            }
+    </script>
+
+<script>
+        function saveFn(){
+
+        alert("나의 업체 목록에 저장되었습니다.");
+
+        var rowData = new Array();
+        var tdArr = new Array();
+        var checkbox = $("input[name=my-checkbox]:checked");
+
+        checkbox.each(function(i) {
+
+        var tr = checkbox.parent().parent().eq(i);
+        var td = tr.children();
+
+<!--        rowData.push(tr.text());-->
+
+        var no = td.eq(1).text();
+        var name = td.eq(2).text();
+        var code = td.eq(3).text();
+        var num = td.eq(4).text();
+        var cer = td.eq(5).text();
+
+        var num1 = Number(num);
+
+        tdArr.push(no);
+		tdArr.push(name);
+		tdArr.push(code);
+		tdArr.push(num1);
+		tdArr.push(cer);
+
+<!--		var tdArr0 = tdArr[0];-->
+<!--		var tdArr1 = tdArr[1];-->
+<!--		var tdArr2 = tdArr[2];-->
+<!--		var tdArr3 = tdArr[3];-->
+<!--		var tdArr4 = tdArr[4];-->
+
+        var n;
+        var num = (tdArr.length)/5;
+
+        for (let n = 0; n < num; n++) {
+
+        document.formPost.COLUMN1_SAVE.value = tdArr[5*n];
+        document.formPost.COMPANYNAME_SAVE.value = tdArr[5*n+1];
+        document.formPost.SERVICECODE_SAVE.value = tdArr[5*n+2];
+        document.formPost.COMPANYNUM_SAVE.value = tdArr[5*n+3];
+        document.formPost.CERTIFICATION_SAVE.value = tdArr[5*n+4];
+
+        submitFn();
+
+        }
+
+
+<!--        document.formPost.COLUMN1_SAVE.value = tdArr[0];-->
+<!--        document.formPost.COMPANYNAME_SAVE.value = tdArr[1];-->
+<!--        document.formPost.SERVICECODE_SAVE.value = tdArr[2];-->
+<!--        document.formPost.COMPANYNUM_SAVE.value = tdArr[3];-->
+<!--        document.formPost.CERTIFICATION_SAVE.value = tdArr[4];-->
+
+		});
+		$("#ex3_Result2").html(tdArr);
+        $("#ex3_Result3").html(tdArr[8]);
+		}
+
+
+    </script>
+
+<script>
+    function submitFn(){
+        document.getElementById("formPost").submit();
+        }
+</script>
 
 
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous"></script>
 
 <header class="d-flex align-items-center pb-3 border-bottom" style="height: 150px; background-color: rgb(0,52,113);">
-    <a href="/" class="d-flex align-items-center text-body-emphasis text-decoration-none">
+    <a href="http://localhost:8090/mainframe" class="d-flex align-items-center text-body-emphasis text-decoration-none">
         <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
-        <li id="main-logo"  style="margin-right: 30px; margin-top: 10px; cursor: pointer; list-style: none; padding-left: 0px;">
+        <li id="main-logo" style="margin-right: 30px; margin-top: 10px; cursor: pointer; list-style: none; padding-left: 0px;">
             <img id="logo" src="https://estm.sbdc.or.kr/statics/images/comm/img_logo.png" style="width:260px; height:45px; margin-top: 3%; margin-left:3%">
         </li>
     </a>
@@ -86,7 +201,7 @@
 
 <div class="col-lg-8 mx-auto p-4">
     <header class="d-flex align-items-center pb-3 mb-2 border-bottom" style="margin-left:30px">
-        <a href="/" class="d-flex align-items-center text-body-emphasis text-decoration-none">
+        <a href="http://localhost:8090/mainframe" class="d-flex align-items-center text-body-emphasis text-decoration-none">
             <svg class="bi me-2" width="30" height="32"><use xlink:href="#bootstrap"></use></svg>
             <span class="fs-4">
                 <strong>중소기업 정보조회 시스템</strong>
@@ -106,7 +221,7 @@
         <li>
             <a href="#" class="nav-link link-body-emphasis">
                 <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#speedometer2"></use></svg>
-                <button id="button_1" type="button" style="width: 200px; height: 30px;" onclick="location.href='http://localhost:8090/mainboard#'"><strong>기업정보 조회</strong></button>
+                <button id="button_1" type="button" style="width: 200px; height: 30px;" onclick="location.href='http://localhost:8090/mainboard?searchKeyword=&searchKeyword1=&searchKeyword2='"><strong>기업정보 조회</strong></button>
             </a>
         </li>
         <li>
@@ -125,46 +240,89 @@
     <main>
         <h2 style="font-size: 20px; margin-bottom: 30px; margin-top: 20px;"><strong>기업정보 조회</strong></h2>
 
-        <div style="margin-bottom: 10px;">
-            <button id="button_3" type="button">저장</button>
+
+        <div style="margin-bottom: 20px; margin-left: 87%;">
+            <button onclick="saveFn()">제출</button>
+            <form id="formPost" name="formPost" action="/mainboard/save" method="post">
+                <input type="hidden" name="COLUMN1_SAVE" value="">
+                <input type="hidden" name="COMPANYNAME_SAVE" value="">
+                <input type="hidden" name="SERVICECODE_SAVE" value="">
+                <input type="hidden" name="COMPANYNUM_SAVE" value="">
+                <input type="hidden" name="CERTIFICATION_SAVE" value="">
+<!--                <input type="submit" onclick=saveFn();>-->
+                <input type="submit">
+                <b>업체저장</b>
+                </input>
+            </form>
         </div>
 
-        <form>
-            <div>확인서/인증서 조회</div>
-            <select id = cer_select name = cer_select onchange="changeFn()">
-                <option value=" ">==확인서/인증서 선택==</option>
-                <option value="중소기업">중소기업</option>
-                <option value="여성기업">여성기업</option>
-                <option value="장애기업">장애기업</option>
-                <option value="직접생산">직접생산</option>
-                <option value="성능인증">성능인증</option>
-                <option value="창업기업">창업기업</option>
-                <option value="간주기업">간주기업</option>
-            </select>
-        </form>
+        <div class="form">
 
-        <form>
-            <div>업종 조회</div>
-            <select id = cer_select1 name = car_select1 onchange="changeFn1()">
-                <option value=" ">==업종 선택==</option>
-                <option value="제조업" >제조업</option>
-                <option value="건설업">건설업</option>
-                <option value="도매">도매 및 소매업</option>
-                <option value="운수업">운수업</option>
-                <option value="숙박">숙박 및 음식점업</option>
-                <option value="금융서비스업">금융서비스업</option>
-                <option value="교육서비스업">교육서비스업</option>
-                <option value="사회복지">사회복지 서비스업</option>
-                <option value="광업">광업</option>
-            </select>
-        </form>
+            <form style="width: 400px; margin-left:25px; margin-top: 25px; float:left;">
+                <div style="width:150px; float:left;"><strong>확인서/인증서 선택</strong></div>
+                <div style="width:100px; display:inline-block; margin-left:0px;">
+                    <select id = cer_select name = cer_select onchange="changeFn()">
+                        <option value="">==확인서/인증서 선택==</option>
+                        <option value="중소기업">중소기업</option>
+                        <option value="여성기업">여성기업</option>
+                        <option value="장애기업">장애인기업</option>
+                        <option value="대기업">대기업</option>
+                        <option value="사회적기업">사회적기업</option>
+                        <option value="창업기업">창업기업</option>
+                    </select>
+                </div>
+            </form>
 
+            <form style="width: 250px; margin-top: 25px; display:inline-block; margin-left:-10px; float:left;">
+                <div style="width:80px; float:left;"><strong>업종 선택</strong></div>
+                <div style="width:100px; display:inline-block; margin-left:0px;">
+                    <select id = cer_select1 name = car_select1 onchange="changeFn1()">
+                        <option value="">==업종 선택==</option>
+                        <option value="임업" >임업</option>
+                        <option value="농업">농업</option>
+                        <option value="어업">어업</option>
+                        <option value="광업">광업</option>
+                        <option value="제조업">제조업</option>
+                        <option value="건설업">건설업</option>
+                        <option value="수도업">수도업</option>
+                        <option value="수도사업">수도사업</option>
+                        <option value="방송업">방송업</option>
+                        <option value="공급업" >공급업</option>
+                        <option value="운송업">운송업</option>
+                        <option value="도매">도매 및 소매업</option>
+                        <option value="중개업">중개업</option>
+                        <option value="금융업">금융업</option>
+                        <option value="판매업">판매업</option>
+                        <option value="서비스업">서비스업</option>
+                        <option value="주점업">주점업</option>
+                        <option value="프로그래밍">프로그래밍</option>
+                        <option value="정보통신업" >정보통신업</option>
+                        <option value="통신업">통신업</option>
+                        <option value="연구개발업">연구개발업</option>
+                        <option value="보건업">보건업</option>
+                        <option value="모든">모든 업종</option>
+                        <option value="부동산업">부동산업</option>
+                        <option value="임대업">임대업</option>
+                        <option value="창고업">창고업</option>
+                        <option value="복원업">복원업</option>
+                        <option value="수리업">수리업</option>
+                        <option value="관리업">관리업</option>
+                        <option value="복제업">복제업</option>
+                        <option value="출판업">출판업</option>
+                        <option value="배급업">배급업</option>
+                    </select>
+                </div>
+            </form>
 
-        <form>
-            <div>사업자등록번호 조회</div>
-            <input id="inputValue" type="text" onchange="changeFn2()">
-            <input type="submit" value="검색">
-        </form>
+            <form onsubmit="return false;" style="width: 400px; display:inline-block; margin-top: 22px; margin-left:20px;">
+                <div style="width:120px; float:left;"><strong>사업자등록번호</strong></div>
+                <div style="width:270px; display:inline-block; margin-left:0px;">
+                    <input id="inputValue" style="width: 200px; height:25px; " type="text" onchange="changeFn2()">
+                    <input type="submit" style="height:25px" value="검색">
+                </div>
+            </form>
+
+        </div>
 
 
         <div class="table-responsive small">
@@ -181,7 +339,7 @@
                 </thead>
                 <tbody>
                 <tr th:each="TB_BOARD : ${list} ">
-                    <td><input type="checkbox" name="xxx" value="yyy"></td>
+                    <td><input type="checkbox" name="my-checkbox"></td>
                     <td th:text="${TB_BOARD.COLUMN1}">Text</td>
                     <td th:text="${TB_BOARD.COMPANYNAME}">Text</td>
                     <td th:text="${TB_BOARD.SERVICECODE}">Text</td>
@@ -191,11 +349,16 @@
                 </tbody>
             </table>
 
+
             <th:block th:each="page : ${#numbers.sequence(startPage, endPage)}">
                 <a th:if="${page != nowPage}" th:href="@{/mainboard(page = ${page -1}, searchKeyword = ${param.searchKeyword}, searchKeyword1 = ${param.searchKeyword1}, searchKeyword2 = ${param.searchKeyword2})}" th:text="${page}"></a>
-                <strong th:if="${page == nowPage}" style="color : red"></strong>
+                <strong th:if="${page == nowPage}" th:text="${page}" style="color : red"></strong>
             </th:block>
         </div>
+
+        <div class="col-lg-12" id="ex3_Result2" ></div>
+        <div class="col-lg-12" id="ex3_Result3" ></div>
+
     </main>
 </div>
 

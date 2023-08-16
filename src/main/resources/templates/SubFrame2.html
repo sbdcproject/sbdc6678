@@ -65,11 +65,13 @@
 <div id="main" class="container-fluid">
   <div id="head_row" class="row">
     <div id="left_nav" class="clo-md-8">
-      <ul id="navbar_main" class="nav navbar-collapse navbar-nav navbar-left" style="list-style: none; padding-left: 0px;">
-        <li id="main-logo"  style="margin-right: 30px; cursor: pointer;">
-          <img id="logo" src="https://estm.sbdc.or.kr/statics/images/comm/img_logo.png" style="width:260px; height:45px; margin-top: 3%; margin-left:3%">
-        </li>
-      </ul>
+      <a href="http://localhost:8090/mainframe" class="d-flex align-items-center text-body-emphasis text-decoration-none">
+        <ul id="navbar_main" class="nav navbar-collapse navbar-nav navbar-left" style="list-style: none; padding-left: 0px;">
+          <li id="main-logo"  style="margin-right: 30px; cursor: pointer;">
+            <img id="logo" src="https://estm.sbdc.or.kr/statics/images/comm/img_logo.png" style="width:260px; height:45px; margin-top: 3%; margin-left:3%">
+          </li>
+        </ul>
+      </a>
     </div>
   </div>
 </div>
@@ -87,24 +89,24 @@
 
   <div class="search-box">
 
-      <div id="title" style="width: 150px; margin-top: 5%; margin-left: 10%; display: inline-block;">
-        <label for="BusinessNumber" style="font-size: 17px; color: #2E2E2E">
-          <strong>사업자등록번호 :
-          </strong>
-        </label>
-      </div>
+    <div id="title" style="width: 150px; margin-top: 5%; margin-left: 10%; display: inline-block;">
+      <label for="BusinessNumber" style="font-size: 17px; color: #2E2E2E">
+        <strong>사업자등록번호 :
+        </strong>
+      </label>
+    </div>
 
-      <div id="search" style="width: 800px; display: inline-block">
+    <div id="search" style="width: 800px; display: inline-block">
 
-        <form th:action="@{/mainboard}" method="get">
-          <input type="hidden" value="" name="searchKeyword">
-          <input type="hidden" value="" name="searchKeyword1">
-          <input id="BusinessNumber" type="text" name="searchKeyword2" style="width: 500px; height: 30px; border: solid 1px #E6E6E6;">
-          <button id="search-btn" type="submit" style="margin-left: 10px;">
-            <strong>조회</strong></button>
-        </form>
+      <form th:action="@{/mainboard}" method="get">
+        <input type="hidden" value="" name="searchKeyword">
+        <input type="hidden" value="" name="searchKeyword1">
+        <input id="BusinessNumber" type="text" name="searchKeyword2" style="width: 500px; height: 30px; border: solid 1px #E6E6E6;">
+        <button id="search-btn" type="submit" style="margin-left: 10px;">
+          <strong>조회</strong></button>
+      </form>
 
-      </div>
+    </div>
 
   </div>
 </div>
