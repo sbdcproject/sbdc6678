@@ -129,11 +129,11 @@
         var td = tr.children();
 
 
-        var no = td.eq(1).text();
-        var name = td.eq(2).text();
-        var code = td.eq(3).text();
-        var num = td.eq(4).text();
-        var cer = td.eq(5).text();
+        var no = td.eq(1).text().trim();
+        var name = td.eq(2).text().trim();
+        var code = td.eq(3).text().trim();
+        var num = td.eq(4).text().trim();
+        var cer = td.eq(5).text().trim();
 
         var num1 = Number(num);
 
@@ -169,8 +169,7 @@
 
 
 		});
-		$("#ex3_Result2").html(tdArr);
-        $("#ex3_Result3").html(tdArr[8]);
+
 		}
 
 
