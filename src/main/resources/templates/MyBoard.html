@@ -37,52 +37,62 @@
 
 
 <script>
-  function saveFn(){
+        function saveFn(){
 
-        alert("나의 업체 목록에서 삭제되었습니다.");
+        alert("나의 업체 목록에 저장되었습니다.");
 
         var rowData = new Array();
         var tdArr = new Array();
-
         var checkbox = $("input[name=myboard-checkbox]:checked");
-
-        alert(checkbox);
 
         checkbox.each(function(i) {
 
         var tr = checkbox.parent().parent().eq(i);
         var td = tr.children();
 
-        rowData.push(tr.text());
-
-        var no = td.eq(1).text();
-        var name = td.eq(2).text();
-        var code = td.eq(3).text();
-        var num = td.eq(4).text();
-        var cer = td.eq(5).text();
+        var num = td.eq(4).text().trim();
 
         var num1 = Number(num);
 
-        tdArr.push(no);
-		tdArr.push(name);
-		tdArr.push(code);
-		tdArr.push(num1);
-		tdArr.push(cer);
+        tdArr.push(num1);
 
-		var tdArr0 = tdArr[0];
-		var tdArr1 = tdArr[1];
-		var tdArr2 = tdArr[2];
-		var tdArr3 = tdArr[3];
-		var tdArr4 = tdArr[4];
 
-        document.formPost.COMPANYNUM_SAVE.value = tdArr3;
+        var n;
+        var num = tdArr.length;
 
-        alert(typeof(document.formPost.COMPANYNUM_SAVE.value));
+        for (let n = 0; n < num; ++n) {
+
+        $.ajax({
+        url : '/myboard/delete',
+        type : 'POST',
+        dataType : 'json',
+        data : {
+        'COMPANYNUM_SAVE' : tdArr[n]
+        },
+        success : function(data){
+        }
+        });
+
+        }
+
 
 
 		});
+		$("input[name=myboard-checkbox]").prop("checked", false);
+        location.reload();
 		}
 
+</script>
+
+<script>
+    function selectAll(selectAll)  {
+  const checkboxes
+       = document.getElementsByName('myboard-checkbox');
+
+  checkboxes.forEach((checkbox) => {
+    checkbox.checked = selectAll.checked;
+  })
+}
 </script>
 
 
@@ -138,23 +148,17 @@
     <h2 style="font-size: 20px; margin-bottom: 30px; margin-top: 20px;"><strong>나의 업체 목록</strong></h2>
 
     <div style="margin-bottom: 20px; margin-left: 87%;">
-      <form name="formPost" action="/myboard/delete" method="post">
-        <input type="hidden" name="COLUMN1_SAVE" value="">
-        <input type="hidden" name="COMPANYNAME_SAVE" value="">
-        <input type="hidden" name="SERVICECODE_SAVE" value="">
-        <input type="hidden" name="COMPANYNUM_SAVE" value="">
-        <input type="hidden" name="CERTIFICATION_SAVE" value="">
-        <input type="submit" onclick=saveFn();>
-        <b>삭제</b>
-        </input>
-      </form>
+      <button onclick="saveFn()">제출</button>
     </div>
 
     <div class="table-responsive small">
       <table class="table table-striped table-sm">
         <thead>
         <tr>
-          <th scope="col">체크</th>
+          <th scope="col"><input type='checkbox'
+                                 name='myboard-checkbox'
+                                 value='selectall'
+                                 onclick='selectAll(this)'/></th>
           <th scope="col">No.</th>
           <th scope="col">업체명</th>
           <th scope="col">업종</th>
