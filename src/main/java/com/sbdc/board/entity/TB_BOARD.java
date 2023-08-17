@@ -1,7 +1,5 @@
 package com.sbdc.board.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -23,7 +21,7 @@ public class TB_BOARD {
     private String SERVICECODE;
 
     @Id
-    @Column
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String COMPANYNUM;
 
     @Column(nullable = true)

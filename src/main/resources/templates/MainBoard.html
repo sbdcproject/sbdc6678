@@ -8,7 +8,7 @@
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"
             integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
             crossorigin="anonymous"></script>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <style>
 
     body{
@@ -128,13 +128,12 @@
         var tr = checkbox.parent().parent().eq(i);
         var td = tr.children();
 
-<!--        rowData.push(tr.text());-->
 
-        var no = td.eq(1).text();
-        var name = td.eq(2).text();
-        var code = td.eq(3).text();
-        var num = td.eq(4).text();
-        var cer = td.eq(5).text();
+        var no = td.eq(1).text().trim();
+        var name = td.eq(2).text().trim();
+        var code = td.eq(3).text().trim();
+        var num = td.eq(4).text().trim();
+        var cer = td.eq(5).text().trim();
 
         var num1 = Number(num);
 
@@ -144,47 +143,37 @@
 		tdArr.push(num1);
 		tdArr.push(cer);
 
-<!--		var tdArr0 = tdArr[0];-->
-<!--		var tdArr1 = tdArr[1];-->
-<!--		var tdArr2 = tdArr[2];-->
-<!--		var tdArr3 = tdArr[3];-->
-<!--		var tdArr4 = tdArr[4];-->
 
         var n;
         var num = (tdArr.length)/5;
 
-        for (let n = 0; n < num; n++) {
+        for (let n = 0; n < num; ++n) {
 
-        document.formPost.COLUMN1_SAVE.value = tdArr[5*n];
-        document.formPost.COMPANYNAME_SAVE.value = tdArr[5*n+1];
-        document.formPost.SERVICECODE_SAVE.value = tdArr[5*n+2];
-        document.formPost.COMPANYNUM_SAVE.value = tdArr[5*n+3];
-        document.formPost.CERTIFICATION_SAVE.value = tdArr[5*n+4];
-
-        submitFn();
+        $.ajax({
+        url : '/mainboard/save',
+        type : 'POST',
+        dataType : 'json',
+        data : {
+        'COLUMN1_SAVE' : tdArr[5*n],
+        'COMPANYNAME_SAVE' : tdArr[5*n+1],
+        'SERVICECODE_SAVE' : tdArr[5*n+2],
+        'COMPANYNUM_SAVE' : tdArr[5*n+3],
+        'CERTIFICATION_SAVE' : tdArr[5*n+4],
+        },
+        success : function(data){
+        }
+        });
 
         }
 
 
-<!--        document.formPost.COLUMN1_SAVE.value = tdArr[0];-->
-<!--        document.formPost.COMPANYNAME_SAVE.value = tdArr[1];-->
-<!--        document.formPost.SERVICECODE_SAVE.value = tdArr[2];-->
-<!--        document.formPost.COMPANYNUM_SAVE.value = tdArr[3];-->
-<!--        document.formPost.CERTIFICATION_SAVE.value = tdArr[4];-->
 
 		});
-		$("#ex3_Result2").html(tdArr);
-        $("#ex3_Result3").html(tdArr[8]);
+
 		}
 
 
     </script>
-
-<script>
-    function submitFn(){
-        document.getElementById("formPost").submit();
-        }
-</script>
 
 
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
@@ -243,17 +232,6 @@
 
         <div style="margin-bottom: 20px; margin-left: 87%;">
             <button onclick="saveFn()">제출</button>
-            <form id="formPost" name="formPost" action="/mainboard/save" method="post">
-                <input type="hidden" name="COLUMN1_SAVE" value="">
-                <input type="hidden" name="COMPANYNAME_SAVE" value="">
-                <input type="hidden" name="SERVICECODE_SAVE" value="">
-                <input type="hidden" name="COMPANYNUM_SAVE" value="">
-                <input type="hidden" name="CERTIFICATION_SAVE" value="">
-<!--                <input type="submit" onclick=saveFn();>-->
-                <input type="submit">
-                <b>업체저장</b>
-                </input>
-            </form>
         </div>
 
         <div class="form">
@@ -265,7 +243,7 @@
                         <option value="">==확인서/인증서 선택==</option>
                         <option value="중소기업">중소기업</option>
                         <option value="여성기업">여성기업</option>
-                        <option value="장애기업">장애인기업</option>
+                        <option value="장애인기업">장애인기업</option>
                         <option value="대기업">대기업</option>
                         <option value="사회적기업">사회적기업</option>
                         <option value="창업기업">창업기업</option>
@@ -341,8 +319,10 @@
                 <tr th:each="TB_BOARD : ${list} ">
                     <td><input type="checkbox" name="my-checkbox"></td>
                     <td th:text="${TB_BOARD.COLUMN1}">Text</td>
-                    <td th:text="${TB_BOARD.COMPANYNAME}">Text</td>
-                    <td th:text="${TB_BOARD.SERVICECODE}">Text</td>
+                    <td>
+                        <a th:text="${TB_BOARD.COMPANYNAME}" th:href="@{/board/view(searchKeyword=, searchKeyword1=${TB_BOARD.SERVICECODE}, searchKeyword2=${TB_BOARD.COMPANYNUM}, searchKeyword3=${TB_BOARD.COMPANYNAME})}" th:onclick="window.open(this.href, '_blank', 'width=1250 height=500'); return false;"></a>
+                    </td>
+                    <td th:text="${TB_BOARD.SERVICECODE}" style="text-overflow:ellipsis; overflow:hidden; white-space:nowrap; max-width: 400px;">Text</td>
                     <td th:text="${TB_BOARD.COMPANYNUM}">Text</td>
                     <td th:text="${TB_BOARD.CERTIFICATION}">Text</td>
                 </tr>
