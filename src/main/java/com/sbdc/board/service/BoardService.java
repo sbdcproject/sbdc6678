@@ -50,7 +50,7 @@ public class BoardService {
 
     @Nullable
     public Page<TB_BOARD_NUM> boardSearchListnum(String searchKeyword3, String searchKeyword1, String searchKeyword2, Pageable pageable){
-        return boardRepository_num.findAllByCOMPANYNAMENUMContainingAndSERVICECODENUMContainingAndCOMPANYNUMNUMContaining(searchKeyword3, searchKeyword1, searchKeyword2, pageable);
+        return boardRepository_num.findAllByCOMPANYNAMENUMAndSERVICECODENUMContainingAndCOMPANYNUMNUMContaining(searchKeyword3, searchKeyword1, searchKeyword2, pageable);
     }
 
 
