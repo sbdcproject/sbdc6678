@@ -56,7 +56,7 @@ public class BoardController {
 
         int nowPage = list.getPageable().getPageNumber() + 1;
         int startPage = Math.max(nowPage - 4, 1);
-        int endPage = (list.getTotalPages() == 0) ? 1 : Math.min(nowPage + 5, list.getTotalPages());
+        int endPage = (list.getTotalPages() == 0) ? 1 : Math.min(nowPage + 4, list.getTotalPages());
 
         model.addAttribute("list", list);
         model.addAttribute("nowPage", nowPage);
@@ -72,7 +72,6 @@ public class BoardController {
     public String boardSavePro(TB_BOARD_SAVE boardsave) {
 
         System.out.println(boardsave.getCOMPANYNAME_SAVE());
-        System.out.println(boardsave.getCOLUMN1_SAVE());
         System.out.println(boardsave.getCERTIFICATION_SAVE());
         System.out.println(boardsave.getSERVICECODE_SAVE());
         System.out.println(boardsave.getCOMPANYNUM_SAVE());
@@ -94,7 +93,7 @@ public class BoardController {
 
         int nowPage = list.getPageable().getPageNumber() + 1;
         int startPage = Math.max(nowPage - 4, 1);
-        int endPage = (list.getTotalPages() == 0) ? 1 : Math.min(nowPage + 5, list.getTotalPages());
+        int endPage = (list.getTotalPages() == 0) ? 1 : Math.min(nowPage + 4, list.getTotalPages());
 
 
         model.addAttribute("list", list);
@@ -116,7 +115,7 @@ public class BoardController {
     public String boardDelete(String COMPANYNUM_SAVE){
         boardService.boardDelete(COMPANYNUM_SAVE);
 
-        return "redirect:/myboard";
+        return "/myboard";
     }
 
     @Nullable

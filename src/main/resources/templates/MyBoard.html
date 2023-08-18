@@ -39,7 +39,7 @@
 <script>
         function saveFn(){
 
-        alert("나의 업체 목록에 저장되었습니다.");
+        alert("나의 업체 목록에서 삭제되었습니다.");
 
         var rowData = new Array();
         var tdArr = new Array();
@@ -66,19 +66,19 @@
         url : '/myboard/delete',
         type : 'POST',
         dataType : 'json',
+        async: false,
         data : {
         'COMPANYNUM_SAVE' : tdArr[n]
         },
         success : function(data){
         }
         });
-
+        reload();
         }
-
-
 		});
-        $("input[name=myboard-checkbox]").prop("checked", false);
+		$("input[name=my-checkbox]").prop("checked", false);
 		}
+
 </script>
 
 <script>
@@ -172,7 +172,7 @@
         <tbody>
         <tr th:each="TB_BOARD_SAVE : ${list} ">
           <td><input type="checkbox" name="myboard-checkbox"></td>
-          <td th:text="${TB_BOARD_SAVE.COLUMN1_SAVE}">Text</td>
+          <td th:text="${((nowPage-1)*10) + TB_BOARD_SAVEStat.count}">Text</td>
           <td th:text="${TB_BOARD_SAVE.COMPANYNAME_SAVE}">Text</td>
           <td th:text="${TB_BOARD_SAVE.SERVICECODE_SAVE}">Text</td>
           <td th:text="${TB_BOARD_SAVE.COMPANYNUM_SAVE}">Text</td>
@@ -181,10 +181,29 @@
         </tbody>
       </table>
 
-      <th:block th:each="page : ${#numbers.sequence(startPage, endPage)}">
-        <a th:if="${page != nowPage}" th:href="@{/myboard(page = ${page -1})}" th:text="${page}"></a>
-        <strong th:if="${page == nowPage}" th:text="${page}" style="color : red"></strong>
-      </th:block>
+      <nav aria-label="Page navigation example">
+        <ul class="pagination">
+          <th:block name="tableBox">
+            <li class="page-item">
+              <a class="page-link" th:if="${page != nowPage}" th:href="@{/mainboard(page = ${nowPage-6}, searchKeyword = ${param.searchKeyword}, searchKeyword1 = ${param.searchKeyword1}, searchKeyword2 = ${param.searchKeyword2})}" th:text="이전" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+              </a>
+            </li>
+          </th:block>
+          <th:block name="tableBox" th:each="page : ${#numbers.sequence(startPage, endPage)}">
+            <li class="page-item"><a class="page-link" th:if="${page != nowPage}" th:href="@{/mainboard(page = ${page -1}, searchKeyword = ${param.searchKeyword}, searchKeyword1 = ${param.searchKeyword1}, searchKeyword2 = ${param.searchKeyword2})}" th:text="${page}"></a>
+              <p><strong class="page-link" th:if="${page == nowPage}" th:text="${page}" style="color : red"></strong></p>
+            </li>
+          </th:block>
+          <th:block name="tableBox">
+            <li class="page-item">
+              <a class="page-link" th:if="${page != nowPage}" th:href="@{/mainboard(page = ${nowPage+4}, searchKeyword = ${param.searchKeyword}, searchKeyword1 = ${param.searchKeyword1}, searchKeyword2 = ${param.searchKeyword2})}" th:text="다음" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+              </a>
+            </li>
+          </th:block>
+        </ul>
+      </nav>
 
     </div>
 

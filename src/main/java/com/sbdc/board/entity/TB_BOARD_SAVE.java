@@ -15,9 +15,6 @@ import javax.persistence.*;
 public class TB_BOARD_SAVE {
 
     @Column(nullable = true)
-    private String COLUMN1_SAVE;
-
-    @Column(nullable = true)
     private String COMPANYNAME_SAVE;
 
     @Column(nullable = true)
