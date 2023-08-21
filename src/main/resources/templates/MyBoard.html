@@ -78,7 +78,8 @@
     }
 
     #button_mylist:hover{
-    background-color: gray;
+    background-color: #0404B4;
+    color: white;
     }
 
 
@@ -274,35 +275,26 @@
         <ul class="pagination">
           <th:block>
             <li class="page-item">
-              <a class="page-link" th:if="${page != nowPage}"
-                 th:href="@{/mainboard(page = ${nowPage-6}, searchKeyword = ${param.searchKeyword}, searchKeyword1 = ${param.searchKeyword1}, searchKeyword2 = ${param.searchKeyword2})}"
-                 aria-label="Previous">
+              <a class="page-link" th:if="${page != nowPage}" th:href="@{/myboard(page = ${nowPage-6}, searchKeyword = ${param.searchKeyword}, searchKeyword1 = ${param.searchKeyword1}, searchKeyword2 = ${param.searchKeyword2})}" aria-label="Previous">
                 <span aria-hidden="true">&lt;&lt;</span>
               </a>
             </li>
           </th:block>
           <th:block>
             <li class="page-item">
-              <a class="page-link" th:if="${page != nowPage}"
-                 th:href="@{/myboard(page = ${nowPage-2}, searchKeyword = ${param.searchKeyword}, searchKeyword1 = ${param.searchKeyword1}, searchKeyword2 = ${param.searchKeyword2})}"
-                 aria-label="Previous">
+              <a class="page-link" th:if="${page != nowPage}" th:href="@{/myboard(page = ${nowPage-2}, searchKeyword = ${param.searchKeyword}, searchKeyword1 = ${param.searchKeyword1}, searchKeyword2 = ${param.searchKeyword2})}" aria-label="Previous">
                 <span aria-hidden="true">&lt;</span>
               </a>
             </li>
           </th:block>
           <th:block name="tableBox" th:each="page : ${#numbers.sequence(startPage, endPage)}">
-            <li class="page-item"><a class="page-link" th:if="${page != nowPage}"
-                                     th:href="@{/myboard(page = ${page -1}, searchKeyword = ${param.searchKeyword}, searchKeyword1 = ${param.searchKeyword1}, searchKeyword2 = ${param.searchKeyword2})}"
-                                     th:text="${page}"></a>
-              <p><strong class="page-link" th:if="${page == nowPage}" th:text="${page}" style="color : red"></strong>
-              </p>
+            <li class="page-item"><a class="page-link" th:if="${page != nowPage}" th:href="@{/myboard(page = ${page -1}, searchKeyword = ${param.searchKeyword}, searchKeyword1 = ${param.searchKeyword1}, searchKeyword2 = ${param.searchKeyword2})}" th:text="${page}"></a>
+              <p><strong class="page-link" th:if="${page == nowPage}" th:text="${page}" style="color : red"></strong></p>
             </li>
           </th:block>
           <th:block name="tableBox">
             <li class="page-item">
-              <a class="page-link" th:if="${page != nowPage}"
-                 th:href="@{/myboard(page = ${nowPage}, searchKeyword = ${param.searchKeyword}, searchKeyword1 = ${param.searchKeyword1}, searchKeyword2 = ${param.searchKeyword2})}"
-                 aria-label="Next">
+              <a class="page-link" th:if="${page != nowPage}" th:href="@{/myboard(page = ${nowPage}, searchKeyword = ${param.searchKeyword}, searchKeyword1 = ${param.searchKeyword1}, searchKeyword2 = ${param.searchKeyword2})}"  aria-label="Next">
                 <span aria-hidden="true">&gt;</span>
               </a>
             </li>
@@ -310,9 +302,7 @@
           </th:block>
           <th:block name="tableBox">
             <li class="page-item">
-              <a class="page-link" th:if="${page != nowPage}"
-                 th:href="@{/myboard(page = ${nowPage+4}, searchKeyword = ${param.searchKeyword}, searchKeyword1 = ${param.searchKeyword1}, searchKeyword2 = ${param.searchKeyword2})}"
-                 aria-label="Next">
+              <a class="page-link" th:if="${page != nowPage}" th:href="@{/myboard(page = ${nowPage+4}, searchKeyword = ${param.searchKeyword}, searchKeyword1 = ${param.searchKeyword1}, searchKeyword2 = ${param.searchKeyword2})}"  aria-label="Next">
                 <span aria-hidden="true">&gt;&gt;</span>
               </a>
             </li>
