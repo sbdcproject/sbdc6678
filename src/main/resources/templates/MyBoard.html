@@ -3,13 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <title>중소기업 정보 조회</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
   <script src="https://code.jquery.com/jquery-3.7.0.min.js"
           integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
-          crossorigin="anonymous"></script>
+          crossorigin="anonymous">
+  </script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 
   <style>
+    body{
+    background-color : #FAFAFA;
+    background-repeat : no-repeat;
+    background-size : cover;
+    resize: both;
+    overflow: scroll;
+    }
+
     #button_1{
     border: 0;
     background-color: transparent;
@@ -21,110 +32,194 @@
     }
 
     #button_1:hover{
-    background-color: gray;
+    color: black;
+    box-shadow: 0 0.5em 0 -0.4em gray;
+
     }
 
     #button_2:hover{
+    color: black;
+    box-shadow: 0 0.5em 0 -0.4em gray;
+    }
+
+    .form{
+    width: 1100px;;
+    height: 70px;
+    background-color:#ECF5FF;
+    margin-bottom: 50px;
+    box-shadow: 3px 3px 3px rgb(109, 109, 109);
+    }
+
+    #my-btn:hover{
+    height: 30px;
+    width: 100px;
     background-color: gray;
     }
-    </style>
-</head>
 
+    #my-btn{
+    height: 30px;
+    width: 100px;
+    box-shadow: 0px 5px 10px -7px;
+    background-color: #FFFFFF;
+    border: 0.5px solid;
+    border-radius:12px;
+    }
+
+    #button_mylist{
+	background-color: #ECF5FF;
+    display:inline-block;
+	cursor:pointer;
+    border: thick double solid;
+    border-radius:12px;
+    font-family:Arial;
+	font-size:14px;
+	padding:5px 20px;
+	text-decoration:none;
+    }
+
+    #button_mylist:hover{
+    background-color: #0404B4;
+    color: white;
+    }
+
+
+
+  </style>
+</head>
 
 
 <body>
 
 
-
 <script>
-  function saveFn(){
 
-        alert("나의 업체 목록에서 삭제되었습니다.");
+        function saveFn(){
 
         var rowData = new Array();
         var tdArr = new Array();
-
         var checkbox = $("input[name=myboard-checkbox]:checked");
 
-        alert(checkbox);
+        swal("삭제되었습니다!", "나의 업체목록에 삭제되었습니다.", "success").then(function(){
+        location.reload();
+        });
 
         checkbox.each(function(i) {
 
         var tr = checkbox.parent().parent().eq(i);
         var td = tr.children();
 
-        rowData.push(tr.text());
-
-        var no = td.eq(1).text();
-        var name = td.eq(2).text();
-        var code = td.eq(3).text();
-        var num = td.eq(4).text();
-        var cer = td.eq(5).text();
+        var num = td.eq(4).text().trim();
 
         var num1 = Number(num);
 
-        tdArr.push(no);
-		tdArr.push(name);
-		tdArr.push(code);
-		tdArr.push(num1);
-		tdArr.push(cer);
+        tdArr.push(num1);
 
-		var tdArr0 = tdArr[0];
-		var tdArr1 = tdArr[1];
-		var tdArr2 = tdArr[2];
-		var tdArr3 = tdArr[3];
-		var tdArr4 = tdArr[4];
+        var n;
+        var num = tdArr.length;
 
-        document.formPost.COMPANYNUM_SAVE.value = tdArr3;
+        for (let n = 0; n < num; ++n) {
 
-        alert(typeof(document.formPost.COMPANYNUM_SAVE.value));
-
-
+        $.ajax({
+        url : '/myboard/delete',
+        type : 'POST',
+        dataType : 'json',
+        async: false,
+        data : {
+        'COMPANYNUM_SAVE' : tdArr[n]
+        },
+        success : function(data){
+        }
+        });
+        }
 		});
+		$("input[name=my-checkbox]").prop("checked", false);
 		}
+
+
+
+</script>
+
+<script>
+    function selectAll(selectAll)  {
+  const checkboxes
+       = document.getElementsByName('myboard-checkbox');
+
+  checkboxes.forEach((checkbox) => {
+    checkbox.checked = selectAll.checked;
+  })
+}
+
+
+</script>
+
+<script>
+  function reload(){
+  location.reload();
+  }
+
 
 </script>
 
 
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"
+        integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS"
+        crossorigin="anonymous"></script>
 
-<header class="d-flex align-items-center pb-3 border-bottom" style="height: 150px; background-color: rgb(0,52,113);">
+<header class="d-flex align-items-center pb-3 border-bottom" style="height: 100px; background-color: rgb(0,52,113);">
   <a href="http://localhost:8090/mainframe" class="d-flex align-items-center text-body-emphasis text-decoration-none">
-    <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
-    <li id="main-logo"  style="margin-right: 30px; margin-top: 10px; cursor: pointer; list-style: none; padding-left: 0px;">
-      <img id="logo" src="https://estm.sbdc.or.kr/statics/images/comm/img_logo.png" style="width:260px; height:45px; margin-top: 3%; margin-left:3%">
+    <svg class="bi me-2" width="40" height="32">
+      <use xlink:href="#bootstrap"></use>
+    </svg>
+    <li id="main-logo"
+        style="margin-right: 30px; margin-top: 10px; cursor: pointer; list-style: none; padding-left: 0px;">
+      <img id="logo" src="https://estm.sbdc.or.kr/statics/images/comm/img_logo.png"
+           style="width:260px; height:45px; margin-top: 3%; margin-left:3%">
     </li>
   </a>
 </header>
 
 <div class="col-lg-8 mx-auto p-4">
-  <header class="d-flex align-items-center pb-3 mb-2 border-bottom" style="margin-left:30px">
-    <a href="/" class="d-flex align-items-center text-body-emphasis text-decoration-none">
-      <svg class="bi me-2" width="30" height="32"><use xlink:href="#bootstrap"></use></svg>
-      <span class="fs-4"><strong>중소기업 정보조회 시스템</strong></span>
+  <header class="d-flex align-items-center pb-3 mb-2 border-bottom" style="margin-left:0px; height: 30px">
+    <a class="d-flex align-items-center text-body-emphasis text-decoration-none">
+      <svg class="bi me-2" width="30" height="32">
+        <use xlink:href="#bootstrap"></use>
+      </svg>
+      <span class="fs-4">
+                <strong>중소기업 정보조회 시스템</strong>
+            </span>
     </a>
   </header>
 </div>
 
 
-<div class="d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary" style="width: 280px; float: left;">
-  <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none" style="margin-left: 17%;">
-    <svg class="bi pe-none me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+<div class="d-flex flex-column flex-shrink-0 p-3 "
+     style="width: 280px; float: left; background-color: #ECF5FF; border-radius: 15px; box-shadow: 3px 3px 3px rgb(109, 109, 109);">
+  <a class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none"
+     style="margin-left: 17%; text-align: center;">
+    <svg class="bi pe-none me-2" width="40" height="32">
+      <use xlink:href="#bootstrap"></use>
+    </svg>
     <span class="fs-4"><strong>메뉴</strong></span>
   </a>
   <hr>
   <ul class="nav nav-pills flex-column mb-auto">
     <li>
-      <a href="#" class="nav-link link-body-emphasis">
-        <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#speedometer2"></use></svg>
-        <button id="button_1" type="button" style="width: 200px; height: 30px;" onclick="location.href='http://localhost:8090/mainboard#'"><strong>기업정보 조회</strong></button>
+      <a href="#" class="nav-link link-body-emphasis" style=" font-size: 18px; text-align: center; height: 50px;">
+        <button id="button_1" type="button" style="width: 200px; height: 30px; margin-bottom: 30px;"
+                onclick="location.href='http://localhost:8090/mainboard?searchKeyword=&searchKeyword1=&searchKeyword2='">
+          <strong>기업정보 조회</strong></button>
       </a>
     </li>
+    <svg class="bi pe-none me-2" width="16" height="16">
+      <use xlink:href="#table"></use>
+    </svg>
     <li>
-      <a href="#" class="nav-link link-body-emphasis">
-        <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
-        <button id="button_2" type="button" style="width: 200px; height: 30px;" onclick="location.href='http://localhost:8090/myboard'"><strong>나의 업체 관리</strong></button>
+      <a href="#" class="nav-link link-body-emphasis" style=" font-size: 18px; text-align: center; height: 50px;">
+        <button id="button_2" type="button" style="width: 200px; height: 30px; margin-bottom: 30px;"
+                onclick="location.href='http://localhost:8090/myboard'"><strong>나의 업체 관리</strong></button>
       </a>
     </li>
   </ul>
@@ -132,29 +227,25 @@
 </div>
 
 
-
 <div style="width:1150px; height:700px; float: right; margin-left: 20px; margin-right: 50px;">
   <main>
-    <h2 style="font-size: 20px; margin-bottom: 30px; margin-top: 20px;"><strong>나의 업체 목록</strong></h2>
+    <h2 style="font-size: 20px; margin-bottom: 10px; margin-top: 10px;"><strong>나의 업체 목록</strong></h2>
 
-    <div style="margin-bottom: 20px; margin-left: 87%;">
-      <form name="formPost" action="/myboard/delete" method="post">
-        <input type="hidden" name="COLUMN1_SAVE" value="">
-        <input type="hidden" name="COMPANYNAME_SAVE" value="">
-        <input type="hidden" name="SERVICECODE_SAVE" value="">
-        <input type="hidden" name="COMPANYNUM_SAVE" value="">
-        <input type="hidden" name="CERTIFICATION_SAVE" value="">
-        <input type="submit" onclick=saveFn();>
+    <div style="margin-top:20px; margin-bottom:10px;">
+      <button id="button_mylist" type="button" onclick="saveFn()">
         <b>삭제</b>
-        </input>
-      </form>
+      </button>
     </div>
+
 
     <div class="table-responsive small">
       <table class="table table-striped table-sm">
         <thead>
         <tr>
-          <th scope="col">체크</th>
+          <th scope="col"><input type='checkbox'
+                                 name='myboard-checkbox'
+                                 value='selectall'
+                                 onclick='selectAll(this)'/></th>
           <th scope="col">No.</th>
           <th scope="col">업체명</th>
           <th scope="col">업종</th>
@@ -165,19 +256,59 @@
         <tbody>
         <tr th:each="TB_BOARD_SAVE : ${list} ">
           <td><input type="checkbox" name="myboard-checkbox"></td>
-          <td th:text="${TB_BOARD_SAVE.COLUMN1_SAVE}">Text</td>
-          <td th:text="${TB_BOARD_SAVE.COMPANYNAME_SAVE}">Text</td>
-          <td th:text="${TB_BOARD_SAVE.SERVICECODE_SAVE}">Text</td>
+          <td th:text="${((nowPage-1)*10) + TB_BOARD_SAVEStat.count}">Text</td>
+          <td>
+            <a th:text="${TB_BOARD_SAVE.COMPANYNAME_SAVE}"
+               th:href="@{/board/view(searchKeyword=, searchKeyword1=${TB_BOARD_SAVE.SERVICECODE_SAVE}, searchKeyword2=${TB_BOARD_SAVE.COMPANYNUM_SAVE}, searchKeyword3=${TB_BOARD_SAVE.COMPANYNAME_SAVE})}"
+               th:onclick="window.open(this.href, '_blank','width=850, height=450, location=no'); return false;"></a>
+          </td>
+          <td th:text="${TB_BOARD_SAVE.SERVICECODE_SAVE}"
+              style="text-overflow:ellipsis; overflow:hidden; white-space:nowrap; max-width: 400px;">Text
+          </td>
           <td th:text="${TB_BOARD_SAVE.COMPANYNUM_SAVE}">Text</td>
           <td th:text="${TB_BOARD_SAVE.CERTIFICATION_SAVE}">Text</td>
         </tr>
         </tbody>
       </table>
 
-      <th:block th:each="page : ${#numbers.sequence(startPage, endPage)}">
-        <a th:if="${page != nowPage}" th:href="@{/myboard(page = ${page -1})}" th:text="${page}"></a>
-        <strong th:if="${page == nowPage}" th:text="${page}" style="color : red"></strong>
-      </th:block>
+      <nav aria-label="Page navigation example">
+        <ul class="pagination">
+          <th:block>
+            <li class="page-item">
+              <a class="page-link" th:if="${page != nowPage}" th:href="@{/myboard(page = ${nowPage-6}, searchKeyword = ${param.searchKeyword}, searchKeyword1 = ${param.searchKeyword1}, searchKeyword2 = ${param.searchKeyword2})}" aria-label="Previous">
+                <span aria-hidden="true">&lt;&lt;</span>
+              </a>
+            </li>
+          </th:block>
+          <th:block>
+            <li class="page-item">
+              <a class="page-link" th:if="${page != nowPage}" th:href="@{/myboard(page = ${nowPage-2}, searchKeyword = ${param.searchKeyword}, searchKeyword1 = ${param.searchKeyword1}, searchKeyword2 = ${param.searchKeyword2})}" aria-label="Previous">
+                <span aria-hidden="true">&lt;</span>
+              </a>
+            </li>
+          </th:block>
+          <th:block name="tableBox" th:each="page : ${#numbers.sequence(startPage, endPage)}">
+            <li class="page-item"><a class="page-link" th:if="${page != nowPage}" th:href="@{/myboard(page = ${page -1}, searchKeyword = ${param.searchKeyword}, searchKeyword1 = ${param.searchKeyword1}, searchKeyword2 = ${param.searchKeyword2})}" th:text="${page}"></a>
+              <p><strong class="page-link" th:if="${page == nowPage}" th:text="${page}" style="color : red"></strong></p>
+            </li>
+          </th:block>
+          <th:block name="tableBox">
+            <li class="page-item">
+              <a class="page-link" th:if="${page != nowPage}" th:href="@{/myboard(page = ${nowPage}, searchKeyword = ${param.searchKeyword}, searchKeyword1 = ${param.searchKeyword1}, searchKeyword2 = ${param.searchKeyword2})}"  aria-label="Next">
+                <span aria-hidden="true">&gt;</span>
+              </a>
+            </li>
+          </th:block>
+          </th:block>
+          <th:block name="tableBox">
+            <li class="page-item">
+              <a class="page-link" th:if="${page != nowPage}" th:href="@{/myboard(page = ${nowPage+4}, searchKeyword = ${param.searchKeyword}, searchKeyword1 = ${param.searchKeyword1}, searchKeyword2 = ${param.searchKeyword2})}"  aria-label="Next">
+                <span aria-hidden="true">&gt;&gt;</span>
+              </a>
+            </li>
+          </th:block>
+        </ul>
+      </nav>
 
     </div>
 
