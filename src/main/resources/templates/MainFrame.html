@@ -49,29 +49,7 @@
 
             }
 
-<!--            function changeFn1(){-->
-<!--                var value1 = (cer_select1.options[cer_select1.selectedIndex].value);-->
-<!--                const URLSearch1 = new URLSearchParams(location.search);-->
-<!--                URLSearch.set('searchKeyword1', String(value));-->
-<!--                URLSearch.set('page', 0);-->
-<!--                const newParam1 = URLSearch.toString();-->
-
-<!--                window.open("http://localhost:8090/mainboard" + '?' + newParam, '_self');-->
-
-<!--            }-->
     </script>
-
-<!--  <script type="text/javascript">-->
-<!--        function changeFn2(){-->
-<!--            let value = document.getElementById('inputValue').value;-->
-<!--            const URLSearch = new URLSearchParams(location.search);-->
-<!--            URLSearch.set('searchKeyword2', String(value));-->
-<!--            const newParam = URLSearch.toString();-->
-<!--            URLSearch.set('page', 0);-->
-
-<!--            window.open("http://localhost:8090/mainboard" + '?' + newParam, "_self");-->
-<!--            }-->
-<!--    </script>-->
 
   <style>
         body{
@@ -128,25 +106,26 @@
         background-color:#ECF5FF;
         margin-bottom: 50px;
         box-shadow: 3px 3px 3px rgb(109, 109, 109);
+        border-radius: 30px;
         }
 
         #cer_select{
-        width: 200px;
-        height: 35px;
+        width: 250px;
+        height: 45px;
         font-size: 14px;
         margin-top: -5px;
         }
 
         #cer_select1{
         width: 150px;
-        height: 35px;
+        height: 45px;
         font-size: 14px;
         margin-top: -5px;
         }
 
         #inputValue{
         width: 350px;
-        height:33px;
+        height:43px;
         margin-right:0px;
         margin-left: 10px;
         }
@@ -158,8 +137,9 @@
         font-size: 17px;
         padding : 0 5px;
         text-align : center;
+        border: none;
+        color : white;
         }
-
 
 
   </style>
@@ -192,8 +172,8 @@
 
   <div class="form" style ="margin-top : 250px; margin-left : 0%;">
 
-    <form style="width: 400px; margin-left:100px; margin-top: 35px; float:left;">
-      <div style="width:150px; float:left;"><strong>확인서/인증서 선택</strong></div>
+    <form style="width: 420px; margin-left:100px; margin-top: 35px; float:left;">
+      <div style="width:140px; float:left; font-size: 18px; letter-spacing: 1px;"><strong>확인서/인증서</strong></div>
       <div style="width:100px; display:inline-block; margin-left:0px;">
         <select id = "cer_select" class="form-select form-select-sm" aria-label=".form-select-sm example">
           <option value="">확인서/인증서 선택</option>
@@ -207,8 +187,8 @@
       </div>
     </form>
 
-    <form style="width: 250px; margin-top: 35px; display:inline-block; margin-left:-10px; float:left;">
-      <div style="width:80px; float:left;"><strong>업종 선택</strong></div>
+    <form style="width: 230px; margin-top: 35px; display:inline-block; margin-left:-10px; float:left;">
+      <div style="width:55px; float:left; font-size: 18px; letter-spacing: 1px;"><strong>업종</strong></div>
       <div style="width:100px; display:inline-block; margin-left:0px;">
         <select id = "cer_select1" class="form-select form-select-sm" aria-label=".form-select-sm example">
           <option value="">업종 선택</option>
@@ -248,12 +228,12 @@
       </div>
     </form>
 
-    <form onsubmit="return false;" style="width: 600px; display:inline-block; margin-top: 32px; margin-left:20px;">
-      <div style="width:120px; float:left;"><strong>사업자등록번호</strong></div>
+    <form onsubmit="return false;" style="width: 700px; display:inline-block; margin-top: 32px; margin-left:20px;">
+      <div style="width:140px; float:left; font-size: 18px; letter-spacing: 1px; margin-top:5px;"><strong>사업자등록번호</strong></div>
       <div style="width:350px; display:inline-block; margin-left:0px; float:left;">
         <input id="inputValue" class="form-control me-2" type="search" placeholder="Search" aria-label="Search"></div>
-      <div>
-        <button id="search_btn" class="btn btn-outline-success" type="submit" onclick="changeFn()">검색</button>
+      <div class="d-grid gap-2 d-md-block">
+        <button id="search_btn"  class="btn btn-primary" type="submit" style = "margin-left: 50px; height: 40px; font-size: 17px; letter-spacing: 2px;" onclick="changeFn()">검색</button>
       </div>
     </form>
 
