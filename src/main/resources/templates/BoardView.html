@@ -133,7 +133,7 @@
                 </thead>
                 <tbody>
                 <tr th:each="TB_BOARD_NUM : ${list} ">
-                    <td th:utext="${#strings.replace(TB_BOARD_NUM.CERTIFICATIONNUM,' | ','&lt;br /&gt;')}">Text</td>
+                    <td th:utext="${#strings.replace(TB_BOARD_NUM.CERTIFICATIONNUM,' | ','&lt;br /&gt;')}" th:style="${'font-size: 15px;'}">Text</td>
                 </tr>
                 </tbody>
             </table>
