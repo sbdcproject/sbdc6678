@@ -9,6 +9,47 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://getbootstrap.com/docs/5.2/assets/css/docs.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.7.0.min.js"
+          integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
+          crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+  <script>
+
+            $(document).ready(function() {
+                const URLSearch = new URLSearchParams(location.search);
+                const searchKeyword = URLSearch.get('searchKeyword');
+                const searchKeyword1 = URLSearch.get('searchKeyword1');
+                const searchKeyword2 = URLSearch.get('searchKeyword2');
+
+                $("#cer_select").val(searchKeyword).prop("selected", true);
+                $("#cer_select1").val(searchKeyword1).prop("selected", true);
+                $('#inputValue').val(searchKeyword2);
+
+            });
+
+            function changeFn(){
+                var value = (cer_select.options[cer_select.selectedIndex].value);
+                var value1 = (cer_select1.options[cer_select1.selectedIndex].value);
+
+                let value2 = document.getElementById('inputValue').value;
+
+                const URLSearch = new URLSearchParams(location.search);
+
+                URLSearch.set('searchKeyword', String(value));
+                URLSearch.set('searchKeyword1', String(value1));
+                URLSearch.set('searchKeyword2', String(value2));
+                URLSearch.set('page', 0);
+
+                const newParam = URLSearch.toString();
+
+
+                window.open("http://localhost:8090/mainboard" + '?' + newParam, '_self');
+
+            }
+
+    </script>
 
   <style>
         body{
@@ -59,6 +100,48 @@
         width: 10%;
         }
 
+        .form{
+        width: 1550px;;
+        height: 100px;
+        background-color:#ECF5FF;
+        margin-bottom: 50px;
+        box-shadow: 3px 3px 3px rgb(109, 109, 109);
+        border-radius: 30px;
+        }
+
+        #cer_select{
+        width: 250px;
+        height: 45px;
+        font-size: 14px;
+        margin-top: -5px;
+        }
+
+        #cer_select1{
+        width: 150px;
+        height: 45px;
+        font-size: 14px;
+        margin-top: -5px;
+        }
+
+        #inputValue{
+        width: 350px;
+        height:43px;
+        margin-right:0px;
+        margin-left: 10px;
+        }
+
+        #search_btn{
+        width: 80px;
+        height:35px;
+        margin-left: 30px;
+        font-size: 17px;
+        padding : 0 5px;
+        text-align : center;
+        border: none;
+        color : white;
+        }
+
+
   </style>
 
 </head>
@@ -84,58 +167,84 @@
 </div>
 
 
+<div class="wrap">
+  <h1 id="title_main" style="width: 90%; height:100px;"></h1>
+
+  <div class="form" style ="margin-top : 250px; margin-left : 0%; width: 100%;">
+
+    <form style="width: 420px; margin-left:100px; margin-top: 35px; float:left;">
+      <div style="width:140px; float:left; font-size: 18px; letter-spacing: 1px;"><strong>확인서/인증서</strong></div>
+      <div style="width:100px; display:inline-block; margin-left:0px;">
+        <select id = "cer_select" class="form-select form-select-sm" aria-label=".form-select-sm example">
+          <option value="">확인서/인증서 선택</option>
+          <option value="중소기업">중소기업</option>
+          <option value="여성기업">여성기업</option>
+          <option value="장애인기업">장애인기업</option>
+          <option value="대기업">대기업</option>
+          <option value="사회적기업">사회적기업</option>
+          <option value="창업기업">창업기업</option>
+        </select>
+      </div>
+    </form>
+
+    <form style="width: 230px; margin-top: 35px; display:inline-block; margin-left:-10px; float:left;">
+      <div style="width:55px; float:left; font-size: 18px; letter-spacing: 1px;"><strong>업종</strong></div>
+      <div style="width:100px; display:inline-block; margin-left:0px;">
+        <select id = "cer_select1" class="form-select form-select-sm" aria-label=".form-select-sm example">
+          <option value="">업종 선택</option>
+          <option value="임업" >임업</option>
+          <option value="농업">농업</option>
+          <option value="어업">어업</option>
+          <option value="광업">광업</option>
+          <option value="제조업">제조업</option>
+          <option value="건설업">건설업</option>
+          <option value="수도업">수도업</option>
+          <option value="수도사업">수도사업</option>
+          <option value="방송업">방송업</option>
+          <option value="공급업" >공급업</option>
+          <option value="운송업">운송업</option>
+          <option value="도매">도매 및 소매업</option>
+          <option value="중개업">중개업</option>
+          <option value="금융업">금융업</option>
+          <option value="판매업">판매업</option>
+          <option value="서비스업">서비스업</option>
+          <option value="주점업">주점업</option>
+          <option value="프로그래밍">프로그래밍</option>
+          <option value="정보통신업" >정보통신업</option>
+          <option value="통신업">통신업</option>
+          <option value="연구개발업">연구개발업</option>
+          <option value="보건업">보건업</option>
+          <option value="모든">모든 업종</option>
+          <option value="부동산업">부동산업</option>
+          <option value="임대업">임대업</option>
+          <option value="창고업">창고업</option>
+          <option value="복원업">복원업</option>
+          <option value="수리업">수리업</option>
+          <option value="관리업">관리업</option>
+          <option value="복제업">복제업</option>
+          <option value="출판업">출판업</option>
+          <option value="배급업">배급업</option>
+        </select>
+      </div>
+    </form>
+
+    <form onsubmit="return false;" style="width: 700px; display:inline-block; margin-top: 32px; margin-left:20px;">
+      <div style="width:140px; float:left; font-size: 18px; letter-spacing: 1px; margin-top:5px;"><strong>사업자등록번호</strong></div>
+      <div style="width:350px; display:inline-block; margin-left:0px; float:left;">
+        <input id="inputValue" class="form-control me-2" type="search" placeholder="Search" aria-label="Search"></div>
+      <div class="d-grid gap-2 d-md-block">
+        <button id="search_btn"  class="btn btn-primary" type="submit" style = "margin-left: 50px; height: 40px; font-size: 17px; letter-spacing: 2px;" onclick="changeFn()">검색</button>
+      </div>
+    </form>
+
+  </div>
+
+
+</div>
+
 
 <body class="p-3 m-0 border-0 bd-example">
-<nav class="navbar navbar-expand-lg bg-body-tertiary rounded" aria-label="Eleventh navbar example" style="width: 700px; margin-left: 25%;">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">기업정보 게시판</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample09" aria-controls="navbarsExample09" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
 
-    <div class="collapse navbar-collapse" id="navbarsExample09">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">확인서/인증서별 조회</a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">중소기업</a></li>
-            <li><a class="dropdown-item" href="#">여성기업</a></li>
-            <li><a class="dropdown-item" href="#">장애인기업</a></li>
-            <li><a class="dropdown-item" href="#">대기업</a></li>
-            <li><a class="dropdown-item" href="#">창업기업</a></li>
-            <li><a class="dropdown-item" href="#">사회적기업</a></li>
-          </ul>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">업종별 조회</a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">임업</a></li>
-            <li><a class="dropdown-item" href="#">농업</a></li>
-            <li><a class="dropdown-item" href="#">어업</a></li>
-            <li><a class="dropdown-item" href="#">광업</a></li>
-            <li><a class="dropdown-item" href="#">제조업</a></li>
-            <li><a class="dropdown-item" href="#">건설업</a></li>
-            <li><a class="dropdown-item" href="#">수도업</a></li>
-            <li><a class="dropdown-item" href="#">수도사업</a></li>
-            <li><a class="dropdown-item" href="#">방송업</a></li>
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </li>
-      </ul>
-      <form role="search">
-        <input class="form-control" type="search" placeholder="Search" aria-label="Search">
-      </form>
-    </div>
-  </div>
-</nav>
 </body>
 
 </body>
