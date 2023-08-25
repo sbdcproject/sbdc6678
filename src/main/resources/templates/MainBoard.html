@@ -368,7 +368,7 @@
                     <td><input type="checkbox" name="my-checkbox"></td>
                     <td th:text="${((nowPage-1)*10) + TB_BOARDStat.count}">Text</td>
                     <td>
-                        <a th:text="${TB_BOARD.COMPANYNAME}" th:href="@{/board/view(searchKeyword=, searchKeyword1=${TB_BOARD.SERVICECODE}, searchKeyword2=${TB_BOARD.COMPANYNUM}, searchKeyword3=${TB_BOARD.COMPANYNAME})}" th:onclick="window.open(this.href, '_blank','width=850, height=450, location=no'); return false;"></a>
+                        <a th:text="${TB_BOARD.COMPANYNAME}" th:href="@{/board/view(searchKeyword=, searchKeyword1=${TB_BOARD.SERVICECODE}, searchKeyword2=${TB_BOARD.COMPANYNUM}, searchKeyword3=${TB_BOARD.COMPANYNAME})}" th:onclick="window.open(this.href, '_blank','width=1250, height=500, top=100px, left=100px, location=no'); return false;"></a>
                     </td>
                     <td th:text="${TB_BOARD.SERVICECODE}" style="text-overflow:ellipsis; overflow:hidden; white-space:nowrap; max-width: 400px;">Text</td>
                     <td th:text="${TB_BOARD.COMPANYNUM}">Text</td>

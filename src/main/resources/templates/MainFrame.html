@@ -149,98 +149,103 @@
 
 <body>
 
-<div id="main" class="container-fluid">
-  <div id="head_row" class="row">
-    <div id="left_nav" class="clo-md-8">
-      <ul id="navbar_main" class="nav navbar-collapse navbar-nav navbar-left" style="list-style: none; padding-left: 0px;">
-        <li id="main-logo"  style="margin-right: 30px; cursor: pointer;"></li>
-      </ul>
+<div class = "wrap-page">
+  <div id="main" class="container-fluid">
+    <div id="head_row" class="row">
+      <div id="left_nav" class="clo-md-8">
+        <ul id="navbar_main" class="nav navbar-collapse navbar-nav navbar-left" style="list-style: none; padding-left: 0px;">
+          <li id="main-logo"  style="margin-right: 30px; cursor: pointer;"></li>
+        </ul>
+      </div>
     </div>
   </div>
-</div>
 
-<div class="mylistbutton" style="height:10px">
-  <button id="button_mylist" type="button" onclick="location.href='http://localhost:8090/myboard'">
-    <img class="mylist" src="https://cdn-icons-png.flaticon.com/128/996/996484.png" style="width:25px; height:25px;">
-    <b>나의업체관리</b>
-  </button>
-</div>
-
-
-<div class="wrap">
-  <h1 id="title_main" style="height:100px;"></h1>
-
-  <div class="form" style ="margin-top : 250px; margin-left : 0%;">
-
-    <form style="width: 420px; margin-left:100px; margin-top: 35px; float:left;">
-      <div style="width:140px; float:left; font-size: 18px; letter-spacing: 1px;"><strong>확인서/인증서</strong></div>
-      <div style="width:100px; display:inline-block; margin-left:0px;">
-        <select id = "cer_select" class="form-select form-select-sm" aria-label=".form-select-sm example">
-          <option value="">확인서/인증서 선택</option>
-          <option value="중소기업">중소기업</option>
-          <option value="여성기업">여성기업</option>
-          <option value="장애인기업">장애인기업</option>
-          <option value="대기업">대기업</option>
-          <option value="사회적기업">사회적기업</option>
-          <option value="창업기업">창업기업</option>
-        </select>
-      </div>
-    </form>
-
-    <form style="width: 230px; margin-top: 35px; display:inline-block; margin-left:-10px; float:left;">
-      <div style="width:55px; float:left; font-size: 18px; letter-spacing: 1px;"><strong>업종</strong></div>
-      <div style="width:100px; display:inline-block; margin-left:0px;">
-        <select id = "cer_select1" class="form-select form-select-sm" aria-label=".form-select-sm example">
-          <option value="">업종 선택</option>
-          <option value="임업" >임업</option>
-          <option value="농업">농업</option>
-          <option value="어업">어업</option>
-          <option value="광업">광업</option>
-          <option value="제조업">제조업</option>
-          <option value="건설업">건설업</option>
-          <option value="수도업">수도업</option>
-          <option value="수도사업">수도사업</option>
-          <option value="방송업">방송업</option>
-          <option value="공급업" >공급업</option>
-          <option value="운송업">운송업</option>
-          <option value="도매">도매 및 소매업</option>
-          <option value="중개업">중개업</option>
-          <option value="금융업">금융업</option>
-          <option value="판매업">판매업</option>
-          <option value="서비스업">서비스업</option>
-          <option value="주점업">주점업</option>
-          <option value="프로그래밍">프로그래밍</option>
-          <option value="정보통신업" >정보통신업</option>
-          <option value="통신업">통신업</option>
-          <option value="연구개발업">연구개발업</option>
-          <option value="보건업">보건업</option>
-          <option value="모든">모든 업종</option>
-          <option value="부동산업">부동산업</option>
-          <option value="임대업">임대업</option>
-          <option value="창고업">창고업</option>
-          <option value="복원업">복원업</option>
-          <option value="수리업">수리업</option>
-          <option value="관리업">관리업</option>
-          <option value="복제업">복제업</option>
-          <option value="출판업">출판업</option>
-          <option value="배급업">배급업</option>
-        </select>
-      </div>
-    </form>
-
-    <form onsubmit="return false;" style="width: 700px; display:inline-block; margin-top: 32px; margin-left:20px;">
-      <div style="width:140px; float:left; font-size: 18px; letter-spacing: 1px; margin-top:5px;"><strong>사업자등록번호</strong></div>
-      <div style="width:350px; display:inline-block; margin-left:0px; float:left;">
-        <input id="inputValue" class="form-control me-2" type="search" placeholder="Search" aria-label="Search"></div>
-      <div class="d-grid gap-2 d-md-block">
-        <button id="search_btn"  class="btn btn-primary" type="submit" style = "margin-left: 50px; height: 40px; font-size: 17px; letter-spacing: 2px;" onclick="changeFn()">검색</button>
-      </div>
-    </form>
-
+  <div class="mylistbutton" style="height:10px">
+    <button id="button_mylist" type="button" onclick="location.href='http://localhost:8090/myboard'">
+      <img class="mylist" src="https://cdn-icons-png.flaticon.com/128/996/996484.png" style="width:25px; height:25px;">
+      <b>나의업체관리</b>
+    </button>
   </div>
 
 
+  <div class="wrap">
+    <h1 id="title_main" style="height:100px;"></h1>
+
+    <div class="form" style ="margin-top : 250px; margin-left : 0%;">
+
+      <form style="width: 430px; margin-left:130px; margin-top: 35px; float:left;">
+        <div style="width:140px; float:left; font-size: 18px; letter-spacing: 1px;"><strong>확인서/인증서</strong></div>
+        <div style="width:100px; display:inline-block; margin-left:0px;">
+          <select id = "cer_select" class="form-select form-select-sm" aria-label=".form-select-sm example">
+            <option value="">확인서/인증서 선택</option>
+            <option value="중소기업">중소기업</option>
+            <option value="여성기업">여성기업</option>
+            <option value="장애인기업">장애인기업</option>
+            <option value="대기업">대기업</option>
+            <option value="사회적기업">사회적기업</option>
+            <option value="창업기업">창업기업</option>
+          </select>
+        </div>
+      </form>
+
+      <form style="width: 230px; margin-top: 35px; display:inline-block; margin-left:-10px; float:left;">
+        <div style="width:60px; float:left; font-size: 18px; letter-spacing: 1px;"><strong>업종</strong></div>
+        <div style="width:100px; display:inline-block; margin-left:0px;">
+          <select id = "cer_select1" class="form-select form-select-sm" aria-label=".form-select-sm example">
+            <option value="">업종 선택</option>
+            <option value="임업" >임업</option>
+            <option value="농업">농업</option>
+            <option value="어업">어업</option>
+            <option value="광업">광업</option>
+            <option value="제조업">제조업</option>
+            <option value="건설업">건설업</option>
+            <option value="수도업">수도업</option>
+            <option value="수도사업">수도사업</option>
+            <option value="방송업">방송업</option>
+            <option value="공급업" >공급업</option>
+            <option value="운송업">운송업</option>
+            <option value="도매">도매 및 소매업</option>
+            <option value="중개업">중개업</option>
+            <option value="금융업">금융업</option>
+            <option value="판매업">판매업</option>
+            <option value="서비스업">서비스업</option>
+            <option value="주점업">주점업</option>
+            <option value="프로그래밍">프로그래밍</option>
+            <option value="정보통신업" >정보통신업</option>
+            <option value="통신업">통신업</option>
+            <option value="연구개발업">연구개발업</option>
+            <option value="보건업">보건업</option>
+            <option value="모든">모든 업종</option>
+            <option value="부동산업">부동산업</option>
+            <option value="임대업">임대업</option>
+            <option value="창고업">창고업</option>
+            <option value="복원업">복원업</option>
+            <option value="수리업">수리업</option>
+            <option value="관리업">관리업</option>
+            <option value="복제업">복제업</option>
+            <option value="출판업">출판업</option>
+            <option value="배급업">배급업</option>
+          </select>
+        </div>
+      </form>
+
+      <form onsubmit="return false;" style="width: 700px; display:inline-block; margin-top: 32px; margin-left:20px;">
+        <div style="width:140px; float:left; font-size: 18px; letter-spacing: 1px; margin-top:5px;"><strong>사업자등록번호</strong></div>
+        <div style="width:350px; display:inline-block; margin-left:0px; float:left;">
+          <input id="inputValue" class="form-control me-2" type="search" placeholder="Search" aria-label="Search"></div>
+        <div class="d-grid gap-2 d-md-block">
+          <button id="search_btn"  class="btn btn-primary" type="submit" style = "margin-left: 50px; height: 40px; font-size: 17px; letter-spacing: 2px;" onclick="changeFn()">검색</button>
+        </div>
+      </form>
+
+    </div>
+
+
+  </div>
+
 </div>
+
+
 
 
 <body class="p-3 m-0 border-0 bd-example">
@@ -248,5 +253,6 @@
 </body>
 
 </body>
+
 
 </html>
