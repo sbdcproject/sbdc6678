@@ -13,6 +13,11 @@
 
     <style>
 
+    td, th {
+    text-align: center;
+    vertical-align: middle;
+    }
+
 
     body{
     background-color : #FAFAFA;
@@ -48,7 +53,7 @@
     height: 70px;
     background-color:#ECF5FF;
     margin-bottom: 50px;
-    box-shadow: 3px 3px 3px rgb(109, 109, 109);
+    border: groove;
     }
 
     #my-btn:hover{
@@ -84,6 +89,49 @@
     color: white;
     }
 
+    @media screen and (max-width: 1519px){
+    #menuVar{
+    display: none;
+    }}
+
+    @media screen and (min-width: 1519px){
+    #buttonForm{
+    display: none;
+    }}
+
+    @media screen and (max-width: 1519px){
+    #buttonForm{
+    display:inline;
+    }}
+
+    #button_mylist1{
+	background-color: #ECF5FF;
+    display:inline;
+	cursor:pointer;
+    border: thick double solid;
+    border-radius:12px;
+    font-family:Arial;
+	font-size:14px;
+	padding:5px 20px;
+	margin-left: 20px;
+	text-decoration:none;
+    }
+
+        #divmylist{
+        box-shadow: 0px 10px 14px -7px;
+	    background-color: rgb(255,255,255,0.9);
+        position: absolute;
+        left:88%;
+        top:5%;
+        display:inline-block;
+        border:none;
+        border-radius:12px;
+        font-family:Arial;
+	    font-size:14px;
+	    padding:8px 20px;
+	    text-decoration:none;
+        }
+
 
 
 
@@ -106,7 +154,6 @@
                 $("#cer_select").val(searchKeyword).prop("selected", true);
                 $("#cer_select1").val(searchKeyword1).prop("selected", true);
                 $('#inputValue').val(searchKeyword2);
-
             });
 
             function changeFn(){
@@ -232,6 +279,13 @@
     </a>
 </header>
 
+<div class="mylistbutton" style="height:10px">
+    <div id="divmylist">
+        <img class="mylist" src="https://cdn-icons-png.flaticon.com/128/996/996484.png" style="width:25px; height:25px;">
+        <b>주여진 님</b>
+    </div>
+</div>
+
 <div class="col-lg-8 mx-auto p-4">
     <header class="d-flex align-items-center pb-3 mb-2 border-bottom" style="margin-left:0px; height: 30px">
         <a class="d-flex align-items-center text-body-emphasis text-decoration-none">
@@ -247,28 +301,29 @@
 
 
 
-
-<div class="d-flex flex-column flex-shrink-0 p-3 " style="width: 280px; float: left; background-color: #ECF5FF; border-radius: 15px; box-shadow: 3px 3px 3px rgb(109, 109, 109);">
-    <a class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none" style="margin-left: 17%; text-align: center;">
-        <svg class="bi pe-none me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
-        <span class="fs-4"><strong>메뉴</strong></span>
-    </a>
-    <hr>
-    <ul class="nav nav-pills flex-column mb-auto">
-        <li>
-            <a href="#" class="nav-link link-body-emphasis" style=" font-size: 18px; text-align: center; height: 50px;">
-                <button id="button_1" type="button" style="width: 200px; height: 30px; margin-bottom: 30px;" onclick="location.href='http://localhost:8090/mainboard?searchKeyword=&searchKeyword1=&searchKeyword2='"><strong>기업정보 조회</strong></button>
-            </a>
-        </li>
-        <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
-        <li>
-            <a href="#" class="nav-link link-body-emphasis" style=" font-size: 18px; text-align: center; height: 50px;">
-                <button id="button_2" type="button" style="width: 200px; height: 30px; margin-bottom: 30px;" onclick="location.href='http://localhost:8090/myboard'"><strong>나의 업체 관리</strong></button>
-            </a>
-        </li>
-    </ul>
-    <hr>
-</div>
+<nav id = "menuVar">
+    <div class="d-flex flex-column flex-shrink-0 p-3" style="width: 280px; float: left; background-color: #ECF5FF; border-radius: 15px; border: groove;">
+        <a class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none" style="margin-left: 17%; text-align: center;">
+            <svg class="bi pe-none me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+            <span class="fs-4"><strong>메뉴</strong></span>
+        </a>
+        <hr>
+        <ul class="nav nav-pills flex-column mb-auto">
+            <li>
+                <a href="#" class="nav-link link-body-emphasis" style=" font-size: 18px; text-align: center; height: 50px;">
+                    <button id="button_1" type="button" style="width: 200px; height: 30px; margin-bottom: 30px;" onclick="location.href='http://localhost:8090/mainboard?searchKeyword=&searchKeyword1=&searchKeyword2='"><strong>기업정보 조회</strong></button>
+                </a>
+            </li>
+            <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
+            <li>
+                <a href="#" class="nav-link link-body-emphasis" style=" font-size: 18px; text-align: center; height: 50px;">
+                    <button id="button_2" type="button" style="width: 200px; height: 30px; margin-bottom: 30px;" onclick="location.href='http://localhost:8090/myboard'"><strong>나의 업체 관리</strong></button>
+                </a>
+            </li>
+        </ul>
+        <hr>
+    </div>
+</nav>
 
 
 
@@ -346,10 +401,15 @@
             <button id="button_mylist" type="button" onclick="saveFn()">
                 <b>저장</b>
             </button>
+            <nav id="buttonForm">
+                <button id="button_mylist1" type="button" onclick="location.href='http://localhost:8090/myboard'">
+                    <b>나의업체관리</b>
+                </button>
+            </nav>
         </div>
 
         <div class="table-responsive small">
-            <table class="table table-striped table-sm">
+            <table class="table table-hover table-bordered">
                 <thead>
                 <tr>
                     <th scope="col"><input type='checkbox'
@@ -360,7 +420,7 @@
                     <th scope="col">업체명</th>
                     <th scope="col">업종</th>
                     <th scope="col">사업자등록번호</th>
-                    <th scope="col">확인서/인증서 유무</th>
+                    <th scope="col">보유 확인서/인증서</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -368,7 +428,7 @@
                     <td><input type="checkbox" name="my-checkbox"></td>
                     <td th:text="${((nowPage-1)*10) + TB_BOARDStat.count}">Text</td>
                     <td>
-                        <a th:text="${TB_BOARD.COMPANYNAME}" th:href="@{/board/view(searchKeyword=, searchKeyword1=${TB_BOARD.SERVICECODE}, searchKeyword2=${TB_BOARD.COMPANYNUM}, searchKeyword3=${TB_BOARD.COMPANYNAME})}" th:onclick="window.open(this.href, '_blank','width=1250, height=500, top=100px, left=100px, location=no'); return false;"></a>
+                        <a th:text="${TB_BOARD.COMPANYNAME}" th:href="@{/board/view(searchKeyword=, searchKeyword1=${TB_BOARD.SERVICECODE}, searchKeyword2=${TB_BOARD.COMPANYNUM}, searchKeyword3=${TB_BOARD.COMPANYNAME})}" th:onclick="window.open(this.href, '_blank','width=850, height=400, location=no, scrollbars=no, resizable=no, toolbars=no, menubar=no'); return false;"></a>
                     </td>
                     <td th:text="${TB_BOARD.SERVICECODE}" style="text-overflow:ellipsis; overflow:hidden; white-space:nowrap; max-width: 400px;">Text</td>
                     <td th:text="${TB_BOARD.COMPANYNUM}">Text</td>
@@ -379,16 +439,23 @@
 
             <nav aria-label="Page navigation example">
                 <ul class="pagination">
+                    <th:block name="tableBox">
+                        <li class="page-item">
+                            <a class="page-link" th:if="${page != nowPage}" th:href="@{/mainboard(page = 0, searchKeyword = ${param.searchKeyword}, searchKeyword1 = ${param.searchKeyword1}, searchKeyword2 = ${param.searchKeyword2})}"  aria-label="Next">
+                                <span aria-hidden="true">처음</span>
+                            </a>
+                        </li>
+                    </th:block>
                     <th:block>
                         <li class="page-item">
-                            <a class="page-link" th:if="${page != nowPage}" th:href="@{/mainboard(page = ${nowPage-6}, searchKeyword = ${param.searchKeyword}, searchKeyword1 = ${param.searchKeyword1}, searchKeyword2 = ${param.searchKeyword2})}" aria-label="Previous">
+                            <a class="page-link" th:if="${page != nowPage and nowPage > 4}" th:href="@{/mainboard(page = ${nowPage-6}, searchKeyword = ${param.searchKeyword}, searchKeyword1 = ${param.searchKeyword1}, searchKeyword2 = ${param.searchKeyword2})}" aria-label="Previous">
                                 <span aria-hidden="true">&lt;&lt;</span>
                             </a>
                         </li>
                     </th:block>
                     <th:block>
                         <li class="page-item">
-                            <a class="page-link" th:if="${page != nowPage}" th:href="@{/mainboard(page = ${nowPage-2}, searchKeyword = ${param.searchKeyword}, searchKeyword1 = ${param.searchKeyword1}, searchKeyword2 = ${param.searchKeyword2})}" aria-label="Previous">
+                            <a class="page-link" th:if="${page != nowPage and nowPage > 1}" th:href="@{/mainboard(page = ${nowPage-2}, searchKeyword = ${param.searchKeyword}, searchKeyword1 = ${param.searchKeyword1}, searchKeyword2 = ${param.searchKeyword2})}" aria-label="Previous">
                                 <span aria-hidden="true">&lt;</span>
                             </a>
                         </li>
@@ -400,21 +467,36 @@
                     </th:block>
                     <th:block name="tableBox">
                         <li class="page-item">
-                            <a class="page-link" th:if="${page != nowPage}" th:href="@{/mainboard(page = ${nowPage}, searchKeyword = ${param.searchKeyword}, searchKeyword1 = ${param.searchKeyword1}, searchKeyword2 = ${param.searchKeyword2})}"  aria-label="Next">
+                            <a class="page-link" th:if="${page != nowPage and nowPage < totalPage}" th:href="@{/mainboard(page = ${nowPage}, searchKeyword = ${param.searchKeyword}, searchKeyword1 = ${param.searchKeyword1}, searchKeyword2 = ${param.searchKeyword2})}"  aria-label="Next">
                                 <span aria-hidden="true">&gt;</span>
                             </a>
                         </li>
                     </th:block>
-                    </th:block>
                     <th:block name="tableBox">
                         <li class="page-item">
-                            <a class="page-link" th:if="${page != nowPage}" th:href="@{/mainboard(page = ${nowPage+4}, searchKeyword = ${param.searchKeyword}, searchKeyword1 = ${param.searchKeyword1}, searchKeyword2 = ${param.searchKeyword2})}"  aria-label="Next">
+                            <a class="page-link" th:if="${page != nowPage and nowPage < totalPage-4}" th:href="@{/mainboard(page = ${nowPage+4}, searchKeyword = ${param.searchKeyword}, searchKeyword1 = ${param.searchKeyword1}, searchKeyword2 = ${param.searchKeyword2})}"  aria-label="Next">
                                 <span aria-hidden="true">&gt;&gt;</span>
                             </a>
                         </li>
                     </th:block>
+                    <th:block name="tableBox">
+                        <li class="page-item">
+                            <a class="page-link" th:if="${page != nowPage}" th:href="@{/mainboard(page = ${totalPage-1}, searchKeyword = ${param.searchKeyword}, searchKeyword1 = ${param.searchKeyword1}, searchKeyword2 = ${param.searchKeyword2})}"  aria-label="Next">
+                                <span aria-hidden="true">마지막</span>
+                            </a>
+                        </li>
+                    </th:block>
+                    <div style="margin-left: 20px;">
+                        <th:block>
+                            총 <td th:text="${totalPage}"></td> Page 중
+                            <td th:text="${nowPage}"></td> Page
+                        </th:block>
+                    </div>
                 </ul>
+
+
             </nav>
+
 
 
 
